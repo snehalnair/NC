@@ -2,19 +2,22 @@
 
 **Author:** Snnair
 **Date:** 2026-03-19
-**Version:** 0.1
+**Version:** 0.2
 **Companion to:** PRD (prd.md), Soul Document Architecture Spec (soul-document-architecture-spec-2026-03-16.md)
 
 ---
 
 ## 1. Overview
 
-Phase 0 is NC's first deployable product — a **privacy-first personal AI companion** that ships two interaction modes from Day 1:
+Phase 0 is NC's first deployable product — a **privacy-first personal AI companion** that ships multiple interaction surfaces designed to meet the user where they already are:
 
-1. **Conversational companion** (mobile + web): User pastes a message, asks NC for interpretation, contextual explanation, and reply suggestions. Streaming responses.
-2. **Real-time overlay** (Chrome extension): Intent prediction on incoming WhatsApp Web messages, displayed as a non-intrusive overlay before the user replies.
+1. **NC Keyboard** (iOS + Android): Custom keyboard that lives inside every messaging app. NC sees conversation context and delivers intent interpretation + reply suggestions inline — zero app-switching, zero copy-paste.
+2. **Conversational companion** (mobile app + web): User shares or pastes a message, asks NC for interpretation, contextual explanation, and reply suggestions. Streaming responses. The deliberate-reflection mode.
+3. **Real-time overlay** (Chrome extension): Intent prediction on incoming WhatsApp Web messages, displayed as a non-intrusive overlay before the user replies.
+4. **Share Sheet** (iOS + Android): User long-presses a message in any app → shares to NC → gets instant interpretation. Two taps.
+5. **Notification Listener + Floating Bubble** (Android only): NC reads incoming message notifications and proactively shows intent interpretation as a floating bubble — fully passive, zero user action.
 
-Both modes are powered by the same inference pipeline: Soul Document + Relationship Context injected into Llama 3.1 70B at inference time, served on NC's own GPU infrastructure.
+All surfaces are powered by the same inference pipeline: Soul Document + Relationship Context injected into Llama 3.1 70B at inference time, served on NC's own GPU infrastructure.
 
 **Positioning:** Personal AI, not enterprise AI. *Your AI. Not your company's.*
 
@@ -49,7 +52,7 @@ Both modes are powered by the same inference pipeline: Soul Document + Relations
 ### Serving Architecture
 
 ```
-Client (Mobile / Web / Extension)
+Client (NC Keyboard / Mobile App / Web / Extension / Notification Listener)
   │
   ├── HTTPS/TLS 1.3
   │
@@ -198,31 +201,62 @@ The original PRD specifies < 800ms end-to-end for the overlay. This target was d
 
 ### Surfaces
 
-| Surface | Technology | Primary Function |
-|---|---|---|
-| **Mobile app** | React Native (latest stable LTS) | Conversational companion + Soul Document management + reflection |
-| **Web app** | React | Conversational companion (desktop) |
-| **Chrome extension** | Chrome MV3 | Real-time overlay on WhatsApp Web |
+| Surface | Technology | Primary Function | Friction Level |
+|---|---|---|---|
+| **NC Keyboard** | Custom keyboard (iOS: Swift, Android: Kotlin) | Inline intent interpretation + reply suggestions inside any messaging app | **Zero** — always present when typing |
+| **Mobile app** | React Native (latest stable LTS) | Conversational companion + Soul Document management + reflection + Share Sheet host | **Low** — 2 taps via Share Sheet; or open app directly |
+| **Web app** | React | Conversational companion (desktop) | **Low** — paste or type directly |
+| **Chrome extension** | Chrome MV3 | Real-time overlay on WhatsApp Web | **Zero** — passive overlay on incoming messages |
+| **Notification Listener + Bubble** | Android service (Kotlin) | Passive intent prediction on incoming message notifications, shown as floating bubble | **Zero** — fully automatic (Android only) |
+
+### Interaction Surface Priority
+
+| Priority | Surface | Ship phase | Rationale |
+|---|---|---|---|
+| **P0 — Ship first** | NC Keyboard (iOS + Android) | Alpha | Highest impact. Turns NC from "a separate app" into "embedded in every conversation." Works across all messaging apps. This is the mobile overlay equivalent. |
+| **P0 — Ship first** | Chrome extension overlay | Alpha | Already designed. Desktop real-time overlay on WhatsApp Web. |
+| **P1 — Ship with keyboard** | Share Sheet extension (iOS + Android) | Alpha | Trivial to build alongside the mobile app. Fallback for users who don't want a custom keyboard. |
+| **P1 — Ship with keyboard** | Mobile app (companion + Soul Doc management) | Alpha | Core Soul Document CRUD, reflection journal, and conversational companion mode. |
+| **P2 — Ship at beta** | Web app (companion) | Beta | Desktop companion for deliberate reflection. Lower priority than keyboard + extension. |
+| **P3 — Android beta** | Notification Listener + Floating Bubble | Beta | True passive mobile overlay — but Android only, and requires careful Play Store policy navigation. Build after keyboard is stable. |
+
+### Platform Constraints — Why Real-Time Overlay Differs by Surface
+
+The "real-time overlay" concept requires NC to (a) read incoming messages from another app and (b) inject a visual interpretation layer. This is only possible where the operating system permits cross-app access:
+
+| Surface | Can NC read messages? | Can NC inject overlay UI? | Constraint |
+|---|---|---|---|
+| **Chrome extension** | Yes — DOM access on WhatsApp Web | Yes — content script injects overlay | Chrome MV3 allows extensions to read and modify web page content |
+| **NC Keyboard (iOS + Android)** | Partial — sees text field content and conversation context visible while keyboard is active | Yes — keyboard tray UI is NC's own surface | Custom keyboards are a standard, approved app category on both platforms. "Full Access" permission required — NC's open-source code + zero-persistence model makes this trustworthy. |
+| **Android Notification Listener** | Yes — reads notification content (sender, message preview) | Yes — floating bubble overlay (like Messenger chat heads) | NotificationListenerService is a standard Android API. Play Store scrutinises misuse but allows legitimate use cases. NC's transparent privacy model should pass review. |
+| **iOS (native apps)** | No — Apple's app sandboxing is absolute | No — iOS does not allow floating overlays from third-party apps | No technical path to passive overlay on iOS. Share Sheet is the closest alternative. |
+| **Standalone web app** | No — same-origin policy prevents cross-tab DOM access | No — separate browser tab | Fundamental browser security constraint. Web app serves companion/reflection only. |
+
+**Key insight:** The NC Keyboard is the **mobile equivalent of the Chrome extension overlay** — it lives inside the messaging app and has access to conversation context while the user is composing a reply. It doesn't require the user to switch apps or copy-paste anything.
 
 ### Shared Components
 
-- **Soul Document manager:** Shared logic for YAML parsing, encryption/decryption, and validation. Used by mobile, web, and extension.
+- **Soul Document manager:** Shared logic for YAML parsing, encryption/decryption, and validation. Used by all surfaces (mobile app, web, extension, keyboard).
 - **Relationship Context manager:** Per-sender data structure (Soul Doc Architecture Spec v0.3, Section 5b). Shared between all surfaces.
-- **Inference client:** Shared API client for communicating with NC inference API. Handles streaming response parsing, error handling, and retry logic.
+- **Inference client:** Shared API client for communicating with NC inference API. Handles streaming response parsing, error handling, and retry logic. Used by keyboard, companion, extension, and notification listener.
 - **Correction flow:** Shared correction submission logic. User flags a wrong prediction → structured correction event → stored client-side + submitted to PII-redacted correction log.
+- **Keyboard inference bridge:** Lightweight bridge between the custom keyboard context (visible text, app identifier) and the inference client. Determines which Relationship Context to inject based on the detected sender/conversation.
 
 ### Data Bridge
 
 - **QR-code pairing:** Extension ↔ mobile Soul Document sync via QR code. No cloud infrastructure required.
 - **Local storage:** Each surface maintains its own encrypted copy. Sync is explicit (user-initiated via QR pairing), not automatic.
+- **Keyboard ↔ App data sharing:** On iOS, the keyboard extension and host app share data via App Groups (shared container). On Android, the keyboard service accesses the app's encrypted storage directly. Soul Document and Relationship Context are available to the keyboard without duplication.
 
 ### Offline Behaviour
 
 | Surface | Offline Capability |
 |---|---|
-| Mobile | Soul Document CRUD, reflection journal, correction history — all work offline. Conversational companion requires network (inference). |
+| Mobile app | Soul Document CRUD, reflection journal, correction history — all work offline. Conversational companion requires network (inference). |
 | Web | Same as mobile. Conversational companion requires network. |
 | Extension | Overlay requires network (inference). Extension gracefully degrades to invisible when offline. |
+| NC Keyboard | Keyboard functions normally for typing. Intent interpretation requires network (inference). Gracefully degrades to standard keyboard when offline. |
+| Notification Listener | Notifications still arrive. Intent interpretation requires network. Bubble does not appear when offline. |
 
 ---
 
@@ -264,9 +298,12 @@ Phase 1: LoRA fine-tuned model with NC-specific intent prediction
 |---|---|---|
 | Model serving | vLLM on RunPod/Modal | Docker container with quantised model weights + vLLM |
 | API layer | FastAPI on same container or lightweight proxy | Stateless request handler |
-| Mobile | React Native → App Store + Play Store | Standard mobile CI/CD |
+| Mobile app | React Native → App Store + Play Store | Standard mobile CI/CD. Includes Share Sheet extension. |
+| NC Keyboard (iOS) | Swift → App Store (bundled with mobile app) | Custom keyboard extension distributed as part of the NC app bundle |
+| NC Keyboard (Android) | Kotlin → Play Store (bundled with mobile app) | Custom keyboard / input method service distributed with the NC app |
 | Web | React → static hosting (Vercel/Cloudflare Pages) | Standard web deployment |
-| Extension | Chrome MV3 → Chrome Web Store | Store submission + review |
+| Chrome extension | Chrome MV3 → Chrome Web Store | Store submission + review |
+| Notification Listener (Android) | Kotlin → Play Store (bundled with mobile app) | Android service, requires NotificationListenerService permission |
 
 ### Monitoring
 
@@ -293,11 +330,14 @@ Phase 1: LoRA fine-tuned model with NC-specific intent prediction
 
 | Threat | Mitigation |
 |---|---|
-| Man-in-the-middle on inference requests | TLS 1.3 minimum; certificate pinning on extension |
+| Man-in-the-middle on inference requests | TLS 1.3 minimum; certificate pinning on extension and keyboard |
 | Server compromise exposes user data | Zero-persistence architecture — nothing to steal. Even if an attacker gains server access, there is no stored data. |
 | Model extraction via inference API | Rate limiting; API key per user; query pattern monitoring |
 | Prompt injection via pasted messages | System prompt hardening; output validation; model-level guardrails (FR59) |
 | Soul Document exfiltration from device | AES-256 encryption; biometric/PIN gate; platform keychain for key storage |
+| Keyboard "full access" trust concern | NC keyboard's open-source code is auditable. Zero-persistence inference means keystrokes are not stored server-side. Privacy policy explicitly states: keyboard data is used only for real-time inference and immediately discarded. No keystroke logging, no analytics on typed content. |
+| Notification Listener misuse perception | Permission requested with clear explanation of purpose. NC only reads notifications from user-selected messaging apps (configurable). Open-source code verifiable. Play Store data safety section documents exact data usage. |
+| Keyboard data leakage via OS | iOS: keyboard network access requires "Allow Full Access" — clearly explained during onboarding with link to audit source code. Android: input method permissions are standard. Both platforms: NC keyboard sends data only to NC inference API (no third-party endpoints). |
 
 ---
 
@@ -310,6 +350,11 @@ Phase 1: LoRA fine-tuned model with NC-specific intent prediction
 | Should 8B fallback routing be automatic or user-configurable? | UX complexity vs. cost optimisation | Before beta |
 | Web app framework: React SPA or Next.js SSR? | SEO (irrelevant for private app), developer velocity, deployment complexity | Before development starts |
 | How to handle correction consent for annotation dataset? | GDPR — corrections used for model training need separate consent | Before alpha deployment |
+| NC Keyboard: native (Swift/Kotlin) or React Native bridge? | Native gives best performance and deepest OS integration. React Native keyboard extensions are possible but less mature. Native recommended for alpha — keyboard latency and responsiveness are critical to user trust. | Before development starts |
+| NC Keyboard: how much conversation context is accessible? | iOS custom keyboards have limited context access (text field only). Android IME has broader access. This affects how much Relationship Context the keyboard can infer without user action. | Before keyboard development |
+| Android Notification Listener: which messaging apps to support at launch? | WhatsApp is primary. Slack, Telegram, SMS are candidates. Each app's notification format differs — extraction logic must be app-specific. | Before beta |
+| Play Store policy risk for Notification Listener? | Google scrutinises apps requesting NotificationListenerService. NC's legitimate, transparent use case should pass, but rejection risk exists. Mitigation: submit early for policy pre-review. | Before beta |
+| Mobile overlay feasibility beyond keyboard? | Android Accessibility Service could enable deeper screen-reading overlay (reading messages in-app, not just in text field). But Google restricts Accessibility API usage to genuine accessibility tools — Play Store rejection risk is high. Not recommended for Phase 0. | Phase 1 evaluation |
 
 ---
 
