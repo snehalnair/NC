@@ -1,0 +1,18 @@
+.DS_Store
+*.pdf
+.cursor/
+.claude/
+
+# Ignore generated BMAD output artifacts
+_bmad-output/voiceover/
+_bmad-output/project-context.md
+_bmad-output/implementation-artifacts/
+.DS_Store
+.cursor/
+.claude/
+_bmad/
+*.pdf
+_bmad-output/voiceover/
+_bmad-output/project-context.md
+_bmad-output/implementation-artifacts/
+docs/
