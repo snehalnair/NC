@@ -737,30 +737,41 @@ h1, h2, h3, h4 {
     color: #2c3e50 !important;
 }
 /* Body text colour handled by config.toml textColor=#4a5568 */
-/* Tab container */
+/* Tab container — full-width with equal tabs */
 [data-testid="stTabs"] [data-baseweb="tab-list"] {
     background: #2c3e50 !important;
     border-radius: 12px !important;
-    padding: 4px 6px !important;
+    padding: 4px !important;
     border: none !important;
     box-shadow: 0 2px 12px rgba(44, 62, 80, 0.20) !important;
     gap: 4px !important;
     margin-bottom: 20px !important;
+    display: flex !important;
+    width: 100% !important;
 }
-/* Tab styling */
+/* Tab styling — equal width */
 [data-testid="stTabs"] [data-baseweb="tab"] {
+    flex: 1 1 0 !important;
     background: transparent !important;
     color: rgba(255,255,255,0.55) !important;
     border-bottom: none !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
     font-size: 0.95em !important;
-    padding: 10px 20px !important;
+    padding: 12px 8px !important;
     transition: all 0.2s ease !important;
+    justify-content: center !important;
 }
 [data-testid="stTabs"] [data-baseweb="tab"]:hover {
     background: rgba(255,255,255,0.08) !important;
     color: #ffffff !important;
+}
+/* Active tab — highlighted box */
+[data-testid="stTabs"] [aria-selected="true"] {
+    background: rgba(74, 144, 143, 0.35) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(74, 144, 143, 0.5) !important;
+    box-shadow: 0 1px 8px rgba(74, 144, 143, 0.25) !important;
 }
 /* Remove default tab highlight bar */
 [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
