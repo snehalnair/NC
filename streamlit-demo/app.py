@@ -757,8 +757,8 @@ h1, h2, h3, h4 {
     border-bottom: none !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
-    font-size: 0.95em !important;
-    padding: 12px 8px !important;
+    font-size: 1.05em !important;
+    padding: 14px 8px !important;
     transition: all 0.2s ease !important;
     justify-content: center !important;
 }
@@ -768,10 +768,10 @@ h1, h2, h3, h4 {
 }
 /* Active tab — highlighted box */
 [data-testid="stTabs"] [aria-selected="true"] {
-    background: rgba(240, 200, 80, 0.18) !important;
+    background: rgba(240, 200, 80, 0.30) !important;
     color: #ffffff !important;
-    border: 1px solid rgba(240, 200, 80, 0.45) !important;
-    box-shadow: 0 1px 8px rgba(240, 200, 80, 0.2) !important;
+    border: 1.5px solid rgba(240, 200, 80, 0.7) !important;
+    box-shadow: 0 1px 10px rgba(240, 200, 80, 0.3) !important;
 }
 /* Remove default tab highlight bar */
 [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
