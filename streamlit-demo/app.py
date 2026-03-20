@@ -741,18 +741,18 @@ p, li, label {
 }
 /* Tab container */
 [data-testid="stTabs"] [data-baseweb="tab-list"] {
-    background: #ffffff !important;
+    background: #2c3e50 !important;
     border-radius: 12px !important;
     padding: 4px 6px !important;
-    border: 1px solid #ececf0 !important;
-    box-shadow: 0 2px 12px rgba(140, 163, 176, 0.10) !important;
+    border: none !important;
+    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.20) !important;
     gap: 4px !important;
     margin-bottom: 20px !important;
 }
 /* Tab styling */
 [data-testid="stTabs"] [data-baseweb="tab"] {
     background: transparent !important;
-    color: #7a8f9c !important;
+    color: rgba(255,255,255,0.55) !important;
     border-bottom: none !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
@@ -761,15 +761,15 @@ p, li, label {
     transition: all 0.2s ease !important;
 }
 [data-testid="stTabs"] [data-baseweb="tab"]:hover {
-    background: #f0f4f8 !important;
-    color: #2c3e50 !important;
+    background: rgba(255,255,255,0.08) !important;
+    color: #ffffff !important;
 }
 [data-testid="stTabs"] [aria-selected="true"] {
-    background: linear-gradient(135deg, #f5eeed 0%, #faf5f4 100%) !important;
-    color: #2c3e50 !important;
+    background: rgba(255,255,255,0.12) !important;
+    color: #ffffff !important;
     border-bottom: none !important;
-    box-shadow: 0 1px 4px rgba(231, 165, 156, 0.25) !important;
-    border: 1px solid rgba(231, 165, 156, 0.3) !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(255,255,255,0.15) !important;
 }
 /* Remove default tab highlight bar */
 [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
