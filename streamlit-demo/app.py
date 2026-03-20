@@ -940,7 +940,7 @@ st.markdown("""
   <div style='font-size:0.75em;color:#7a8f9c;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:10px;'>NeuroAI Cognitive Companion</div>
   <div style='font-size:1.35em;font-weight:800;color:#2c3e50;line-height:1.35;margin-bottom:6px;'>
     The same message carries a fundamentally different meaning<br>
-    <span style='color:#7a8f9c;font-weight:400;font-size:0.75em;'>depending on relational history. We built an instrument to measure this.</span>
+    <span style='color:#7a8f9c;font-weight:400;font-size:0.75em;'>We measure the gap between what you meant and what they heard — then help close it, one conversation at a time.</span>
   </div>
 </div>
 """, unsafe_allow_html=True)
