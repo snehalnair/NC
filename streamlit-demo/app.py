@@ -768,10 +768,10 @@ h1, h2, h3, h4 {
 }
 /* Active tab — highlighted box */
 [data-testid="stTabs"] [aria-selected="true"] {
-    background: rgba(74, 144, 143, 0.35) !important;
+    background: rgba(240, 200, 80, 0.18) !important;
     color: #ffffff !important;
-    border: 1px solid rgba(74, 144, 143, 0.5) !important;
-    box-shadow: 0 1px 8px rgba(74, 144, 143, 0.25) !important;
+    border: 1px solid rgba(240, 200, 80, 0.45) !important;
+    box-shadow: 0 1px 8px rgba(240, 200, 80, 0.2) !important;
 }
 /* Remove default tab highlight bar */
 [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
