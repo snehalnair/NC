@@ -738,17 +738,18 @@ h1, h2, h3, h4 {
 }
 /* Body text colour handled by config.toml textColor=#4a5568 */
 
-/* ── Folder Tabs ─────────────────────────────────────────── */
-/* Outer tab wrapper — add bottom border that the active tab "breaks" */
+/* ── Folder Tabs — sticky + large ────────────────────────── */
+/* Outer tab wrapper */
 [data-testid="stTabs"] {
     position: relative !important;
 }
-/* Tab list — transparent bg, bottom border acts as the "shelf" */
+/* Tab list — the "shelf" that tabs sit on */
 [data-testid="stTabs"] [data-baseweb="tab-list"] {
-    background: transparent !important;
-    border-bottom: 2px solid #2c3e50 !important;
+    background: #f5f6f7 !important;
+    border-bottom: 3px solid #2c3e50 !important;
     border-radius: 0 !important;
     padding: 0 !important;
+    padding-top: 8px !important;
     box-shadow: none !important;
     gap: 0 !important;
     margin-bottom: 0 !important;
@@ -764,10 +765,10 @@ h1, h2, h3, h4 {
     border: 1px solid #ccd5dc !important;
     border-bottom: none !important;
     border-radius: 10px 10px 0 0 !important;
-    font-weight: 600 !important;
-    font-size: 1.05em !important;
-    padding: 10px 8px !important;
-    margin-bottom: -2px !important;
+    font-weight: 700 !important;
+    font-size: 1.15em !important;
+    padding: 14px 10px !important;
+    margin-bottom: -3px !important;
     margin-right: 3px !important;
     transition: all 0.2s ease !important;
     justify-content: center !important;
@@ -782,11 +783,11 @@ h1, h2, h3, h4 {
 [data-testid="stTabs"] [aria-selected="true"] {
     background: #ffffff !important;
     color: #2c3e50 !important;
-    border: 2px solid #2c3e50 !important;
-    border-bottom: 2px solid #ffffff !important;
-    padding: 14px 8px 12px 8px !important;
+    border: 3px solid #2c3e50 !important;
+    border-bottom: 3px solid #ffffff !important;
+    padding: 18px 10px 16px 10px !important;
     z-index: 2 !important;
-    box-shadow: 0 -2px 8px rgba(44, 62, 80, 0.08) !important;
+    box-shadow: 0 -3px 10px rgba(44, 62, 80, 0.10) !important;
 }
 /* Remove default tab highlight bar */
 [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
