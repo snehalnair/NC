@@ -721,16 +721,44 @@ h1, h2, h3, h4 {
 p, li, label {
     color: #717182 !important;
 }
+/* Tab container */
+[data-testid="stTabs"] [data-baseweb="tab-list"] {
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    padding: 4px 6px !important;
+    border: 1px solid #ececf0 !important;
+    box-shadow: 0 2px 12px rgba(140, 163, 176, 0.10) !important;
+    gap: 4px !important;
+    margin-bottom: 20px !important;
+}
 /* Tab styling */
 [data-testid="stTabs"] [data-baseweb="tab"] {
     background: transparent !important;
     color: #8ca3b0 !important;
-    border-bottom: 2px solid transparent !important;
-    font-weight: 500 !important;
+    border-bottom: none !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 0.95em !important;
+    padding: 10px 20px !important;
+    transition: all 0.2s ease !important;
+}
+[data-testid="stTabs"] [data-baseweb="tab"]:hover {
+    background: #f0f4f8 !important;
+    color: #2c3e50 !important;
 }
 [data-testid="stTabs"] [aria-selected="true"] {
+    background: linear-gradient(135deg, #f5eeed 0%, #faf5f4 100%) !important;
     color: #2c3e50 !important;
-    border-bottom: 2px solid #e7a59c !important;
+    border-bottom: none !important;
+    box-shadow: 0 1px 4px rgba(231, 165, 156, 0.25) !important;
+    border: 1px solid rgba(231, 165, 156, 0.3) !important;
+}
+/* Remove default tab highlight bar */
+[data-testid="stTabs"] [data-baseweb="tab-highlight"] {
+    display: none !important;
+}
+[data-testid="stTabs"] [data-baseweb="tab-border"] {
+    display: none !important;
 }
 /* Slider */
 [data-testid="stSlider"] [data-baseweb="slider"] div[role="slider"] {
