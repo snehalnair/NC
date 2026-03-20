@@ -937,10 +937,12 @@ The same message carries a fundamentally different intent distribution depending
 # ════════════════════════════════════════════════════════════════════════════
 st.markdown("""
 <div style='padding:24px 32px 18px 32px;margin-bottom:8px;'>
-  <div style='font-size:0.75em;color:#7a8f9c;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:10px;'>NeuroAI Cognitive Companion</div>
-  <div style='font-size:1.35em;font-weight:800;color:#2c3e50;line-height:1.35;margin-bottom:6px;'>
-    The same message carries a fundamentally different meaning<br>
-    <span style='color:#7a8f9c;font-weight:400;font-size:0.75em;'>We measure the gap between what you meant and what they heard — then help close it, one conversation at a time.</span>
+  <div style='font-size:1.1em;color:#2c3e50;letter-spacing:0.12em;text-transform:uppercase;font-weight:800;margin-bottom:12px;'>NeuroAI Cognitive Companion</div>
+  <div style='font-size:1.35em;font-weight:800;color:#2c3e50;line-height:1.35;margin-bottom:10px;'>
+    The same message carries a fundamentally different meaning
+  </div>
+  <div style='font-size:0.95em;font-weight:500;color:#4A908F;line-height:1.5;border-left:3px solid #4A908F;padding-left:14px;'>
+    We measure the gap between what you meant and what they heard — then help close it, one conversation at a time.
   </div>
 </div>
 """, unsafe_allow_html=True)
