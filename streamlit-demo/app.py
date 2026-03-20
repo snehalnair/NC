@@ -738,56 +738,45 @@ h1, h2, h3, h4 {
 }
 /* Body text colour handled by config.toml textColor=#4a5568 */
 
-/* ── Folder Tabs — sticky + large ────────────────────────── */
-/* Outer tab wrapper */
+/* ── Tabs — warm segmented bar ───────────────────────────── */
 [data-testid="stTabs"] {
     position: relative !important;
 }
-/* Tab list — the "shelf" that tabs sit on */
+/* Tab bar — warm dark background */
 [data-testid="stTabs"] [data-baseweb="tab-list"] {
-    background: #f5f6f7 !important;
-    border-bottom: 3px solid #2c3e50 !important;
-    border-radius: 0 !important;
-    padding: 0 !important;
-    padding-top: 8px !important;
-    box-shadow: none !important;
-    gap: 0 !important;
-    margin-bottom: 0 !important;
+    background: #34495e !important;
+    border-radius: 14px !important;
+    padding: 5px !important;
+    border: none !important;
+    box-shadow: 0 4px 16px rgba(44, 62, 80, 0.18) !important;
+    gap: 4px !important;
+    margin-bottom: 24px !important;
     display: flex !important;
     width: 100% !important;
-    align-items: flex-end !important;
 }
-/* Inactive tabs — sit behind, shorter, muted */
+/* Inactive tabs */
 [data-testid="stTabs"] [data-baseweb="tab"] {
     flex: 1 1 0 !important;
-    background: #e8ecf0 !important;
-    color: #7a8f9c !important;
-    border: 1px solid #ccd5dc !important;
-    border-bottom: none !important;
-    border-radius: 10px 10px 0 0 !important;
+    background: transparent !important;
+    color: rgba(255,255,255,0.5) !important;
+    border: none !important;
+    border-radius: 10px !important;
     font-weight: 700 !important;
-    font-size: 1.15em !important;
-    padding: 14px 10px !important;
-    margin-bottom: -3px !important;
-    margin-right: 3px !important;
-    transition: all 0.2s ease !important;
+    font-size: 1.1em !important;
+    padding: 16px 10px !important;
+    transition: all 0.25s ease !important;
     justify-content: center !important;
-    position: relative !important;
-    z-index: 1 !important;
 }
 [data-testid="stTabs"] [data-baseweb="tab"]:hover {
-    background: #f0f3f6 !important;
-    color: #2c3e50 !important;
+    background: rgba(255,255,255,0.08) !important;
+    color: rgba(255,255,255,0.85) !important;
 }
-/* Active tab — rises up, connects to content, white bg */
+/* Active tab — bright warm accent */
 [data-testid="stTabs"] [aria-selected="true"] {
     background: #ffffff !important;
     color: #2c3e50 !important;
-    border: 3px solid #2c3e50 !important;
-    border-bottom: 3px solid #ffffff !important;
-    padding: 18px 10px 16px 10px !important;
-    z-index: 2 !important;
-    box-shadow: 0 -3px 10px rgba(44, 62, 80, 0.10) !important;
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
 }
 /* Remove default tab highlight bar */
 [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
@@ -795,15 +784,6 @@ h1, h2, h3, h4 {
 }
 [data-testid="stTabs"] [data-baseweb="tab-border"] {
     display: none !important;
-}
-/* Content area connects seamlessly to active tab */
-[data-testid="stTabs"] [data-baseweb="tab-panel"] {
-    border: 2px solid #2c3e50 !important;
-    border-top: none !important;
-    border-radius: 0 0 10px 10px !important;
-    padding: 20px !important;
-    background: #ffffff !important;
-    margin-top: 0 !important;
 }
 /* Slider */
 [data-testid="stSlider"] [data-baseweb="slider"] div[role="slider"] {
