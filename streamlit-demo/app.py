@@ -736,9 +736,7 @@ FUTURISTIC_CSS = """
 h1, h2, h3, h4 {
     color: #2c3e50 !important;
 }
-p, li, label {
-    color: #4a5568 !important;
-}
+/* Body text colour handled by config.toml textColor=#4a5568 */
 /* Tab container */
 [data-testid="stTabs"] [data-baseweb="tab-list"] {
     background: #2c3e50 !important;
@@ -763,13 +761,6 @@ p, li, label {
 [data-testid="stTabs"] [data-baseweb="tab"]:hover {
     background: rgba(255,255,255,0.08) !important;
     color: #ffffff !important;
-}
-[data-testid="stTabs"] [aria-selected="true"] {
-    background: rgba(255,255,255,0.12) !important;
-    color: #ffffff !important;
-    border-bottom: none !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15) !important;
-    border: 1px solid rgba(255,255,255,0.15) !important;
 }
 /* Remove default tab highlight bar */
 [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
@@ -897,6 +888,7 @@ p, li, label {
 }
 </style>
 """
+
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
