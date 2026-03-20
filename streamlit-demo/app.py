@@ -179,7 +179,7 @@ def js_divergence(p, q):
 def gap_color(score):
     # Thresholds grounded in annotation disagreement norms for 7-class distributions
     if score < 0.05:
-        return "#6BAE8A"   # nc-muted-green — noise-level variation
+        return "#4A908F"   # nc-muted-green — noise-level variation
     elif score < 0.10:
         return "#a8d8a8"   # light green — low but detectable
     elif score < 0.20:
@@ -192,7 +192,7 @@ def gap_color(score):
 def network_bar_color(score):
     """Muted green → amber → red for the connection clarity chart."""
     if score < 0.10:
-        return "#6BAE8A"   # muted green — clear signal
+        return "#4A908F"   # muted green — clear signal
     elif score < 0.20:
         return "#C9922A"   # muted amber — moderate gap
     elif score < 0.35:
@@ -220,7 +220,7 @@ def distribution_chart(si, pi, title=""):
         name="Sender Intent (SI)",
         x=short_labels,
         y=si,
-        marker_color="#6B9FC4",
+        marker_color="#5a8eb8",
         opacity=0.85,
         hovertemplate="<b>%{x}</b><br>SI: %{y:.2f}<extra></extra>",
     ))
@@ -257,8 +257,8 @@ def gap_gauge(score, context_label):
             "axis": {"range": [0, 1], "tickwidth": 1},
             "bar": {"color": color},
             "steps": [
-                {"range": [0, 0.05],  "color": "#d4ebe0"},   # nc-muted-green tint: near-unanimous
-                {"range": [0.05, 0.10], "color": "#b5d9c6"}, # nc-muted-green light: low gap
+                {"range": [0, 0.05],  "color": "#d2e5e5"},   # nc-teal tint: near-unanimous
+                {"range": [0.05, 0.10], "color": "#b0d4d3"}, # nc-teal light: low gap
                 {"range": [0.10, 0.20], "color": "#f2e3c0"}, # nc-muted-amber tint: moderate
                 {"range": [0.20, 0.35], "color": "#e5c48a"}, # nc-muted-amber: high
                 {"range": [0.35, 1.0],  "color": "#dba9a9"}, # nc-muted-red tint: very high
@@ -292,7 +292,7 @@ def trajectory_chart(days=60, start_gap=0.52, end_gap=0.14, noise_scale=0.03):
     fig.add_trace(go.Scatter(
         x=x, y=gap,
         mode="lines",
-        line=dict(color="#6B9FC4", width=2),
+        line=dict(color="#5a8eb8", width=2),
         name="Daily intent gap score",
         hovertemplate="Day %{x}<br>Gap: %{y:.3f}<extra></extra>",
     ))
@@ -308,17 +308,17 @@ def trajectory_chart(days=60, start_gap=0.52, end_gap=0.14, noise_scale=0.03):
     fig.add_hline(
         y=0.10,
         line_dash="dot",
-        line_color="#6BAE8A",
+        line_color="#4A908F",
         annotation_text="Low gap threshold (0.10)",
         annotation_position="bottom right",
-        annotation_font_color="#6BAE8A",
+        annotation_font_color="#4A908F",
     )
     fig.add_vrect(
         x0=1, x1=7,
-        fillcolor="#6B9FC4", opacity=0.08,
+        fillcolor="#5a8eb8", opacity=0.08,
         annotation_text="Intervention begins",
         annotation_position="top left",
-        annotation_font_color="#6B9FC4",
+        annotation_font_color="#5a8eb8",
     )
     fig.update_layout(
         title="Simulated 60-day intent gap trajectory (H₂ illustration)",
@@ -478,10 +478,10 @@ def make_bridge_chart(bridge_fill, color, gap):
         x=[-1], y=[0],
         mode="markers+text",
         marker=dict(size=22, color="#2c3e50", symbol="circle",
-                    line=dict(color="#8ca3b0", width=2)),
+                    line=dict(color="#7a8f9c", width=2)),
         text=["SENDER"],
         textposition="bottom center",
-        textfont=dict(color="#8ca3b0", size=11, family="monospace"),
+        textfont=dict(color="#7a8f9c", size=11, family="monospace"),
         hoverinfo="skip",
         showlegend=False,
     ))
@@ -491,10 +491,10 @@ def make_bridge_chart(bridge_fill, color, gap):
         x=[1], y=[0],
         mode="markers+text",
         marker=dict(size=22, color="#2c3e50", symbol="circle",
-                    line=dict(color="#8ca3b0", width=2)),
+                    line=dict(color="#7a8f9c", width=2)),
         text=["RECEIVER"],
         textposition="bottom center",
-        textfont=dict(color="#8ca3b0", size=11, family="monospace"),
+        textfont=dict(color="#7a8f9c", size=11, family="monospace"),
         hoverinfo="skip",
         showlegend=False,
     ))
@@ -516,7 +516,7 @@ def make_bridge_chart(bridge_fill, color, gap):
         x=0.0, y=0.56,
         text="of meaning got through",
         showarrow=False,
-        font=dict(color="#8ca3b0", size=12, family="sans-serif"),
+        font=dict(color="#7a8f9c", size=12, family="sans-serif"),
         align="center",
     )
 
@@ -540,8 +540,8 @@ def make_radar_all_contexts(message_key, selected_ctx_key=None):
     # Muted palette (one per context), with explicit rgba fills
     colors_ctx = {
         "new_colleague_neutral":  "#C9922A",
-        "close_friend_neutral":   "#6BAE8A",
-        "partner_positive":       "#6B9FC4",
+        "close_friend_neutral":   "#4A908F",
+        "partner_positive":       "#5a8eb8",
         "partner_after_conflict": "#B84040",
     }
     fills_ctx = {
@@ -622,11 +622,11 @@ def make_radar_all_contexts(message_key, selected_ctx_key=None):
                 visible=True,
                 range=[0, 0.7],
                 gridcolor="rgba(140,163,176,0.18)",
-                tickfont=dict(size=7, color="#8ca3b0"),
+                tickfont=dict(size=7, color="#7a8f9c"),
                 showticklabels=False,
             ),
             angularaxis=dict(
-                tickfont=dict(size=9, color="#8ca3b0"),
+                tickfont=dict(size=9, color="#7a8f9c"),
                 gridcolor="rgba(140,163,176,0.18)",
                 linecolor="rgba(140,163,176,0.25)",
             ),
@@ -635,7 +635,7 @@ def make_radar_all_contexts(message_key, selected_ctx_key=None):
         font=dict(color="#2c3e50"),
         legend=dict(
             orientation="h", yanchor="bottom", y=-0.28, xanchor="center", x=0.5,
-            font=dict(size=11, color="#8ca3b0"),
+            font=dict(size=11, color="#7a8f9c"),
             bgcolor="rgba(0,0,0,0)",
         ),
         height=380,
@@ -643,7 +643,7 @@ def make_radar_all_contexts(message_key, selected_ctx_key=None):
         title=dict(
             text="How the receiver interprets the same message<br><sub>Your selected relationship is highlighted — others shown as outlines</sub>" if selected_ctx_key
                  else "How the receiver interprets the same message<br><sub>Shape shifts with relationship — same words, different worlds</sub>",
-            font=dict(color="#8ca3b0", size=13),
+            font=dict(color="#7a8f9c", size=13),
         ),
     )
     return fig
@@ -684,7 +684,7 @@ def make_neural_signal_bars(message_key):
         barmode="overlay",
         xaxis=dict(visible=False, range=[0, 1.05]),
         yaxis=dict(
-            tickfont=dict(color="#717182", size=13),
+            tickfont=dict(color="#4a5568", size=13),
             gridcolor="#ececf0",
         ),
         height=240,
@@ -697,8 +697,10 @@ def make_neural_signal_bars(message_key):
 
 
 # ── CSS injection — NeuralConnexions brand palette ───────────────────────────
-# Palette: nc-ivory #f5f6f7 · nc-dark #2c3e50 · nc-slate #8ca3b0
+# Palette: nc-ivory #f5f6f7 · nc-dark #2c3e50 · nc-slate #7a8f9c
 #          nc-blue  #dce7f3 · nc-blush #e7a59c · white #ffffff
+#          nc-teal  #4A908F (alignment) · nc-sage #829460 (shared zone)
+#          nc-body  #4a5568 · nc-si-blue #5a8eb8
 FUTURISTIC_CSS = """
 <style>
 /* ── Global Streamlit overrides — NC brand ── */
@@ -719,7 +721,7 @@ h1, h2, h3, h4 {
     color: #2c3e50 !important;
 }
 p, li, label {
-    color: #717182 !important;
+    color: #4a5568 !important;
 }
 /* Tab container */
 [data-testid="stTabs"] [data-baseweb="tab-list"] {
@@ -734,7 +736,7 @@ p, li, label {
 /* Tab styling */
 [data-testid="stTabs"] [data-baseweb="tab"] {
     background: transparent !important;
-    color: #8ca3b0 !important;
+    color: #7a8f9c !important;
     border-bottom: none !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
@@ -762,7 +764,7 @@ p, li, label {
 }
 /* Slider */
 [data-testid="stSlider"] [data-baseweb="slider"] div[role="slider"] {
-    background-color: #8ca3b0 !important;
+    background-color: #7a8f9c !important;
 }
 /* Select box */
 [data-testid="stSelectbox"] {
@@ -782,14 +784,14 @@ p, li, label {
     font-size: 2.4em;
     font-weight: 700;
     letter-spacing: 0.02em;
-    background: linear-gradient(90deg, #8ca3b0 0%, #2c3e50 60%);
+    background: linear-gradient(90deg, #7a8f9c 0%, #2c3e50 60%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 4px;
 }
 .nt-subheader {
-    color: #8ca3b0;
+    color: #7a8f9c;
     font-size: 0.95em;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -803,7 +805,7 @@ p, li, label {
 }
 .nt-sent {
     background: rgba(220, 231, 243, 0.6);
-    border-left-color: #8ca3b0;
+    border-left-color: #7a8f9c;
 }
 .nt-heard {
     background: rgba(231, 165, 156, 0.12);
@@ -813,7 +815,7 @@ p, li, label {
     font-size: 0.75em;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #8ca3b0;
+    color: #7a8f9c;
     margin-bottom: 4px;
 }
 .nt-intent-text {
@@ -822,7 +824,7 @@ p, li, label {
     color: #2c3e50;
 }
 .nt-summary {
-    color: #717182;
+    color: #4a5568;
     font-size: 1.05em;
     line-height: 1.65;
     margin: 14px 0 0 0;
@@ -840,7 +842,7 @@ p, li, label {
     font-size: 0.8em;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #8ca3b0;
+    color: #7a8f9c;
     margin-bottom: 10px;
     margin-top: 24px;
 }
@@ -854,7 +856,7 @@ p, li, label {
     border: 1px solid #ececf0;
     border-radius: 10px;
     padding: 16px 20px;
-    color: #717182;
+    color: #4a5568;
     font-size: 1.02em;
     line-height: 1.6;
     margin-top: 8px;
@@ -873,7 +875,7 @@ p, li, label {
     font-size: 0.88em;
     background: rgba(220,231,243,0.7);
     border: 1px solid #dce7f3;
-    color: #8ca3b0;
+    color: #7a8f9c;
     margin-bottom: 14px;
     letter-spacing: 0.04em;
 }
@@ -928,7 +930,7 @@ st.markdown("""
               pointer-events:none;'></div>
 
   <!-- Opening statement -->
-  <div style='font-size:1.15em;color:#8ca3b0;letter-spacing:0.18em;text-transform:uppercase;
+  <div style='font-size:1.15em;color:#7a8f9c;letter-spacing:0.18em;text-transform:uppercase;
               margin-bottom:18px;'>NeuroAI Cognitive Companion</div>
 
   <div style='font-size:1.55em;font-weight:800;color:#2c3e50;line-height:1.35;margin-bottom:0;'>
@@ -944,7 +946,7 @@ st.markdown("""
                 border:1px solid rgba(196,123,113,0.45);border-radius:12px;min-width:130px;'>
       <div style='font-size:1.4em;margin-bottom:4px;'>🧠</div>
       <div style='font-size:0.78em;font-weight:700;color:#c47b71;letter-spacing:0.1em;text-transform:uppercase;'>Amygdala</div>
-      <div style='font-size:0.72em;color:#8ca3b0;margin-top:3px;'>Threat pathway fires</div>
+      <div style='font-size:0.72em;color:#7a8f9c;margin-top:3px;'>Threat pathway fires</div>
       <div style='font-size:0.82em;font-weight:700;color:#c47b71;margin-top:2px;'>FAST</div>
     </div>
     <!-- Arrow: coral → blue (threat → cognition) -->
@@ -953,28 +955,28 @@ st.markdown("""
                   text-transform:uppercase;margin-bottom:4px;'>⚡ tens of milliseconds</div>
       <div style='height:2px;background:linear-gradient(90deg,#c47b71,#6b9fc4);
                   border-radius:2px;margin:6px 0;'></div>
-      <div style='font-size:0.68em;color:#8ca3b0;margin-top:4px;'>ambiguous message<br>tagged as threat</div>
+      <div style='font-size:0.68em;color:#7a8f9c;margin-top:4px;'>ambiguous message<br>tagged as threat</div>
     </div>
     <!-- PFC node — cool slate blue: cognitive/slower -->
     <div style='text-align:center;padding:14px 20px;background:rgba(107,159,196,0.12);
                 border:1px solid rgba(107,159,196,0.45);border-radius:12px;min-width:130px;'>
       <div style='font-size:1.4em;margin-bottom:4px;'>💡</div>
       <div style='font-size:0.78em;font-weight:700;color:#6b9fc4;letter-spacing:0.1em;text-transform:uppercase;'>Prefrontal Cortex</div>
-      <div style='font-size:0.72em;color:#8ca3b0;margin-top:3px;'>Meaning resolved</div>
+      <div style='font-size:0.72em;color:#7a8f9c;margin-top:3px;'>Meaning resolved</div>
       <div style='font-size:0.82em;font-weight:700;color:#6b9fc4;margin-top:2px;'>SLOWER</div>
     </div>
     <!-- Arrow: blue → teal (cognition → measurement) -->
     <div style='flex:1;text-align:center;padding:0 8px;min-width:100px;'>
-      <div style='font-size:0.7em;color:#8ca3b0;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;'>before meaning lands</div>
+      <div style='font-size:0.7em;color:#7a8f9c;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;'>before meaning lands</div>
       <div style='height:2px;background:linear-gradient(90deg,#6b9fc4,#5b9e8a);border-radius:2px;margin:6px 0;'></div>
-      <div style='font-size:0.68em;color:#8ca3b0;margin-top:4px;'>damage is done</div>
+      <div style='font-size:0.68em;color:#7a8f9c;margin-top:4px;'>damage is done</div>
     </div>
     <!-- Intent Gap node — teal: measurable/scientific -->
     <div style='text-align:center;padding:14px 20px;background:rgba(91,158,138,0.12);
                 border:1px solid rgba(91,158,138,0.45);border-radius:12px;min-width:140px;'>
       <div style='font-size:1.4em;margin-bottom:4px;'>📐</div>
       <div style='font-size:0.78em;font-weight:700;color:#5b9e8a;letter-spacing:0.1em;text-transform:uppercase;'>Intent Gap</div>
-      <div style='font-size:0.72em;color:#8ca3b0;margin-top:3px;'>JS-divergence(P(SI), P(PI))</div>
+      <div style='font-size:0.72em;color:#7a8f9c;margin-top:3px;'>JS-divergence(P(SI), P(PI))</div>
       <div style='font-size:0.82em;font-weight:700;color:#5b9e8a;margin-top:2px;'>MEASURABLE</div>
     </div>
   </div>
@@ -1002,7 +1004,7 @@ st.markdown("""
   </div>
 
   <!-- Source note -->
-  <div style='margin-top:20px;font-size:0.72em;color:#8ca3b0;font-style:italic;'>
+  <div style='margin-top:20px;font-size:0.72em;color:#7a8f9c;font-style:italic;'>
     Biological mechanism: subcortical threat pathway (LeDoux, 1996). Cognitive reappraisal window (Gross, 1998).
     Neuroplasticity mechanism (Singer, 2025; Sitaram et al., 2017). All hypotheses are stated as such — this programme is designed to test them.
   </div>
@@ -1032,7 +1034,7 @@ with tab_science:
     <div style='padding:10px 18px;background:rgba(231,165,156,0.10);border:1px solid rgba(231,165,156,0.4);
                 border-radius:10px;margin-bottom:20px;display:flex;align-items:center;gap:14px;'>
       <div style='font-size:1.3em;flex-shrink:0;'>🧠</div>
-      <div style='font-size:0.85em;color:#717182;line-height:1.6;'>
+      <div style='font-size:0.85em;color:#4a5568;line-height:1.6;'>
         <strong style='color:#2c3e50;'>Measuring the intent gap:</strong>
         JS-divergence between sender intent P(SI) and perceived intent P(PI), conditioned on dyadic relational history.
         The same message carries fundamentally different intent distributions depending on relational context —
@@ -1153,7 +1155,7 @@ with tab_science:
         ]
         nd_mean_gaps  = [0.18, 0.27, 0.31, 0.24]
         nd_err        = [0.04, 0.05, 0.06, 0.05]
-        nd_colors     = ["#8ca3b0", "#e7a59c", "#e7a59c", "#dce7f3"]
+        nd_colors     = ["#7a8f9c", "#e7a59c", "#e7a59c", "#dce7f3"]
 
         fig_nd = go.Figure()
         fig_nd.add_trace(go.Bar(
@@ -1172,7 +1174,7 @@ with tab_science:
             plot_bgcolor="#f5f6f7", paper_bgcolor="#f5f6f7",
             margin=dict(l=10, r=10, t=60, b=10), height=300,
         )
-        fig_nd.add_hline(y=0.18, line_dash="dot", line_color="#8ca3b0", opacity=0.5,
+        fig_nd.add_hline(y=0.18, line_dash="dot", line_color="#7a8f9c", opacity=0.5,
                          annotation_text="NT–NT baseline", annotation_position="right")
         st.plotly_chart(fig_nd, use_container_width=True)
 
@@ -1190,7 +1192,7 @@ with tab_science:
           exactly the asymmetry the instrument is designed to scaffold.
         </div>
         <div style='margin-top:12px;padding:8px 12px;background:rgba(220,231,243,0.6);
-                    border-radius:6px;font-size:0.78em;color:#717182;'>
+                    border-radius:6px;font-size:0.78em;color:#4a5568;'>
           Pre-registered secondary analysis · Intent gap scores stratified by annotator neurodiverse status ·
           Separate κ computed on neurodiverse-authored message subset
         </div>
@@ -1253,7 +1255,7 @@ with tab_theplan:
         {
             "id": "H₁",
             "type": "Computational · Primary",
-            "type_color": "#6B9FC4",
+            "type_color": "#5a8eb8",
             "tier": "MUST",
             "tier_color": "#27ae60",
             "title": "Relational context improves intent prediction",
@@ -1313,7 +1315,7 @@ with tab_theplan:
         {
             "id": "H₅",
             "type": "Exploratory · Beyond Year 1",
-            "type_color": "#8ca3b0",
+            "type_color": "#7a8f9c",
             "tier": "POST-FELLOWSHIP",
             "tier_color": "#bdc3c7",
             "title": "Soul surface produces higher empathic accuracy than direct conversation",
@@ -1341,7 +1343,7 @@ with tab_theplan:
           </div>
           <div style='font-size:1.0em;font-weight:700;color:#2c3e50;margin-bottom:6px;'>{h["title"]}</div>
           <div style='font-size:0.84em;color:#556677;line-height:1.65;margin-bottom:8px;'>{h["body"]}</div>
-          <div style='font-size:0.74em;color:#8ca3b0;font-style:italic;'>{h["status"]}</div>
+          <div style='font-size:0.74em;color:#7a8f9c;font-style:italic;'>{h["status"]}</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -1361,7 +1363,7 @@ with tab_theplan:
         # Source breakdown bar
         sources = ["Relabelled public datasets", "Researcher-constructed stimuli", "LLM-assisted synthetic\n(human-reviewed)"]
         source_counts = [700, 600, 700]
-        source_colors = ["#6B9FC4", "#e7a59c", "#8ca3b0"]
+        source_colors = ["#5a8eb8", "#e7a59c", "#7a8f9c"]
         fig_ds = go.Figure(go.Bar(
             x=source_counts, y=sources, orientation="h",
             marker_color=source_colors, text=source_counts,
@@ -1379,8 +1381,8 @@ with tab_theplan:
         # Relationship types
         st.markdown("""
         <div style='display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;'>
-          <span style='padding:5px 12px;background:rgba(107,159,196,0.12);border:1px solid #6B9FC4;
-                       border-radius:20px;font-size:0.78em;color:#6B9FC4;font-weight:600;'>💑 Romantic partners</span>
+          <span style='padding:5px 12px;background:rgba(107,159,196,0.12);border:1px solid #5a8eb8;
+                       border-radius:20px;font-size:0.78em;color:#5a8eb8;font-weight:600;'>💑 Romantic partners</span>
           <span style='padding:5px 12px;background:rgba(231,165,156,0.12);border:1px solid #e7a59c;
                        border-radius:20px;font-size:0.78em;color:#c47b71;font-weight:600;'>👨‍👩‍👧 Parent-child</span>
           <span style='padding:5px 12px;background:rgba(46,204,113,0.12);border:1px solid #2ecc71;
@@ -1390,7 +1392,7 @@ with tab_theplan:
           <span style='padding:5px 12px;background:rgba(201,146,42,0.12);border:1px solid #C9922A;
                        border-radius:20px;font-size:0.78em;color:#C9922A;font-weight:600;'>💼 Professional colleagues</span>
         </div>
-        <div style='margin-top:8px;font-size:0.76em;color:#8ca3b0;'>
+        <div style='margin-top:8px;font-size:0.76em;color:#7a8f9c;'>
           Deliberate oversampling of ambiguous-valence messages (target 60%)
         </div>
         """, unsafe_allow_html=True)
@@ -1406,7 +1408,7 @@ with tab_theplan:
           <div>📌 Cultural background recorded as metadata</div>
           <div>📌 Neurodiverse-authored messages included with separate κ</div>
           <div>📌 Recruited via <strong>Prolific Academic</strong></div>
-          <div style='margin-top:10px;color:#8ca3b0;'>Estimated cost: £5,000–7,000</div>
+          <div style='margin-top:10px;color:#7a8f9c;'>Estimated cost: £5,000–7,000</div>
         </div>
         <div style='margin-top:10px;padding:12px 16px;background:#fff8f7;border:1px solid #e7a59c;
                     border-left:4px solid #e7a59c;border-radius:0 8px 8px 0;font-size:0.82em;'>
@@ -1426,9 +1428,9 @@ with tab_theplan:
     st.markdown("**7-category intent label space (I1–I7)**")
     intent_rows = "".join([
         f"<tr style='border-bottom:1px solid #dce7f3;'>"
-        f"<td style='padding:7px 14px;font-weight:700;color:#6B9FC4;'>{k}</td>"
+        f"<td style='padding:7px 14px;font-weight:700;color:#5a8eb8;'>{k}</td>"
         f"<td style='padding:7px 14px;font-weight:600;color:#2c3e50;'>{INTENTS[k]}</td>"
-        f"<td style='padding:7px 14px;color:#717182;font-size:0.88em;'>{desc}</td></tr>"
+        f"<td style='padding:7px 14px;color:#4a5568;font-size:0.88em;'>{desc}</td></tr>"
         for k, desc in [
             ("I1", "Primary goal is relational proximity; content is secondary"),
             ("I2", "Communicates worry about receiver's state or wellbeing"),
@@ -1443,9 +1445,9 @@ with tab_theplan:
     <div style='overflow-x:auto;'>
     <table style='width:100%;border-collapse:collapse;font-size:0.85em;'>
       <thead><tr style='background:rgba(220,231,243,0.5);'>
-        <th style='padding:8px 14px;text-align:left;color:#8ca3b0;'>ID</th>
-        <th style='padding:8px 14px;text-align:left;color:#8ca3b0;'>Category</th>
-        <th style='padding:8px 14px;text-align:left;color:#8ca3b0;'>Definition</th>
+        <th style='padding:8px 14px;text-align:left;color:#7a8f9c;'>ID</th>
+        <th style='padding:8px 14px;text-align:left;color:#7a8f9c;'>Category</th>
+        <th style='padding:8px 14px;text-align:left;color:#7a8f9c;'>Definition</th>
       </tr></thead>
       <tbody>{intent_rows}</tbody>
     </table>
@@ -1473,8 +1475,8 @@ with tab_theplan:
 
     with arch_col1:
         conditions = [
-            ("A", "Relational context only",   "RoBERTa-large + 16-dim relational context vector",                             "#6B9FC4", "Tests H₁"),
-            ("B", "Message only (baseline)",   "RoBERTa-large, no context vector",                                             "#8ca3b0", "H₁ baseline"),
+            ("A", "Relational context only",   "RoBERTa-large + 16-dim relational context vector",                             "#5a8eb8", "Tests H₁"),
+            ("B", "Message only (baseline)",   "RoBERTa-large, no context vector",                                             "#7a8f9c", "H₁ baseline"),
             ("C", "Surface baseline",           "RoBERTa-base + sentiment classifier",                                          "#bdc3c7", "Surface floor"),
             ("D", "Full model (H₄)",            "RoBERTa-large + 16-dim vector + personality context block",                    "#e7a59c", "Tests H₄"),
         ]
@@ -1486,9 +1488,9 @@ with tab_theplan:
               <div style='font-size:1.3em;font-weight:800;color:{color};min-width:26px;'>{cond}</div>
               <div>
                 <div style='font-weight:700;color:#2c3e50;font-size:0.9em;'>{name}
-                  <span style='font-size:0.72em;font-weight:400;color:#8ca3b0;margin-left:8px;'>{note}</span>
+                  <span style='font-size:0.72em;font-weight:400;color:#7a8f9c;margin-left:8px;'>{note}</span>
                 </div>
-                <div style='font-size:0.80em;color:#717182;margin-top:2px;font-family:monospace;'>{desc}</div>
+                <div style='font-size:0.80em;color:#4a5568;margin-top:2px;font-family:monospace;'>{desc}</div>
               </div>
             </div>
             """, unsafe_allow_html=True)
@@ -1497,7 +1499,7 @@ with tab_theplan:
         st.markdown("""
         <div style='padding:16px 18px;background:rgba(220,231,243,0.4);border:1px solid #dce7f3;
                     border-radius:10px;'>
-          <div style='font-size:0.72em;color:#8ca3b0;font-weight:700;letter-spacing:0.10em;
+          <div style='font-size:0.72em;color:#7a8f9c;font-weight:700;letter-spacing:0.10em;
                       text-transform:uppercase;margin-bottom:10px;'>Architecture flow</div>
           <div style='font-family:monospace;font-size:0.78em;color:#2c3e50;line-height:2.0;'>
             [Message text]<br>
@@ -1553,7 +1555,7 @@ with tab_theplan:
         for i, (month, a, b) in enumerate(zip(rct_months, rct_group_a, rct_group_b)):
             st.markdown(f"""
             <div style='display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;'>
-              <div style='min-width:90px;font-size:0.78em;font-weight:700;color:#8ca3b0;padding-top:3px;'>{month}</div>
+              <div style='min-width:90px;font-size:0.78em;font-weight:700;color:#7a8f9c;padding-top:3px;'>{month}</div>
               <div style='flex:1;'>
                 <div style='padding:7px 12px;background:rgba(74,144,196,0.12);border-radius:6px;
                             font-size:0.80em;color:#2c3e50;margin-bottom:4px;'>{a}</div>
@@ -1565,7 +1567,7 @@ with tab_theplan:
     with rct_col2:
         st.markdown("""
         <div style='padding:16px 18px;background:rgba(220,231,243,0.4);border:1px solid #dce7f3;border-radius:10px;'>
-          <div style='font-size:0.72em;color:#8ca3b0;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;margin-bottom:10px;'>
+          <div style='font-size:0.72em;color:#7a8f9c;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;margin-bottom:10px;'>
             Study design
           </div>
           <div style='font-size:0.84em;color:#556677;line-height:1.7;'>
@@ -1609,7 +1611,7 @@ with tab_theplan:
         color = tier_color[tier]
         st.markdown(f"""
         <div style='display:flex;align-items:flex-start;gap:10px;margin-bottom:7px;'>
-          <div style='min-width:100px;font-size:0.76em;font-weight:700;color:#8ca3b0;padding-top:5px;'>{period}</div>
+          <div style='min-width:100px;font-size:0.76em;font-weight:700;color:#7a8f9c;padding-top:5px;'>{period}</div>
           <div style='flex:1;padding:8px 14px;background:rgba(220,231,243,0.25);border-radius:7px;
                       border-left:3px solid {color};font-size:0.83em;color:#2c3e50;'>{activity}</div>
           <div style='min-width:62px;'>
@@ -1703,7 +1705,7 @@ with tab_human:
     with col_heard:
         heard_color_class = "nt-heard" if story["aligned"] else "nt-heard"
         st.markdown(f"""
-        <div class='nt-signal-box nt-heard' style='border-left-color: {"#6BAE8A" if story["aligned"] else "#B84040" if nt_gap > 0.25 else "#C9922A"};'>
+        <div class='nt-signal-box nt-heard' style='border-left-color: {"#4A908F" if story["aligned"] else "#B84040" if nt_gap > 0.25 else "#C9922A"};'>
             <div class='nt-label'>📥 &nbsp; Received as</div>
             <div class='nt-intent-text'>{story['heard_as'].capitalize()}</div>
         </div>
@@ -1781,10 +1783,10 @@ with tab_human:
                     <span style='font-size:0.92em;font-weight:600;color:#4a5568;'>{context_label_plain(ctx)}</span>
                     <span style='display:flex;align-items:center;gap:5px;'>
                         <span style='width:7px;height:7px;border-radius:50%;background:{s["color_theme"]};display:inline-block;flex-shrink:0;'></span>
-                        <span style='font-size:0.75em;color:#8ca3b0;'>{s['connection_level']}</span>
+                        <span style='font-size:0.75em;color:#7a8f9c;'>{s['connection_level']}</span>
                     </span>
                 </div>
-                <div style='font-size:0.83em;color:#8ca3b0;'>
+                <div style='font-size:0.83em;color:#7a8f9c;'>
                     {s['sent_as'].capitalize()}
                     <span style='color:{match_color};margin:0 3px;'>{match_icon}</span>
                     {s['heard_as'].capitalize()}
@@ -1796,7 +1798,7 @@ with tab_human:
     st.markdown("<hr class='nt-divider'>", unsafe_allow_html=True)
     st.markdown("<div class='nt-section-title'>The interpretation fingerprint</div>", unsafe_allow_html=True)
     st.markdown("""
-    <div style='color:#717182; font-size:0.95em; margin-bottom:12px;'>
+    <div style='color:#4a5568; font-size:0.95em; margin-bottom:12px;'>
     Each shape below shows how the receiver interprets the message in that relationship.
     When shapes overlap, understanding aligns. When they diverge, so does the conversation.
     </div>
@@ -1809,13 +1811,13 @@ with tab_human:
     <div style='margin-bottom:14px;'>
       <div style='font-size:1.3em;font-weight:700;color:#2c3e50;margin-bottom:6px;'>
         What if the model has never seen this person before?
-        <span style='font-size:0.58em;font-weight:400;color:#8ca3b0;letter-spacing:0.1em;
+        <span style='font-size:0.58em;font-weight:400;color:#7a8f9c;letter-spacing:0.1em;
                      text-transform:uppercase;margin-left:10px;vertical-align:middle;
                      background:rgba(220,231,243,0.7);padding:2px 8px;border-radius:4px;'>
           H₄ · Cold-start problem
         </span>
       </div>
-      <div style='font-size:0.88em;color:#717182;line-height:1.6;max-width:760px;'>
+      <div style='font-size:0.88em;color:#4a5568;line-height:1.6;max-width:760px;'>
         At Day 1, there is no relational history. Without context, the model defaults to
         population-level priors — the gap score is systematically inflated.
         The <strong>biographical intake instrument</strong> solves this: 8 guided questions across
@@ -1835,7 +1837,7 @@ with tab_human:
     def _cs_bar(si, pi, title, gap_val, gap_color_hex):
         fig = go.Figure()
         fig.add_trace(go.Bar(name="Sender Intent (SI)", x=_cs_intents_short, y=si,
-                             marker_color="#6B9FC4", opacity=0.85))
+                             marker_color="#5a8eb8", opacity=0.85))
         fig.add_trace(go.Bar(name="Perceived Intent (PI)", x=_cs_intents_short, y=pi,
                              marker_color="#e7a59c", opacity=0.85))
         fig.update_layout(
@@ -1881,7 +1883,7 @@ with tab_human:
       <span style='font-weight:700;color:#2c3e50;'>Gap reduction at Day 1:</span>
       0.28 → 0.10 — before a single message is exchanged.
       The biographical intake instrument provides the prior that relational history cannot provide yet.<br><br>
-      <span style='font-weight:700;color:#8ca3b0;'>H₄ prediction:</span> The gap between Group A (no personality context) and
+      <span style='font-weight:700;color:#7a8f9c;'>H₄ prediction:</span> The gap between Group A (no personality context) and
       Group B (with biographical intake) narrows as dyadic history accumulates over 4 weeks —
       the instrument solves cold-start, history takes over.
     </div>
@@ -1890,8 +1892,8 @@ with tab_human:
     st.markdown("""
     <div style='margin-top:14px;padding:16px 20px;
                 background:linear-gradient(135deg,rgba(220,231,243,0.6) 0%,rgba(231,165,156,0.08) 100%);
-                border:1px dashed #8ca3b0;border-radius:10px;font-size:0.84em;line-height:1.65;'>
-      <div style='font-size:0.7em;color:#8ca3b0;font-weight:700;letter-spacing:0.12em;
+                border:1px dashed #7a8f9c;border-radius:10px;font-size:0.84em;line-height:1.65;'>
+      <div style='font-size:0.7em;color:#7a8f9c;font-weight:700;letter-spacing:0.12em;
                   text-transform:uppercase;margin-bottom:8px;'>🔒 Soul Surface — Horizon 1 · Consent-gated</div>
       <div style='color:#2c3e50;'>
         The biographical intake instrument doubles as a <strong>consent-gated soul surface</strong> —
@@ -1899,7 +1901,7 @@ with tab_human:
         reciprocally shared their own.
         Raw biographical answers are never shared; only the derived intent model is accessible,
         under explicit mutual consent with full revocation rights.<br><br>
-        <em style='color:#8ca3b0;'>This operationalises Gottman's (1994) love map construct computationally.</em>
+        <em style='color:#7a8f9c;'>This operationalises Gottman's (1994) love map construct computationally.</em>
       </div>
     </div>
     """, unsafe_allow_html=True)
@@ -1910,18 +1912,18 @@ with tab_human:
     <div style='margin-bottom:14px;'>
       <div style='font-size:1.3em;font-weight:700;color:#2c3e50;margin-bottom:6px;'>
         Cognitive Field
-        <span style='font-size:0.6em;font-weight:400;color:#8ca3b0;letter-spacing:0.1em;
+        <span style='font-size:0.6em;font-weight:400;color:#7a8f9c;letter-spacing:0.1em;
                      text-transform:uppercase;margin-left:10px;vertical-align:middle;
                      background:rgba(220,231,243,0.7);padding:2px 8px;border-radius:4px;'>
           Horizon 1 · Beta Month 6
         </span>
       </div>
-      <div style='font-size:0.88em;color:#717182;line-height:1.6;max-width:700px;'>
+      <div style='font-size:0.88em;color:#4a5568;line-height:1.6;max-width:700px;'>
         Every interaction leaves a trace in the semantic field between two minds.
         The model doesn't just record what was said — it learns how each person's intent
         landscape shifts relative to the other's over time. As the field converges,
         understanding deepens. This is what the programme is designed to measure — and to change.
-        <br><span style='color:#8ca3b0;font-size:0.9em;font-style:italic;'>
+        <br><span style='color:#7a8f9c;font-size:0.9em;font-style:italic;'>
         Illustrative — based on mock model data. Real cognitive fields generated from beta cohort, Month 6+.
         </span>
       </div>
@@ -1972,7 +1974,7 @@ with tab_human:
             font=dict(color='#c47b71', size=11, family='sans-serif'), bgcolor='rgba(255,255,255,0.7)')
         fig_d0.update_layout(
             title=dict(text='Day 0 · Separate cognitive fields',
-                       font=dict(size=11, color='#8ca3b0'), x=0.5),
+                       font=dict(size=11, color='#7a8f9c'), x=0.5),
             xaxis=dict(visible=False, range=[-3, 3]),
             yaxis=dict(visible=False, range=[-3, 3]),
             paper_bgcolor='rgba(245,246,247,0)', plot_bgcolor='rgba(220,231,243,0.2)',
@@ -1998,8 +2000,8 @@ with tab_human:
         ))
         fig_d60.add_trace(go.Contour(
             z=_shared, x=_grid_x, y=_grid_y,
-            colorscale=[[0,'rgba(245,246,247,0)'],[0.5,'rgba(180,195,160,0.3)'],
-                        [1,'rgba(120,160,120,0.55)']],
+            colorscale=[[0,'rgba(245,246,247,0)'],[0.5,'rgba(150,170,120,0.3)'],
+                        [1,'rgba(130,148,96,0.55)']],
             showscale=False, contours=dict(coloring='fill', showlines=False),
             name='Shared', opacity=0.9,
         ))
@@ -2008,10 +2010,10 @@ with tab_human:
         fig_d60.add_annotation(x=0.5, y=-0.2, text="Dev", showarrow=False,
             font=dict(color='#c47b71', size=11, family='sans-serif'), bgcolor='rgba(255,255,255,0.7)')
         fig_d60.add_annotation(x=0.0, y=0.05, text="shared", showarrow=False,
-            font=dict(color='#5a7a5a', size=10, family='sans-serif'), bgcolor='rgba(255,255,255,0.7)')
+            font=dict(color='#6b7d4e', size=10, family='sans-serif'), bgcolor='rgba(255,255,255,0.7)')
         fig_d60.update_layout(
             title=dict(text='Day 60 · Fields converging — shared zone emerging',
-                       font=dict(size=11, color='#8ca3b0'), x=0.5),
+                       font=dict(size=11, color='#7a8f9c'), x=0.5),
             xaxis=dict(visible=False, range=[-3, 3]),
             yaxis=dict(visible=False, range=[-3, 3]),
             paper_bgcolor='rgba(245,246,247,0)', plot_bgcolor='rgba(220,231,243,0.2)',
@@ -2020,7 +2022,7 @@ with tab_human:
         st.plotly_chart(fig_d60, use_container_width=True)
 
     st.markdown("""
-    <div style='text-align:center;font-size:0.73em;color:#8ca3b0;font-style:italic;margin-top:-8px;margin-bottom:8px;'>
+    <div style='text-align:center;font-size:0.73em;color:#7a8f9c;font-style:italic;margin-top:-8px;margin-bottom:8px;'>
       Cognitive field density map · blue = Maya's intent landscape · blush = Dev's · green overlap = shared semantic ground ·
       H₂: gap score decline over 60 days · Projected
     </div>
@@ -2029,18 +2031,18 @@ with tab_human:
     st.markdown("""
     <div style='display:flex;gap:16px;flex-wrap:wrap;margin-top:4px;margin-bottom:8px;'>
       <div style='flex:1;min-width:180px;padding:10px 14px;background:rgba(220,231,243,0.5);
-                  border-radius:8px;font-size:0.82em;color:#717182;'>
-        <span style='color:#8ca3b0;font-weight:700;'>Faded points</span> = Day 0 baseline.<br>
-        <span style='color:#8ca3b0;font-weight:700;'>Solid points</span> = Day 60 post-intervention.<br>
+                  border-radius:8px;font-size:0.82em;color:#4a5568;'>
+        <span style='color:#7a8f9c;font-weight:700;'>Faded points</span> = Day 0 baseline.<br>
+        <span style='color:#7a8f9c;font-weight:700;'>Solid points</span> = Day 60 post-intervention.<br>
         Arrows show centroid trajectory.
       </div>
       <div style='flex:1;min-width:180px;padding:10px 14px;background:rgba(220,231,243,0.4);
-                  border-radius:8px;font-size:0.82em;color:#717182;'>
-        <span style='color:#8ca3b0;font-weight:700;'>Converging clusters</span> = growing shared understanding.<br>
+                  border-radius:8px;font-size:0.82em;color:#4a5568;'>
+        <span style='color:#7a8f9c;font-weight:700;'>Converging clusters</span> = growing shared understanding.<br>
         Measured via JS-divergence on rolling 14-day message window.
       </div>
       <div style='flex:1;min-width:180px;padding:10px 14px;background:rgba(231,165,156,0.10);
-                  border-radius:8px;font-size:0.82em;color:#717182;'>
+                  border-radius:8px;font-size:0.82em;color:#4a5568;'>
         <span style='color:#e7a59c;font-weight:700;'>H₂ behavioural proxy:</span> gap score decline over 60 days.
         Real beta data from Month 6 onwards.
       </div>
@@ -2064,12 +2066,12 @@ with tab_human:
         st.markdown("""
         <div class='nt-card' style='min-height:260px;'>
             <div style='font-size:1.6em; margin-bottom:10px;'>💬</div>
-            <div style='font-weight:700; color:#8ca3b0; font-size:1.05em; margin-bottom:8px;'>Chat · Text · Messaging</div>
-            <div style='color:#8ca3b0; font-size:0.88em; line-height:1.65;'>
+            <div style='font-weight:700; color:#7a8f9c; font-size:1.05em; margin-bottom:8px;'>Chat · Text · Messaging</div>
+            <div style='color:#7a8f9c; font-size:0.88em; line-height:1.65;'>
                 A browser extension or keyboard overlay shows a small signal indicator
                 as you type. Before you hit send, you see how the message is likely
                 to land — in this relationship, today. One colour. No scores.<br><br>
-                <span style='color:#8ca3b0; font-size:0.9em;'>WhatsApp · iMessage · Slack · Teams</span>
+                <span style='color:#7a8f9c; font-size:0.9em;'>WhatsApp · iMessage · Slack · Teams</span>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -2077,13 +2079,13 @@ with tab_human:
         st.markdown("""
         <div class='nt-card' style='min-height:260px;'>
             <div style='font-size:1.6em; margin-bottom:10px;'>🎙️</div>
-            <div style='font-weight:700; color:#8ca3b0; font-size:1.05em; margin-bottom:8px;'>Voice · Audio · Face-to-face</div>
-            <div style='color:#8ca3b0; font-size:0.88em; line-height:1.65;'>
+            <div style='font-weight:700; color:#7a8f9c; font-size:1.05em; margin-bottom:8px;'>Voice · Audio · Face-to-face</div>
+            <div style='color:#7a8f9c; font-size:0.88em; line-height:1.65;'>
                 Real-time transcription feeds the intent classifier on-device.
                 A subtle ambient signal — a soft colour wash on screen or a discreet
                 wearable indicator — shifts as the conversation drifts. Both people
                 can opt in, creating a shared signal neither is performing for.<br><br>
-                <span style='color:#8ca3b0; font-size:0.9em;'>Couples sessions · Therapy · Mediation</span>
+                <span style='color:#7a8f9c; font-size:0.9em;'>Couples sessions · Therapy · Mediation</span>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -2091,13 +2093,13 @@ with tab_human:
         st.markdown("""
         <div class='nt-card' style='min-height:260px;'>
             <div style='font-size:1.6em; margin-bottom:10px;'>🧠</div>
-            <div style='font-weight:700; color:#8ca3b0; font-size:1.05em; margin-bottom:8px;'>Neural · EEG · Biometric</div>
-            <div style='color:#8ca3b0; font-size:0.88em; line-height:1.65;'>
+            <div style='font-weight:700; color:#7a8f9c; font-size:1.05em; margin-bottom:8px;'>Neural · EEG · Biometric</div>
+            <div style='color:#7a8f9c; font-size:0.88em; line-height:1.65;'>
                 In the research lab, the same intent gap signal is paired with EEG
                 inter-brain synchrony. The computational measure and the neural
                 measure are validated against each other — so that eventually,
                 the software signal alone predicts the brain state it was designed to shift.<br><br>
-                <span style='color:#8ca3b0; font-size:0.9em;'>H₃ · EEG hyperscanning · 60-day pilot</span>
+                <span style='color:#7a8f9c; font-size:0.9em;'>H₃ · EEG hyperscanning · 60-day pilot</span>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -2106,7 +2108,7 @@ with tab_human:
     st.markdown("""
     <div style='margin-top:18px; padding: 14px 20px; background: rgba(52,152,219,0.04);
          border: 1px solid #dce7f3; border-radius:10px;
-         display:flex; gap:40px; flex-wrap:wrap; color:#8ca3b0; font-size:0.85em; line-height:1.8;'>
+         display:flex; gap:40px; flex-wrap:wrap; color:#7a8f9c; font-size:0.85em; line-height:1.8;'>
         <span>🔒 &nbsp;<span style='color:#5577aa;'>On-device · no cloud transit</span></span>
         &nbsp;&nbsp;&nbsp;
         <span>👁️ &nbsp;<span style='color:#5577aa;'>Opt-in · consent-first</span></span>
@@ -2123,7 +2125,7 @@ with tab_human:
     st.markdown("<hr class='nt-divider'>", unsafe_allow_html=True)
     st.markdown("""
     <div style='padding: 8px 0 4px 0;'>
-        <div style='font-size:1.55em; font-weight:700; color:#8ca3b0; margin-bottom:10px;'>
+        <div style='font-size:1.55em; font-weight:700; color:#7a8f9c; margin-bottom:10px;'>
             What if you could close the gap?
         </div>
     </div>
@@ -2143,34 +2145,34 @@ with tab_human:
         st.markdown("""
         <div class='nt-card' style='text-align:center; padding: 22px 16px;'>
             <div style='font-size:2em; margin-bottom:8px;'>🧬</div>
-            <div style='font-weight:700; color:#8ca3b0; font-size:1.05em; margin-bottom:6px;'>Grounded in neuroscience</div>
-            <div style='color:#8ca3b0; font-size:0.9em;'>The gap between intended and perceived meaning is a measurable neural phenomenon, not just a feeling.</div>
+            <div style='font-weight:700; color:#7a8f9c; font-size:1.05em; margin-bottom:6px;'>Grounded in neuroscience</div>
+            <div style='color:#7a8f9c; font-size:0.9em;'>The gap between intended and perceived meaning is a measurable neural phenomenon, not just a feeling.</div>
         </div>
         """, unsafe_allow_html=True)
     with col_cta2:
         st.markdown("""
         <div class='nt-card' style='text-align:center; padding: 22px 16px;'>
             <div style='font-size:2em; margin-bottom:8px;'>📡</div>
-            <div style='font-weight:700; color:#8ca3b0; font-size:1.05em; margin-bottom:6px;'>Real-time signal</div>
-            <div style='color:#8ca3b0; font-size:0.9em;'>Every message tagged, every context accounted for. A living map of how two minds are — and aren't — connecting.</div>
+            <div style='font-weight:700; color:#7a8f9c; font-size:1.05em; margin-bottom:6px;'>Real-time signal</div>
+            <div style='color:#7a8f9c; font-size:0.9em;'>Every message tagged, every context accounted for. A living map of how two minds are — and aren't — connecting.</div>
         </div>
         """, unsafe_allow_html=True)
     with col_cta3:
         st.markdown("""
         <div class='nt-card' style='text-align:center; padding: 22px 16px;'>
             <div style='font-size:2em; margin-bottom:8px;'>🌱</div>
-            <div style='font-weight:700; color:#8ca3b0; font-size:1.05em; margin-bottom:6px;'>Closes over time</div>
-            <div style='color:#8ca3b0; font-size:0.9em;'>The brain is plastic. With the right signal, the gap can narrow — measurably, verifiably, at the neural level. That's what H₃ is designed to test.</div>
+            <div style='font-weight:700; color:#7a8f9c; font-size:1.05em; margin-bottom:6px;'>Closes over time</div>
+            <div style='color:#7a8f9c; font-size:0.9em;'>The brain is plastic. With the right signal, the gap can narrow — measurably, verifiably, at the neural level. That's what H₃ is designed to test.</div>
         </div>
         """, unsafe_allow_html=True)
 
     # ── Footer ────────────────────────────────────────────────────────────────
     st.markdown("<hr class='nt-divider'>", unsafe_allow_html=True)
     st.markdown("""
-    <div style='text-align:center; color:#8ca3b0; font-size:0.82em; padding-bottom: 20px;'>
+    <div style='text-align:center; color:#7a8f9c; font-size:0.82em; padding-bottom: 20px;'>
         NeuroAI Cognitive Companion &nbsp;·&nbsp; Encode × Pillar VC AI for Science Fellowship &nbsp;·&nbsp; March 2026<br>
         <span style='color:#1e2a4a;'>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span><br>
-        <em style='color:#8ca3b0;'>"The most powerful thing two people can do is understand what the other actually means."</em>
+        <em style='color:#7a8f9c;'>"The most powerful thing two people can do is understand what the other actually means."</em>
     </div>
     """, unsafe_allow_html=True)
 
@@ -2192,7 +2194,7 @@ with tab_deploy:
         return f"""
         <div style='margin-bottom:10px;'>
           <div style='display:flex;justify-content:space-between;margin-bottom:3px;'>
-            <span style='color:#717182;font-size:0.82em;'>{label}</span>
+            <span style='color:#4a5568;font-size:0.82em;'>{label}</span>
             <span style='color:{color};font-size:0.78em;font-weight:600;'>{sublabel}</span>
           </div>
           <div style='background:#111122;border-radius:4px;height:8px;overflow:hidden;'>
@@ -2253,18 +2255,18 @@ with tab_deploy:
                           margin:0 auto;position:relative;z-index:10;'></div>
               <!-- status bar -->
               <div style='display:flex;justify-content:space-between;padding:4px 18px 0 18px;
-                          font-size:9px;color:#8ca3b0;'>
+                          font-size:9px;color:#7a8f9c;'>
                 <span>9:41</span><span>●●●  WiFi  🔋</span>
               </div>
               <!-- app bar -->
               <div style='background:#f5f6f7;padding:8px 14px;margin-top:4px;
                           border-bottom:1px solid #ececf0;display:flex;align-items:center;gap:8px;'>
                 <div style='width:28px;height:28px;border-radius:50%;background:#dce7f3;
-                             border:1px solid #8ca3b0;display:flex;align-items:center;
+                             border:1px solid #7a8f9c;display:flex;align-items:center;
                              justify-content:center;font-size:11px;color:#2c3e50;font-weight:600;'>A</div>
                 <div>
                   <div style='font-size:10px;font-weight:600;color:#2c3e50;'>Alex</div>
-                  <div style='font-size:8px;color:#8ca3b0;'>Partner · 3 years</div>
+                  <div style='font-size:8px;color:#7a8f9c;'>Partner · 3 years</div>
                 </div>
               </div>
               <!-- chat bubbles -->
@@ -2272,12 +2274,12 @@ with tab_deploy:
                 <!-- incoming -->
                 <div style='display:flex;gap:6px;margin-bottom:8px;'>
                   <div style='width:22px;height:22px;border-radius:50%;background:#dce7f3;
-                               border:1px solid #8ca3b0;flex-shrink:0;font-size:9px;
+                               border:1px solid #7a8f9c;flex-shrink:0;font-size:9px;
                                display:flex;align-items:center;justify-content:center;color:#2c3e50;font-weight:600;'>A</div>
                   <div style='background:#dce7f3;border-radius:12px 12px 12px 2px;
                                padding:6px 10px;max-width:130px;'>
                     <div style='font-size:9px;color:#2c3e50;'>How was your day?</div>
-                    <div style='font-size:7px;color:#8ca3b0;margin-top:2px;'>10:23 AM</div>
+                    <div style='font-size:7px;color:#7a8f9c;margin-top:2px;'>10:23 AM</div>
                   </div>
                 </div>
               </div>
@@ -2301,8 +2303,8 @@ with tab_deploy:
                 <!-- text input mock -->
                 <div style='background:#ffffff;border:1px solid #dce7f3;border-radius:20px;
                              padding:7px 12px;display:flex;align-items:center;gap:6px;'>
-                  <div style='font-size:9px;color:#8ca3b0;flex:1;'>Fine, do whatever you want.</div>
-                  <div style='width:20px;height:20px;border-radius:50%;background:#8ca3b0;
+                  <div style='font-size:9px;color:#7a8f9c;flex:1;'>Fine, do whatever you want.</div>
+                  <div style='width:20px;height:20px;border-radius:50%;background:#7a8f9c;
                                display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;'>➤</div>
                 </div>
               </div>
@@ -2313,10 +2315,10 @@ with tab_deploy:
         with col_phone_desc:
             st.markdown("""
             <div style='padding: 12px 0 0 20px;'>
-              <div style='font-size:1.3em;font-weight:700;color:#8ca3b0;margin-bottom:12px;'>
+              <div style='font-size:1.3em;font-weight:700;color:#7a8f9c;margin-bottom:12px;'>
                 Mobile · iMessage / WhatsApp overlay
               </div>
-              <div style='color:#717182;font-size:0.92em;line-height:1.7;margin-bottom:18px;'>
+              <div style='color:#4a5568;font-size:0.92em;line-height:1.7;margin-bottom:18px;'>
                 A keyboard extension or chat overlay sits above your input field.
                 As you finish typing — before you hit send — a single signal pill appears.
                 One colour. Plain English. Gone after 4 seconds or the moment you send.
@@ -2326,17 +2328,17 @@ with tab_deploy:
             # When does it fire?
             st.markdown("""
               <div style='font-size:0.75em;letter-spacing:0.15em;text-transform:uppercase;
-                          color:#8ca3b0;margin-bottom:10px;'>When the signal fires</div>
+                          color:#7a8f9c;margin-bottom:10px;'>When the signal fires</div>
             """, unsafe_allow_html=True)
             st.markdown(freq_bar(95, "#B84040", "After a conflict in last 48h", "fires on every message"), unsafe_allow_html=True)
             st.markdown(freq_bar(65, "#C9922A", "Neutral relational history", "fires when gap > 0.10"), unsafe_allow_html=True)
-            st.markdown(freq_bar(22, "#6BAE8A", "Positive recent history", "fires only if gap > 0.20"), unsafe_allow_html=True)
-            st.markdown(freq_bar(8,  "#6B9FC4", "Well-aligned dyad (low baseline)", "rare — safety net only"), unsafe_allow_html=True)
+            st.markdown(freq_bar(22, "#4A908F", "Positive recent history", "fires only if gap > 0.20"), unsafe_allow_html=True)
+            st.markdown(freq_bar(8,  "#5a8eb8", "Well-aligned dyad (low baseline)", "rare — safety net only"), unsafe_allow_html=True)
 
             st.markdown("""
               <div style='margin-top:14px;padding:10px 14px;background:rgba(231,165,156,0.10);
                           border-left:3px solid #e74c3c;border-radius:0 8px 8px 0;
-                          font-size:0.85em;color:#717182;line-height:1.6;'>
+                          font-size:0.85em;color:#4a5568;line-height:1.6;'>
                 <b style='color:#c47b71;'>Right now on screen:</b><br>
                 "Can we talk tonight?" sent after a conflict → pill reads
                 <span style='color:#c47b71;font-weight:600;'>"May land as a threat"</span>.
@@ -2370,7 +2372,7 @@ with tab_deploy:
                     <div style='width:8px;height:8px;border-radius:50%;background:#2ecc71;'></div>
                   </div>
                   <div style='flex:1;background:#111120;border-radius:4px;padding:3px 10px;
-                               font-size:9px;color:#8ca3b0;'>slack.com/messages/alex</div>
+                               font-size:9px;color:#7a8f9c;'>slack.com/messages/alex</div>
                   <!-- EXTENSION ICON glowing in toolbar -->
                   <div style='width:18px;height:18px;border-radius:4px;background:#1a2a4a;
                                border:1px solid #e74c3c;display:flex;align-items:center;
@@ -2381,11 +2383,11 @@ with tab_deploy:
                 <div style='display:flex;gap:8px;height:240px;'>
                   <!-- sidebar -->
                   <div style='width:90px;background:#0a0a14;border-radius:6px;padding:8px;flex-shrink:0;'>
-                    <div style='font-size:8px;color:#8ca3b0;margin-bottom:6px;letter-spacing:0.1em;'>CHANNELS</div>
+                    <div style='font-size:8px;color:#7a8f9c;margin-bottom:6px;letter-spacing:0.1em;'>CHANNELS</div>
                     <div style='font-size:8px;color:#556677;margin-bottom:4px;'>  # general</div>
                     <div style='font-size:8px;color:#556677;margin-bottom:4px;'>  # team</div>
-                    <div style='font-size:8px;color:#8ca3b0;margin-bottom:10px;border-top:1px solid #1a2040;padding-top:6px;'>DIRECT</div>
-                    <div style='font-size:8px;color:#8ca3b0;background:#1a2a3a;border-radius:4px;padding:2px 4px;margin-bottom:3px;'>● Alex R.</div>
+                    <div style='font-size:8px;color:#7a8f9c;margin-bottom:10px;border-top:1px solid #1a2040;padding-top:6px;'>DIRECT</div>
+                    <div style='font-size:8px;color:#7a8f9c;background:#1a2a3a;border-radius:4px;padding:2px 4px;margin-bottom:3px;'>● Alex R.</div>
                     <div style='font-size:8px;color:#556677;margin-bottom:3px;'>  Jordan K.</div>
                     <div style='font-size:8px;color:#556677;'>  Sam L.</div>
                   </div>
@@ -2396,19 +2398,19 @@ with tab_deploy:
                       <div style='display:flex;gap:6px;align-items:flex-start;margin-bottom:10px;'>
                         <div style='width:20px;height:20px;border-radius:4px;background:#1a3050;
                                      flex-shrink:0;font-size:8px;display:flex;align-items:center;
-                                     justify-content:center;color:#8ca3b0;'>A</div>
+                                     justify-content:center;color:#7a8f9c;'>A</div>
                         <div>
-                          <div style='font-size:8px;color:#8ca3b0;font-weight:600;'>Alex R. <span style="color:#8ca3b0;font-weight:normal;">10:41 AM</span></div>
-                          <div style='font-size:8px;color:#8ca3b0;margin-top:2px;'>You seem quiet lately.</div>
+                          <div style='font-size:8px;color:#7a8f9c;font-weight:600;'>Alex R. <span style="color:#7a8f9c;font-weight:normal;">10:41 AM</span></div>
+                          <div style='font-size:8px;color:#7a8f9c;margin-top:2px;'>You seem quiet lately.</div>
                         </div>
                       </div>
                       <div style='display:flex;gap:6px;align-items:flex-start;margin-bottom:10px;'>
                         <div style='width:20px;height:20px;border-radius:4px;background:#1a2050;
                                      flex-shrink:0;font-size:8px;display:flex;align-items:center;
-                                     justify-content:center;color:#8ca3b0;'>Y</div>
+                                     justify-content:center;color:#7a8f9c;'>Y</div>
                         <div>
-                          <div style='font-size:8px;color:#8ca3b0;font-weight:600;'>You <span style="color:#8ca3b0;font-weight:normal;">10:43 AM</span></div>
-                          <div style='font-size:8px;color:#8ca3b0;margin-top:2px;'>Don't worry about it, I'm fine.</div>
+                          <div style='font-size:8px;color:#7a8f9c;font-weight:600;'>You <span style="color:#7a8f9c;font-weight:normal;">10:43 AM</span></div>
+                          <div style='font-size:8px;color:#7a8f9c;margin-top:2px;'>Don't worry about it, I'm fine.</div>
                         </div>
                       </div>
                     </div>
@@ -2423,9 +2425,9 @@ with tab_deploy:
                           <span style='font-size:7px;color:#e7a59c;'>Boundary — may read as rejection</span>
                         </div>
                         <div style='display:flex;gap:4px;'>
-                          <div style='font-size:7px;color:#8ca3b0;padding:2px 6px;border:1px solid #dce7f3;border-radius:3px;'>Aa</div>
-                          <div style='font-size:7px;color:#8ca3b0;padding:2px 6px;border:1px solid #dce7f3;border-radius:3px;'>📎</div>
-                          <div style='background:#1a3a5c;border-radius:3px;padding:2px 8px;font-size:7px;color:#8ca3b0;'>Send</div>
+                          <div style='font-size:7px;color:#7a8f9c;padding:2px 6px;border:1px solid #dce7f3;border-radius:3px;'>Aa</div>
+                          <div style='font-size:7px;color:#7a8f9c;padding:2px 6px;border:1px solid #dce7f3;border-radius:3px;'>📎</div>
+                          <div style='background:#1a3a5c;border-radius:3px;padding:2px 8px;font-size:7px;color:#7a8f9c;'>Send</div>
                         </div>
                       </div>
                     </div>
@@ -2444,10 +2446,10 @@ with tab_deploy:
         with col_laptop_desc:
             st.markdown("""
             <div style='padding: 12px 0 0 12px;'>
-              <div style='font-size:1.3em;font-weight:700;color:#8ca3b0;margin-bottom:12px;'>
+              <div style='font-size:1.3em;font-weight:700;color:#7a8f9c;margin-bottom:12px;'>
                 Laptop · browser extension
               </div>
-              <div style='color:#717182;font-size:0.92em;line-height:1.7;margin-bottom:18px;'>
+              <div style='color:#4a5568;font-size:0.92em;line-height:1.7;margin-bottom:18px;'>
                 A browser extension injects a single-line signal bar into the compose
                 area of any messaging app. The signal sits between your text and the
                 send button — visible only to you, dismissed on send.
@@ -2456,16 +2458,16 @@ with tab_deploy:
 
             st.markdown("""
               <div style='font-size:0.75em;letter-spacing:0.15em;text-transform:uppercase;
-                          color:#8ca3b0;margin-bottom:10px;'>Trigger frequency at desk</div>
+                          color:#7a8f9c;margin-bottom:10px;'>Trigger frequency at desk</div>
             """, unsafe_allow_html=True)
             st.markdown(freq_bar(88, "#C9922A", "Work context · new relationship", "fires when gap > 0.10"), unsafe_allow_html=True)
-            st.markdown(freq_bar(40, "#6BAE8A", "Long-term colleague · established rapport", "fires when gap > 0.15"), unsafe_allow_html=True)
+            st.markdown(freq_bar(40, "#4A908F", "Long-term colleague · established rapport", "fires when gap > 0.15"), unsafe_allow_html=True)
             st.markdown(freq_bar(72, "#B84040", "Personal messages via work apps", "fires on misaligned sends"), unsafe_allow_html=True)
 
             st.markdown("""
               <div style='margin-top:14px;padding:10px 14px;background:rgba(243,156,18,0.06);
                           border-left:3px solid #f39c12;border-radius:0 8px 8px 0;
-                          font-size:0.85em;color:#717182;line-height:1.6;'>
+                          font-size:0.85em;color:#4a5568;line-height:1.6;'>
                 <b style='color:#e7a59c;'>Extension icon</b> glows in the toolbar
                 when a gap is detected — even without the compose box open.
                 Click to see the full breakdown for the last message received.
@@ -2499,7 +2501,7 @@ with tab_deploy:
                         transparent 100%);
                 '></div>
                 <div style='padding:16px 14px;position:relative;z-index:2;'>
-                  <div style='font-size:9px;color:#8ca3b0;text-align:center;margin-bottom:20px;'>AMBIENT MODE</div>
+                  <div style='font-size:9px;color:#7a8f9c;text-align:center;margin-bottom:20px;'>AMBIENT MODE</div>
                   <!-- pulsing orb -->
                   <div style='
                     width:70px;height:70px;border-radius:50%;
@@ -2516,7 +2518,7 @@ with tab_deploy:
                   <!-- transcript snippet -->
                   <div style='margin-top:16px;background:rgba(0,0,0,0.3);border-radius:6px;padding:6px;
                                border:1px solid #1a2030;'>
-                    <div style='font-size:7px;color:#8ca3b0;margin-bottom:4px;letter-spacing:0.08em;'>LIVE TRANSCRIPT</div>
+                    <div style='font-size:7px;color:#7a8f9c;margin-bottom:4px;letter-spacing:0.08em;'>LIVE TRANSCRIPT</div>
                     <div style='font-size:8px;color:#9b8870;font-style:italic;'>"I'm fine, don't worry…"</div>
                     <div style='font-size:7px;color:#c47b71;margin-top:3px;'>↳ heard as: shutting down</div>
                   </div>
@@ -2542,10 +2544,10 @@ with tab_deploy:
         with col_audio_desc:
             st.markdown("""
             <div style='padding: 12px 0 0 20px;'>
-              <div style='font-size:1.3em;font-weight:700;color:#8ca3b0;margin-bottom:12px;'>
+              <div style='font-size:1.3em;font-weight:700;color:#7a8f9c;margin-bottom:12px;'>
                 Audio · face-to-face · voice call
               </div>
-              <div style='color:#717182;font-size:0.92em;line-height:1.7;margin-bottom:18px;'>
+              <div style='color:#4a5568;font-size:0.92em;line-height:1.7;margin-bottom:18px;'>
                 On-device transcription feeds the classifier in real-time.
                 No cloud. The phone lies face-up between you — its screen glows the gap colour.
                 A wearable (haptic band) can give the same signal privately.
@@ -2555,18 +2557,18 @@ with tab_deploy:
 
             st.markdown("""
               <div style='font-size:0.75em;letter-spacing:0.15em;text-transform:uppercase;
-                          color:#8ca3b0;margin-bottom:10px;'>Trigger logic · voice</div>
+                          color:#7a8f9c;margin-bottom:10px;'>Trigger logic · voice</div>
             """, unsafe_allow_html=True)
             st.markdown(freq_bar(100, "#B84040", "Conflict conversation detected", "continuous ambient colour"), unsafe_allow_html=True)
             st.markdown(freq_bar(55,  "#C9922A", "Ambiguous exchange flagged", "orb pulses once"), unsafe_allow_html=True)
-            st.markdown(freq_bar(20,  "#6BAE8A", "Aligned conversation", "signal fades to background"), unsafe_allow_html=True)
+            st.markdown(freq_bar(20,  "#4A908F", "Aligned conversation", "signal fades to background"), unsafe_allow_html=True)
             st.markdown(freq_bar(35,  "#9b59b6", "Repair moment detected", "green pulse — acknowledge"), unsafe_allow_html=True)
 
             st.markdown("""
               <div style='margin-top:14px;padding:10px 14px;background:rgba(155,89,182,0.06);
                           border-left:3px solid #9b59b6;border-radius:0 8px 8px 0;
-                          font-size:0.85em;color:#717182;line-height:1.6;'>
-                <b style='color:#8ca3b0;'>Therapist / mediator mode:</b><br>
+                          font-size:0.85em;color:#4a5568;line-height:1.6;'>
+                <b style='color:#7a8f9c;'>Therapist / mediator mode:</b><br>
                 A third screen visible only to the facilitator shows both people's
                 gap trajectories simultaneously — real-time map of where the session is.
               </div>
@@ -2580,7 +2582,7 @@ with tab_deploy:
     st.markdown("<div class='nt-section-title'>When does the signal appear? — trigger logic timeline</div>", unsafe_allow_html=True)
 
     st.markdown("""
-    <div style='color:#8ca3b0;font-size:0.9em;margin-bottom:16px;'>
+    <div style='color:#7a8f9c;font-size:0.9em;margin-bottom:16px;'>
     The system does not fire on every message. It fires when the gap crosses a threshold that
     <em>matters</em> — grounded in the same ChaosNLI human annotation baseline used in the scientific model.
     </div>
@@ -2617,8 +2619,8 @@ with tab_deploy:
         colors_s = {
             "After a conflict (partner)":  "#B84040",
             "Neutral (colleague)":          "#C9922A",
-            "Positive history (partner)":   "#6B9FC4",
-            "Aligned dyad (long-term)":     "#6BAE8A",
+            "Positive history (partner)":   "#5a8eb8",
+            "Aligned dyad (long-term)":     "#4A908F",
         }
 
         fig = go.Figure()
@@ -2725,36 +2727,36 @@ with tab_deploy:
     <table style='width:100%;border-collapse:collapse;font-size:0.85em;'>
       <thead>
         <tr style='border-bottom:1px solid #1a2a3a;'>
-          <th style='text-align:left;padding:8px 12px;color:#8ca3b0;font-weight:600;letter-spacing:0.06em;'>CONTEXT</th>
-          <th style='text-align:center;padding:8px 12px;color:#8ca3b0;font-weight:600;letter-spacing:0.06em;'>THRESHOLD</th>
-          <th style='text-align:left;padding:8px 12px;color:#8ca3b0;font-weight:600;letter-spacing:0.06em;'>RATIONALE</th>
-          <th style='text-align:center;padding:8px 12px;color:#8ca3b0;font-weight:600;letter-spacing:0.06em;'>EST. FIRE RATE</th>
+          <th style='text-align:left;padding:8px 12px;color:#7a8f9c;font-weight:600;letter-spacing:0.06em;'>CONTEXT</th>
+          <th style='text-align:center;padding:8px 12px;color:#7a8f9c;font-weight:600;letter-spacing:0.06em;'>THRESHOLD</th>
+          <th style='text-align:left;padding:8px 12px;color:#7a8f9c;font-weight:600;letter-spacing:0.06em;'>RATIONALE</th>
+          <th style='text-align:center;padding:8px 12px;color:#7a8f9c;font-weight:600;letter-spacing:0.06em;'>EST. FIRE RATE</th>
         </tr>
       </thead>
       <tbody>
         <tr style='border-bottom:1px solid #0e1520;'>
-          <td style='padding:8px 12px;color:#8ca3b0;'>After conflict</td>
+          <td style='padding:8px 12px;color:#7a8f9c;'>After conflict</td>
           <td style='padding:8px 12px;text-align:center;'><span style='color:#c47b71;font-weight:700;'>0.10</span></td>
-          <td style='padding:8px 12px;color:#717182;'>Every message at risk — low bar is a safety net</td>
+          <td style='padding:8px 12px;color:#4a5568;'>Every message at risk — low bar is a safety net</td>
           <td style='padding:8px 12px;text-align:center;color:#c47b71;'>~80–95%</td>
         </tr>
         <tr style='border-bottom:1px solid #0e1520;'>
-          <td style='padding:8px 12px;color:#8ca3b0;'>Neutral history</td>
+          <td style='padding:8px 12px;color:#7a8f9c;'>Neutral history</td>
           <td style='padding:8px 12px;text-align:center;'><span style='color:#e7a59c;font-weight:700;'>0.10</span></td>
-          <td style='padding:8px 12px;color:#717182;'>Evidently AI drift standard — genuine ambiguity threshold</td>
+          <td style='padding:8px 12px;color:#4a5568;'>Evidently AI drift standard — genuine ambiguity threshold</td>
           <td style='padding:8px 12px;text-align:center;color:#e7a59c;'>~40–65%</td>
         </tr>
         <tr style='border-bottom:1px solid #0e1520;'>
-          <td style='padding:8px 12px;color:#8ca3b0;'>Positive history</td>
-          <td style='padding:8px 12px;text-align:center;'><span style='color:#8ca3b0;font-weight:700;'>0.20</span></td>
-          <td style='padding:8px 12px;color:#717182;'>Higher bar — only flag systematic misalignment</td>
-          <td style='padding:8px 12px;text-align:center;color:#8ca3b0;'>~15–25%</td>
+          <td style='padding:8px 12px;color:#7a8f9c;'>Positive history</td>
+          <td style='padding:8px 12px;text-align:center;'><span style='color:#7a8f9c;font-weight:700;'>0.20</span></td>
+          <td style='padding:8px 12px;color:#4a5568;'>Higher bar — only flag systematic misalignment</td>
+          <td style='padding:8px 12px;text-align:center;color:#7a8f9c;'>~15–25%</td>
         </tr>
         <tr>
-          <td style='padding:8px 12px;color:#8ca3b0;'>Aligned dyad</td>
-          <td style='padding:8px 12px;text-align:center;'><span style='color:#8ca3b0;font-weight:700;'>0.25</span></td>
-          <td style='padding:8px 12px;color:#717182;'>Safety net only — ChaosNLI noise floor well below this</td>
-          <td style='padding:8px 12px;text-align:center;color:#8ca3b0;'>~5–10%</td>
+          <td style='padding:8px 12px;color:#7a8f9c;'>Aligned dyad</td>
+          <td style='padding:8px 12px;text-align:center;'><span style='color:#7a8f9c;font-weight:700;'>0.25</span></td>
+          <td style='padding:8px 12px;color:#4a5568;'>Safety net only — ChaosNLI noise floor well below this</td>
+          <td style='padding:8px 12px;text-align:center;color:#7a8f9c;'>~5–10%</td>
         </tr>
       </tbody>
     </table>
@@ -2768,7 +2770,7 @@ with tab_deploy:
     st.markdown("<div class='nt-section-title'>What the signal looks like — the full vocabulary</div>", unsafe_allow_html=True)
 
     st.markdown("""
-    <div style='color:#8ca3b0;font-size:0.9em;margin-bottom:16px;'>
+    <div style='color:#7a8f9c;font-size:0.9em;margin-bottom:16px;'>
     Five states. No numbers. Each maps to a gap tier and a plain-English phrase.
     The system never shows a decimal. It never gives advice. It shows the gap.
     </div>
@@ -2802,7 +2804,7 @@ with tab_deploy:
                 margin:0 auto 2px;
               '></div>
               <div style='font-weight:700;color:#2c3e50;font-size:0.88em;margin:4px 0;'>{label}</div>
-              <div style='font-size:0.72em;color:#8ca3b0;background:#dce7f3;
+              <div style='font-size:0.72em;color:#7a8f9c;background:#dce7f3;
                           border-radius:4px;padding:2px 8px;margin-bottom:4px;'>{range_txt}</div>
               <div style='font-size:0.76em;color:#556677;line-height:1.5;white-space:pre-line;'>{desc}</div>
             </div>
@@ -2814,7 +2816,7 @@ with tab_deploy:
     st.markdown("<hr class='nt-divider'>", unsafe_allow_html=True)
     st.markdown("<div class='nt-section-title'>Built with safety architecture from the start</div>", unsafe_allow_html=True)
     st.markdown("""
-    <div style='font-size:0.84em;color:#717182;margin-bottom:16px;line-height:1.5;'>
+    <div style='font-size:0.84em;color:#4a5568;margin-bottom:16px;line-height:1.5;'>
       These are not afterthoughts. Each ethical risk is identified, mitigated, and built into the instrument
       architecture before first deployment.
     </div>
@@ -2865,15 +2867,15 @@ with tab_deploy:
     with col_priv1:
         st.markdown("""
         <div class='nt-card'>
-          <div style='font-weight:700;color:#8ca3b0;font-size:1.0em;margin-bottom:12px;'>🔒 Privacy architecture</div>
+          <div style='font-weight:700;color:#7a8f9c;font-size:1.0em;margin-bottom:12px;'>🔒 Privacy architecture</div>
           <div style='color:#556677;font-size:0.88em;line-height:1.75;'>
-            <span style='color:#717182;'>Model runs on-device.</span>
+            <span style='color:#4a5568;'>Model runs on-device.</span>
             Message text is processed locally — never transmitted. Only the gap score (a single float) is logged,
             never the original text.<br><br>
-            <span style='color:#717182;'>No content stored.</span>
+            <span style='color:#4a5568;'>No content stored.</span>
             The relational context vector (16 dimensions) encodes relationship history as aggregated statistics —
             not message content.<br><br>
-            <span style='color:#717182;'>Consent architecture:</span>
+            <span style='color:#4a5568;'>Consent architecture:</span>
             both parties opt in explicitly. Either party can pause or end the signal at any time
             with a single tap.
           </div>
@@ -2881,12 +2883,12 @@ with tab_deploy:
         """, unsafe_allow_html=True)
     with col_priv2:
         specs = [
-            ("Inference latency",   "< 200ms",    "#6BAE8A", "DistilBERT on-device, Month 1–6"),
-            ("Gap computation",     "< 5ms",      "#6BAE8A", "JSD is O(n) — trivially fast"),
+            ("Inference latency",   "< 200ms",    "#4A908F", "DistilBERT on-device, Month 1–6"),
+            ("Gap computation",     "< 5ms",      "#4A908F", "JSD is O(n) — trivially fast"),
             ("Model size (v1)",     "66MB",       "#C9922A", "DistilBERT quantised"),
             ("Model size (v2)",     "355MB",      "#C9922A", "RoBERTa-large, Month 6–7"),
-            ("Battery impact",      "< 1% / hr",  "#6BAE8A", "Passive inference, not streaming"),
-            ("Transcription (v2)",  "< 100ms",    "#6B9FC4", "On-device Whisper tiny"),
+            ("Battery impact",      "< 1% / hr",  "#4A908F", "Passive inference, not streaming"),
+            ("Transcription (v2)",  "< 100ms",    "#5a8eb8", "On-device Whisper tiny"),
         ]
         rows = "".join([
             f"<div style='display:flex;justify-content:space-between;border-bottom:1px solid #0e1520;"
@@ -2898,9 +2900,9 @@ with tab_deploy:
         ])
         st.markdown(f"""
         <div class='nt-card'>
-          <div style='font-weight:700;color:#8ca3b0;font-size:1.0em;margin-bottom:12px;'>⚡ Performance targets</div>
+          <div style='font-weight:700;color:#7a8f9c;font-size:1.0em;margin-bottom:12px;'>⚡ Performance targets</div>
           {rows}
-          <div style='margin-top:10px;font-size:0.8em;color:#8ca3b0;'>Engineering targets — empirical benchmarking in progress</div>
+          <div style='margin-top:10px;font-size:0.8em;color:#7a8f9c;'>Engineering targets — empirical benchmarking in progress</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -2908,7 +2910,7 @@ with tab_deploy:
     st.markdown("<hr class='nt-divider'>", unsafe_allow_html=True)
     st.markdown("""
     <div style='margin-bottom:14px;'>
-      <div style='font-size:1.3em;font-weight:700;color:#8ca3b0;margin-bottom:6px;'>
+      <div style='font-size:1.3em;font-weight:700;color:#7a8f9c;margin-bottom:6px;'>
         The Neuroplasticity Arc — what happens over 60 days
         <span style='font-size:0.58em;font-weight:400;color:#e7a59c;letter-spacing:0.1em;
                      text-transform:uppercase;margin-left:10px;vertical-align:middle;
@@ -2951,11 +2953,11 @@ with tab_deploy:
         arrowhead=2, ax=40, ay=-40, font=dict(size=10, color='#C9922A'),
         arrowcolor='#C9922A', bgcolor='rgba(13,13,26,0.8)', bordercolor='#C9922A', borderwidth=1)
     fig_neuro.add_annotation(x=60, y=gap_proj[-1], text="Day 60<br>EEG session<br>IBS shift measured", showarrow=True,
-        arrowhead=2, ax=-60, ay=-30, font=dict(size=10, color='#6BAE8A'),
-        arrowcolor='#6BAE8A', bgcolor='rgba(13,13,26,0.8)', bordercolor='#6BAE8A', borderwidth=1)
+        arrowhead=2, ax=-60, ay=-30, font=dict(size=10, color='#4A908F'),
+        arrowcolor='#4A908F', bgcolor='rgba(13,13,26,0.8)', bordercolor='#4A908F', borderwidth=1)
     fig_neuro.update_layout(
         paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(220,231,243,0.3)',
-        font=dict(color='#717182', size=11),
+        font=dict(color='#4a5568', size=11),
         xaxis=dict(title='Day', showgrid=True, gridcolor='#1a2030', tickvals=[0,10,20,30,40,50,60]),
         yaxis=dict(title='Intent Gap Score (JS-divergence)', showgrid=True, gridcolor='#1a2030',
                    range=[0, 0.65], tickformat='.2f'),
@@ -2975,34 +2977,34 @@ with tab_deploy:
         <div style='font-size:1.5em;margin-bottom:6px;'>🧠</div>
         <div style='font-size:0.72em;color:#c47b71;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;'>Step 1</div>
         <div style='font-size:0.82em;color:#2c3e50;font-weight:600;margin-bottom:4px;'>TPJ fires</div>
-        <div style='font-size:0.75em;color:#717182;line-height:1.4;'>The intent signal occupies the cognitive reappraisal window — lateral PFC activates, amygdala cascade suppressed</div>
+        <div style='font-size:0.75em;color:#4a5568;line-height:1.4;'>The intent signal occupies the cognitive reappraisal window — lateral PFC activates, amygdala cascade suppressed</div>
       </div>
-      <div style='flex:0;padding:14px 4px;display:flex;align-items:center;color:#8ca3b0;font-size:1.2em;'>→</div>
+      <div style='flex:0;padding:14px 4px;display:flex;align-items:center;color:#7a8f9c;font-size:1.2em;'>→</div>
       <div style='flex:1;min-width:160px;padding:14px 16px;background:rgba(231,165,156,0.10);
                   border-radius:10px;text-align:center;'>
         <div style='font-size:1.5em;margin-bottom:6px;'>💛</div>
         <div style='font-size:0.72em;color:#e7a59c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;'>Step 2</div>
         <div style='font-size:0.82em;color:#2c3e50;font-weight:600;margin-bottom:4px;'>Dopamine + oxytocin reward</div>
-        <div style='font-size:0.75em;color:#717182;line-height:1.4;'>Correct intent inference confirmed — nucleus accumbens releases dopamine and oxytocin, reinforcing the trust-confirming mentalising state (Zak et al., 2017)</div>
+        <div style='font-size:0.75em;color:#4a5568;line-height:1.4;'>Correct intent inference confirmed — nucleus accumbens releases dopamine and oxytocin, reinforcing the trust-confirming mentalising state (Zak et al., 2017)</div>
       </div>
-      <div style='flex:0;padding:14px 4px;display:flex;align-items:center;color:#8ca3b0;font-size:1.2em;'>→</div>
+      <div style='flex:0;padding:14px 4px;display:flex;align-items:center;color:#7a8f9c;font-size:1.2em;'>→</div>
       <div style='flex:1;min-width:160px;padding:14px 16px;background:rgba(220,231,243,0.5);
                   border-radius:10px;text-align:center;'>
         <div style='font-size:1.5em;margin-bottom:6px;'>🔗</div>
-        <div style='font-size:0.72em;color:#8ca3b0;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;'>Step 3</div>
+        <div style='font-size:0.72em;color:#7a8f9c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;'>Step 3</div>
         <div style='font-size:0.82em;color:#2c3e50;font-weight:600;margin-bottom:4px;'>Circuit strengthens</div>
-        <div style='font-size:0.75em;color:#717182;line-height:1.4;'>Hebbian co-activation of TPJ — repeated correct scaffolding strengthens mentalising circuitry (Sitaram et al., 2017)</div>
+        <div style='font-size:0.75em;color:#4a5568;line-height:1.4;'>Hebbian co-activation of TPJ — repeated correct scaffolding strengthens mentalising circuitry (Sitaram et al., 2017)</div>
       </div>
-      <div style='flex:0;padding:14px 4px;display:flex;align-items:center;color:#8ca3b0;font-size:1.2em;'>→</div>
+      <div style='flex:0;padding:14px 4px;display:flex;align-items:center;color:#7a8f9c;font-size:1.2em;'>→</div>
       <div style='flex:1;min-width:160px;padding:14px 16px;background:rgba(220,231,243,0.4);
                   border-radius:10px;text-align:center;'>
         <div style='font-size:1.5em;margin-bottom:6px;'>🌿</div>
-        <div style='font-size:0.72em;color:#8ca3b0;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;'>Step 4</div>
+        <div style='font-size:0.72em;color:#7a8f9c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;'>Step 4</div>
         <div style='font-size:0.82em;color:#2c3e50;font-weight:600;margin-bottom:4px;'>Trace in the brain</div>
-        <div style='font-size:0.75em;color:#717182;line-height:1.4;'>Sustained IFG/dmPFC inter-brain coupling persists beyond the interaction — raising dyad's baseline mentalising capacity (Finn et al., 2024)</div>
+        <div style='font-size:0.75em;color:#4a5568;line-height:1.4;'>Sustained IFG/dmPFC inter-brain coupling persists beyond the interaction — raising dyad's baseline mentalising capacity (Finn et al., 2024)</div>
       </div>
     </div>
-    <div style='font-size:0.75em;color:#8ca3b0;font-style:italic;padding:8px 0;'>
+    <div style='font-size:0.75em;color:#7a8f9c;font-style:italic;padding:8px 0;'>
       Mechanism: LeDoux (1996), Gross (1998), Sitaram et al. (2017), Singer (2025), Finn et al. (2024).
       All steps are hypothesised cascade — H₃ is the exploratory hypothesis this programme is designed to test.
     </div>
@@ -3011,9 +3013,9 @@ with tab_deploy:
     # Footer
     st.markdown("<hr class='nt-divider'>", unsafe_allow_html=True)
     st.markdown("""
-    <div style='text-align:center;color:#8ca3b0;font-size:0.82em;padding-bottom:20px;'>
+    <div style='text-align:center;color:#7a8f9c;font-size:0.82em;padding-bottom:20px;'>
         NeuroAI Cognitive Companion &nbsp;·&nbsp; Encode × Pillar VC AI for Science Fellowship &nbsp;·&nbsp; March 2026<br>
-        <em style='color:#8ca3b0;'>"The gap is real. The signal is measurable. The intervention is the instrument."</em>
+        <em style='color:#7a8f9c;'>"The gap is real. The signal is measurable. The intervention is the instrument."</em>
     </div>
     """, unsafe_allow_html=True)
 
@@ -3024,7 +3026,7 @@ with tab_network:
     st.markdown("""
     <div style='padding:18px 24px 14px;background:linear-gradient(135deg,rgba(220,231,243,0.5) 0%,rgba(231,165,156,0.08) 100%);
                 border:1px solid #dce7f3;border-radius:14px;margin-bottom:24px;'>
-      <div style='font-size:1.05em;color:#8ca3b0;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;'>
+      <div style='font-size:1.05em;color:#7a8f9c;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;'>
         🌐  The Network
       </div>
       <div style='font-size:0.88em;color:#2c3e50;line-height:1.6;max-width:800px;'>
@@ -3046,7 +3048,7 @@ with tab_network:
         </div>
         <div style='font-size:1.4em;margin-bottom:8px;'>🪞 The Mirror</div>
         <div style='font-size:0.88em;color:#2c3e50;font-weight:600;margin-bottom:6px;'>Individual intent awareness</div>
-        <div style='font-size:0.78em;color:#717182;line-height:1.5;'>
+        <div style='font-size:0.78em;color:#4a5568;line-height:1.5;'>
           The app shows you your own intent signal before you send.
           A private mirror — your intent fingerprint, visible only to you.
           Stored on-device. Never shared without consent.
@@ -3058,45 +3060,45 @@ with tab_network:
       </div>
 
       <!-- Arrow -->
-      <div style='padding:0 4px;display:flex;align-items:center;color:#8ca3b0;font-size:1.6em;'>→</div>
+      <div style='padding:0 4px;display:flex;align-items:center;color:#7a8f9c;font-size:1.6em;'>→</div>
 
       <!-- Horizon 2: Bridge -->
       <div style='flex:1;min-width:200px;padding:18px 18px 14px;
                   background:rgba(220,231,243,0.5);border:1px solid #dce7f3;border-radius:12px;'>
-        <div style='font-size:0.7em;color:#8ca3b0;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;'>
+        <div style='font-size:0.7em;color:#7a8f9c;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;'>
           Horizon 2 · 12–18 months
         </div>
         <div style='font-size:1.4em;margin-bottom:8px;'>🌉 The Bridge</div>
         <div style='font-size:0.88em;color:#2c3e50;font-weight:600;margin-bottom:6px;'>Consent-based dyadic sharing</div>
-        <div style='font-size:0.78em;color:#717182;line-height:1.5;'>
+        <div style='font-size:0.78em;color:#4a5568;line-height:1.5;'>
           With mutual opt-in, two people can see each other's intent fingerprints in real time.
           Not surveillance — a shared channel for understanding.
           Gap score visible from both sides.
         </div>
         <div style='margin-top:10px;padding:8px 10px;background:rgba(52,152,219,0.1);border-radius:7px;
-                    font-size:0.72em;color:#8ca3b0;font-weight:600;'>
+                    font-size:0.72em;color:#7a8f9c;font-weight:600;'>
           H₂ behavioural · Beta cohort planned Month 3–6
         </div>
       </div>
 
       <!-- Arrow -->
-      <div style='padding:0 4px;display:flex;align-items:center;color:#8ca3b0;font-size:1.6em;'>→</div>
+      <div style='padding:0 4px;display:flex;align-items:center;color:#7a8f9c;font-size:1.6em;'>→</div>
 
       <!-- Horizon 3: The Map -->
       <div style='flex:1;min-width:200px;padding:18px 18px 14px;
                   background:rgba(220,231,243,0.4);border:1px solid #dce7f3;border-radius:12px;'>
-        <div style='font-size:0.7em;color:#8ca3b0;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;'>
+        <div style='font-size:0.7em;color:#7a8f9c;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;'>
           Horizon 3 · 3–5 years
         </div>
         <div style='font-size:1.4em;margin-bottom:8px;'>🗺️ The Map</div>
         <div style='font-size:0.88em;color:#2c3e50;font-weight:600;margin-bottom:6px;'>Population-scale trust infrastructure</div>
-        <div style='font-size:0.78em;color:#717182;line-height:1.5;'>
+        <div style='font-size:0.78em;color:#4a5568;line-height:1.5;'>
           Aggregated, anonymised intent signatures across thousands of dyads.
           A living map of how understanding flows — or breaks — across a network.
           The counter-architecture to threat-first communication.
         </div>
         <div style='margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.1);border-radius:7px;
-                    font-size:0.72em;color:#8ca3b0;font-weight:600;'>
+                    font-size:0.72em;color:#7a8f9c;font-weight:600;'>
           Horizon · Conditional on H₁ + H₂ validation
         </div>
       </div>
@@ -3107,7 +3109,7 @@ with tab_network:
     # ── ARIA Spaces Alignment ──────────────────────────────────────────────────
     st.markdown("""
     <div style='margin:8px 0 20px;'>
-      <div style='font-size:0.78em;color:#8ca3b0;font-weight:700;letter-spacing:0.12em;
+      <div style='font-size:0.78em;color:#7a8f9c;font-weight:700;letter-spacing:0.12em;
                   text-transform:uppercase;margin-bottom:14px;'>
         ARIA Spaces — where this programme lives
       </div>
@@ -3119,7 +3121,7 @@ with tab_network:
         st.markdown("""
         <div style='padding:18px 20px;background:rgba(220,231,243,0.5);border:1px solid #dce7f3;
                     border-radius:12px;height:100%;'>
-          <div style='font-size:0.72em;color:#8ca3b0;font-weight:700;letter-spacing:0.12em;
+          <div style='font-size:0.72em;color:#7a8f9c;font-weight:700;letter-spacing:0.12em;
                       text-transform:uppercase;margin-bottom:8px;'>🧠 Scalable Neural Interfaces</div>
           <div style='font-size:0.88em;color:#2c3e50;line-height:1.65;margin-bottom:12px;'>
             The intent-conditioned model and dataset are computational tools that interface with
@@ -3127,11 +3129,11 @@ with tab_network:
             (Study 3) — testing whether pragmatic fine-tuning enhances neural similarity to
             language-selective cortex (IFG, aMTG, TPJ).
           </div>
-          <div style='font-size:0.78em;color:#717182;font-style:italic;'>
+          <div style='font-size:0.78em;color:#4a5568;font-style:italic;'>
             This is AI for Science, not science-flavoured product.
           </div>
           <div style='margin-top:12px;padding:8px 10px;background:rgba(52,152,219,0.1);
-                      border-radius:6px;font-size:0.74em;color:#8ca3b0;font-weight:600;'>
+                      border-radius:6px;font-size:0.74em;color:#7a8f9c;font-weight:600;'>
             Study 3 · Brain-Score Language benchmark · Months 6–8 · SHOULD tier
           </div>
         </div>
@@ -3147,7 +3149,7 @@ with tab_network:
             structural cost of human miscommunication at population scale — built on consent
             architecture, not attention extraction.
           </div>
-          <div style='font-size:0.78em;color:#717182;font-style:italic;'>
+          <div style='font-size:0.78em;color:#4a5568;font-style:italic;'>
             Measured by JS-divergence at scale, not engagement metrics.
           </div>
           <div style='margin-top:12px;padding:8px 10px;background:rgba(46,204,113,0.1);
@@ -3163,7 +3165,7 @@ with tab_network:
                 border:1px solid #dce7f3;border-radius:10px;font-size:0.84em;color:#556677;line-height:1.6;'>
       <div style='font-weight:700;color:#2c3e50;margin-bottom:6px;'>
         Study 3 — Brain-Score neural plausibility validation
-        <span style='font-size:0.75em;font-weight:400;color:#8ca3b0;margin-left:8px;'>Months 6–8 · SHOULD</span>
+        <span style='font-size:0.75em;font-weight:400;color:#7a8f9c;margin-left:8px;'>Months 6–8 · SHOULD</span>
       </div>
       Submit the trained intent model to the MIT Brain-Score Language benchmark
       (Schrimpf et al., 2021). Target benchmarks: <strong>Pereira2018, Fedorenko2016, Blank2014</strong>.
@@ -3179,11 +3181,11 @@ with tab_network:
 
     # ── Section A: The Bridge — dual radar charts ──────────────────────────────
     st.markdown("""
-    <div style='font-size:0.78em;color:#8ca3b0;font-weight:700;letter-spacing:0.12em;
+    <div style='font-size:0.78em;color:#7a8f9c;font-weight:700;letter-spacing:0.12em;
                 text-transform:uppercase;margin-bottom:12px;'>
       🌉  Section A — The Bridge: Two Intent Fingerprints
     </div>
-    <div style='font-size:0.82em;color:#717182;margin-bottom:16px;line-height:1.5;'>
+    <div style='font-size:0.82em;color:#4a5568;margin-bottom:16px;line-height:1.5;'>
       With mutual consent, both parties can see each other's intent signal in real time.
       The gap score — shown from both sides simultaneously — is the shared language for understanding.
     </div>
@@ -3204,7 +3206,7 @@ with tab_network:
             theta=bridge_cats + [bridge_cats[0]],
             fill='toself',
             name="Maya's intent (SI)",
-            line=dict(color='#6B9FC4', width=2),
+            line=dict(color='#5a8eb8', width=2),
             fillcolor='rgba(107,159,196,0.18)',
         ))
         fig_maya.add_trace(go.Scatterpolar(
@@ -3264,7 +3266,7 @@ with tab_network:
             theta=bridge_cats + [bridge_cats[0]],
             fill='toself',
             name="Maya perceives (PI)",
-            line=dict(color='#6BAE8A', width=2, dash='dot'),
+            line=dict(color='#4A908F', width=2, dash='dot'),
             fillcolor='rgba(107,174,138,0.12)',
         ))
         fig_dev.update_layout(
@@ -3303,19 +3305,19 @@ with tab_network:
                 border-radius:10px;margin-top:4px;margin-bottom:28px;display:flex;align-items:center;gap:16px;'>
       <div style='font-size:1.4em;'>🔒</div>
       <div style='flex:1;'>
-        <div style='font-size:0.82em;color:#8ca3b0;font-weight:700;margin-bottom:3px;'>Consent Bridge — mutual opt-in required</div>
-        <div style='font-size:0.75em;color:#717182;line-height:1.4;'>
+        <div style='font-size:0.82em;color:#7a8f9c;font-weight:700;margin-bottom:3px;'>Consent Bridge — mutual opt-in required</div>
+        <div style='font-size:0.75em;color:#4a5568;line-height:1.4;'>
           Both Maya and Dev have enabled intent sharing for this conversation.
           Either party can withdraw at any time — intent fingerprints are deleted from the bridge immediately.
           No data leaves the device without dual consent.
         </div>
       </div>
-      <div style='padding:6px 14px;background:rgba(220,231,243,0.5);border:1px solid #8ca3b0;
-                  border-radius:20px;font-size:0.78em;color:#8ca3b0;font-weight:700;white-space:nowrap;'>
+      <div style='padding:6px 14px;background:rgba(220,231,243,0.5);border:1px solid #7a8f9c;
+                  border-radius:20px;font-size:0.78em;color:#7a8f9c;font-weight:700;white-space:nowrap;'>
         ✓ Both consented
       </div>
     </div>
-    <div style='font-size:0.73em;color:#8ca3b0;font-style:italic;margin-top:-20px;margin-bottom:28px;'>
+    <div style='font-size:0.73em;color:#7a8f9c;font-style:italic;margin-top:-20px;margin-bottom:28px;'>
       Illustrative mockup · Consent architecture is a core design constraint, not an afterthought
     </div>
     """, unsafe_allow_html=True)
@@ -3375,43 +3377,43 @@ with tab_network:
           </div>
 
           <div style='margin-bottom:10px;'>
-            <div style='font-size:0.72em;color:#717182;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;'>Primary gap mode</div>
+            <div style='font-size:0.72em;color:#4a5568;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;'>Primary gap mode</div>
             <div style='font-size:0.85em;color:#c47b71;font-weight:600;'>Expressing frustration — 14 high-gap events</div>
           </div>
 
           <div style='margin-bottom:10px;'>
-            <div style='font-size:0.72em;color:#717182;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;'>Growth since Month 1</div>
-            <div style='font-size:0.85em;color:#8ca3b0;font-weight:600;'>−38% overall gap score (mock trajectory)</div>
+            <div style='font-size:0.72em;color:#4a5568;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;'>Growth since Month 1</div>
+            <div style='font-size:0.85em;color:#7a8f9c;font-weight:600;'>−38% overall gap score (mock trajectory)</div>
           </div>
 
           <div style='margin-bottom:10px;'>
-            <div style='font-size:0.72em;color:#717182;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;'>Reflection loop</div>
-            <div style='font-size:0.78em;color:#717182;line-height:1.4;'>
+            <div style='font-size:0.72em;color:#4a5568;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;'>Reflection loop</div>
+            <div style='font-size:0.78em;color:#4a5568;line-height:1.4;'>
               Each high-gap send generates a journal prompt — not judgment, a question.
               <em style='color:#2c3e50;'>"What were you feeling when you sent that?"</em>
             </div>
           </div>
 
           <div style='padding:8px 10px;background:rgba(220,231,243,0.4);border:1px solid #dce7f3;
-                      border-radius:7px;font-size:0.72em;color:#8ca3b0;font-style:italic;'>
+                      border-radius:7px;font-size:0.72em;color:#7a8f9c;font-style:italic;'>
             "Your intent fingerprint is yours. It exists to show you yourself — not to be used against you."
           </div>
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown("""
-    <div style='font-size:0.73em;color:#8ca3b0;font-style:italic;margin-top:6px;margin-bottom:28px;'>
+    <div style='font-size:0.73em;color:#7a8f9c;font-style:italic;margin-top:6px;margin-bottom:28px;'>
       Illustrative — intent fingerprint generated from mock model data. Real fingerprints built from beta cohort, Month 3+
     </div>
     """, unsafe_allow_html=True)
 
     # ── Section C: The Map ─────────────────────────────────────────────────────
     st.markdown("""
-    <div style='font-size:0.78em;color:#8ca3b0;font-weight:700;letter-spacing:0.12em;
+    <div style='font-size:0.78em;color:#7a8f9c;font-weight:700;letter-spacing:0.12em;
                 text-transform:uppercase;margin-bottom:12px;'>
       🗺️  Section C — The Map: Population-Scale Intent Signatures
     </div>
-    <div style='font-size:0.82em;color:#717182;margin-bottom:16px;line-height:1.5;'>
+    <div style='font-size:0.82em;color:#4a5568;margin-bottom:16px;line-height:1.5;'>
       Thousands of dyads. Aggregated, anonymised intent trajectories.
       A living map of how understanding flows — and where it breaks — across a network.
     </div>
@@ -3456,14 +3458,14 @@ with tab_network:
             [0.0,  '#e7a59c'],   # blush — high gap / fragmented
             [0.25, '#dce7f3'],   # soft blue — transitioning
             [0.55, '#c0d4e8'],   # mid slate-blue — converging
-            [0.80, '#8ca3b0'],   # slate — strong understanding
+            [0.80, '#7a8f9c'],   # slate — strong understanding
             [1.0,  '#2c3e50'],   # dark — deep coherence
         ],
         showscale=True,
         colorbar=dict(
-            title=dict(text='Understanding', font=dict(size=10, color='#8ca3b0'), side='right'),
+            title=dict(text='Understanding', font=dict(size=10, color='#7a8f9c'), side='right'),
             tickvals=[0, 0.5, 1], ticktext=['fragmented', '', 'coherent'],
-            tickfont=dict(size=9, color='#8ca3b0'),
+            tickfont=dict(size=9, color='#7a8f9c'),
             thickness=10, len=0.6,
         ),
         hovertemplate='Understanding: %{z:.2f}<extra></extra>',
@@ -3475,10 +3477,10 @@ with tab_network:
     _node_size = [14, 13, 11, 10, 9]
     fig_map.add_trace(go.Scatter(
         x=_node_x, y=_node_y, mode='markers+text',
-        marker=dict(size=_node_size, color='#ffffff', line=dict(color='#8ca3b0', width=2)),
+        marker=dict(size=_node_size, color='#ffffff', line=dict(color='#7a8f9c', width=2)),
         text=['●', '●', '●', '●', '●'],
         textposition='middle center',
-        textfont=dict(size=8, color='#8ca3b0'),
+        textfont=dict(size=8, color='#7a8f9c'),
         name='Mature dyads', showlegend=True,
         hovertemplate='Mature dyad · trust anchor<extra></extra>',
     ))
@@ -3487,7 +3489,7 @@ with tab_network:
         yaxis=dict(visible=False, range=[-4, 4]),
         paper_bgcolor='rgba(245,246,247,0)',
         plot_bgcolor='rgba(245,246,247,0)',
-        legend=dict(font=dict(size=9, color='#8ca3b0'), bgcolor='rgba(255,255,255,0.8)',
+        legend=dict(font=dict(size=9, color='#7a8f9c'), bgcolor='rgba(255,255,255,0.8)',
                     orientation='h', y=-0.05),
         margin=dict(l=10, r=60, t=10, b=30),
         height=360,
@@ -3495,7 +3497,7 @@ with tab_network:
     st.plotly_chart(fig_map, use_container_width=True)
 
     st.markdown("""
-    <div style='font-size:0.73em;color:#8ca3b0;font-style:italic;margin-top:-8px;margin-bottom:28px;'>
+    <div style='font-size:0.73em;color:#7a8f9c;font-style:italic;margin-top:-8px;margin-bottom:28px;'>
       Trust propagation field · Each white node is a mature dyad that has converged ·
       Understanding radiates outward as the network grows ·
       Illustrative · Real population field: Horizon 3, conditional on H₁ + H₂ validation
@@ -3507,7 +3509,7 @@ with tab_network:
     st.markdown("""
     <div style='padding:28px 32px;background:linear-gradient(135deg,rgba(220,231,243,0.5) 0%,rgba(231,165,156,0.10) 100%);
                 border:1px solid #dce7f3;border-radius:16px;margin:8px 0 28px;text-align:center;'>
-      <div style='font-size:0.72em;color:#8ca3b0;font-weight:700;letter-spacing:0.15em;
+      <div style='font-size:0.72em;color:#7a8f9c;font-weight:700;letter-spacing:0.15em;
                   text-transform:uppercase;margin-bottom:14px;'>
         Why this matters
       </div>
@@ -3517,14 +3519,14 @@ with tab_network:
       <div style='font-size:1.05em;color:#2c3e50;line-height:1.7;max-width:720px;margin:0 auto 16px;'>
         This is the counter-architecture.
       </div>
-      <div style='font-size:0.92em;color:#717182;line-height:1.7;max-width:680px;margin:0 auto 20px;'>
+      <div style='font-size:0.92em;color:#4a5568;line-height:1.7;max-width:680px;margin:0 auto 20px;'>
         It starts with two people and a single message.
         It ends with the infrastructure for a trust-based world.
       </div>
-      <div style='font-size:0.82em;color:#8ca3b0;font-style:italic;max-width:600px;margin:0 auto 6px;'>
+      <div style='font-size:0.82em;color:#7a8f9c;font-style:italic;max-width:600px;margin:0 auto 6px;'>
         That's not a product. That's what AI for Science is built for.
       </div>
-      <div style='font-size:0.7em;color:#8ca3b0;margin-top:14px;'>
+      <div style='font-size:0.7em;color:#7a8f9c;margin-top:14px;'>
         Encode × Pillar VC AI for Science Fellowship · NeuroAI Cognitive Companion · March 2026
       </div>
     </div>
