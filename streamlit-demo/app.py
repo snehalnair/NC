@@ -959,96 +959,58 @@ st.markdown("""
 <div style='
     background: linear-gradient(180deg, #ffffff 0%, #f5f6f7 100%);
     border: 1px solid #dce7f3;
-    border-radius: 16px;
-    padding: 40px 48px 36px 48px;
-    margin-bottom: 32px;
+    border-radius: 12px;
+    padding: 20px 28px 16px 28px;
+    margin-bottom: 12px;
     position: relative;
     overflow: hidden;
 '>
-  <!-- Background glow -->
-  <div style='position:absolute;top:-60px;right:-60px;width:300px;height:300px;
-              background:radial-gradient(circle,rgba(231,165,156,0.10) 0%,transparent 70%);
-              pointer-events:none;'></div>
-  <div style='position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;
-              background:radial-gradient(circle,rgba(140,163,176,0.10) 0%,transparent 70%);
-              pointer-events:none;'></div>
-
-  <!-- Opening statement -->
-  <div style='font-size:1.15em;color:#7a8f9c;letter-spacing:0.18em;text-transform:uppercase;
-              margin-bottom:18px;'>NeuroAI Cognitive Companion</div>
-
-  <div style='font-size:1.55em;font-weight:800;color:#2c3e50;line-height:1.35;margin-bottom:0;'>
-    The largest untapped source of human potential <span style='color:#c47b71;'>is not a new model.</span><br>
-    <span style='color:#6b9fc4;'>It is the gap between what humans mean and what others receive.</span>
-  </div>
-  <br><br>
-
-  <!-- Biology mechanism row -->
-  <div style='display:flex;align-items:center;gap:0;margin:28px 0 24px 0;flex-wrap:wrap;'>
-    <!-- Amygdala node — warm coral: threat/fast -->
-    <div style='text-align:center;padding:14px 20px;background:rgba(196,123,113,0.12);
-                border:1px solid rgba(196,123,113,0.45);border-radius:12px;min-width:130px;'>
-      <div style='font-size:1.4em;margin-bottom:4px;'>🧠</div>
-      <div style='font-size:0.78em;font-weight:700;color:#c47b71;letter-spacing:0.1em;text-transform:uppercase;'>Amygdala</div>
-      <div style='font-size:0.72em;color:#7a8f9c;margin-top:3px;'>Threat pathway fires</div>
-      <div style='font-size:0.82em;font-weight:700;color:#c47b71;margin-top:2px;'>FAST</div>
+  <!-- Compact hero: heading + inline pathway -->
+  <div style='display:flex;align-items:center;gap:24px;flex-wrap:wrap;'>
+    <!-- Left: title + tagline -->
+    <div style='flex:1.2;min-width:280px;'>
+      <div style='font-size:0.8em;color:#7a8f9c;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:6px;'>NeuroAI Cognitive Companion</div>
+      <div style='font-size:1.25em;font-weight:800;color:#2c3e50;line-height:1.3;'>
+        The largest untapped source of human potential <span style='color:#c47b71;'>is not a new model.</span><br>
+        <span style='color:#6b9fc4;'>It is the gap between what humans mean and what others receive.</span>
+      </div>
     </div>
-    <!-- Arrow: coral → blue (threat → cognition) -->
-    <div style='flex:1;text-align:center;padding:0 8px;min-width:120px;'>
-      <div style='font-size:0.7em;color:#c47b71;font-weight:700;letter-spacing:0.12em;
-                  text-transform:uppercase;margin-bottom:4px;'>⚡ tens of milliseconds</div>
-      <div style='height:2px;background:linear-gradient(90deg,#c47b71,#6b9fc4);
-                  border-radius:2px;margin:6px 0;'></div>
-      <div style='font-size:0.68em;color:#7a8f9c;margin-top:4px;'>ambiguous message<br>tagged as threat</div>
-    </div>
-    <!-- PFC node — cool slate blue: cognitive/slower -->
-    <div style='text-align:center;padding:14px 20px;background:rgba(107,159,196,0.12);
-                border:1px solid rgba(107,159,196,0.45);border-radius:12px;min-width:130px;'>
-      <div style='font-size:1.4em;margin-bottom:4px;'>💡</div>
-      <div style='font-size:0.78em;font-weight:700;color:#6b9fc4;letter-spacing:0.1em;text-transform:uppercase;'>Prefrontal Cortex</div>
-      <div style='font-size:0.72em;color:#7a8f9c;margin-top:3px;'>Meaning resolved</div>
-      <div style='font-size:0.82em;font-weight:700;color:#6b9fc4;margin-top:2px;'>SLOWER</div>
-    </div>
-    <!-- Arrow: blue → teal (cognition → measurement) -->
-    <div style='flex:1;text-align:center;padding:0 8px;min-width:100px;'>
-      <div style='font-size:0.7em;color:#7a8f9c;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;'>before meaning lands</div>
-      <div style='height:2px;background:linear-gradient(90deg,#6b9fc4,#5b9e8a);border-radius:2px;margin:6px 0;'></div>
-      <div style='font-size:0.68em;color:#7a8f9c;margin-top:4px;'>damage is done</div>
-    </div>
-    <!-- Intent Gap node — teal: measurable/scientific -->
-    <div style='text-align:center;padding:14px 20px;background:rgba(91,158,138,0.12);
-                border:1px solid rgba(91,158,138,0.45);border-radius:12px;min-width:140px;'>
-      <div style='font-size:1.4em;margin-bottom:4px;'>📐</div>
-      <div style='font-size:0.78em;font-weight:700;color:#5b9e8a;letter-spacing:0.1em;text-transform:uppercase;'>Intent Gap</div>
-      <div style='font-size:0.72em;color:#7a8f9c;margin-top:3px;'>JS-divergence(P(SI), P(PI))</div>
-      <div style='font-size:0.82em;font-weight:700;color:#5b9e8a;margin-top:2px;'>MEASURABLE</div>
+    <!-- Right: compact pathway -->
+    <div style='flex:1;min-width:300px;display:flex;align-items:center;gap:0;'>
+      <div style='text-align:center;padding:8px 10px;background:rgba(196,123,113,0.12);border:1px solid rgba(196,123,113,0.35);border-radius:8px;'>
+        <div style='font-size:0.65em;font-weight:700;color:#c47b71;letter-spacing:0.08em;text-transform:uppercase;'>🧠 Amygdala</div>
+        <div style='font-size:0.6em;color:#c47b71;font-weight:600;'>FAST</div>
+      </div>
+      <div style='flex:1;height:2px;background:linear-gradient(90deg,#c47b71,#6b9fc4);margin:0 4px;'></div>
+      <div style='text-align:center;padding:8px 10px;background:rgba(107,159,196,0.12);border:1px solid rgba(107,159,196,0.35);border-radius:8px;'>
+        <div style='font-size:0.65em;font-weight:700;color:#6b9fc4;letter-spacing:0.08em;text-transform:uppercase;'>💡 PFC</div>
+        <div style='font-size:0.6em;color:#6b9fc4;font-weight:600;'>SLOWER</div>
+      </div>
+      <div style='flex:1;height:2px;background:linear-gradient(90deg,#6b9fc4,#5b9e8a);margin:0 4px;'></div>
+      <div style='text-align:center;padding:8px 10px;background:rgba(91,158,138,0.12);border:1px solid rgba(91,158,138,0.35);border-radius:8px;'>
+        <div style='font-size:0.65em;font-weight:700;color:#5b9e8a;letter-spacing:0.08em;text-transform:uppercase;'>📐 Intent Gap</div>
+        <div style='font-size:0.6em;color:#5b9e8a;font-weight:600;'>MEASURABLE</div>
+      </div>
     </div>
   </div>
 
-  <!-- Three-line thesis — colours mirror the node they relate to -->
-  <div style='display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;'>
-    <!-- Problem: coral — the threat/pain -->
-    <div style='flex:1;min-width:200px;padding:14px 18px;background:rgba(196,123,113,0.09);
-                border-left:3px solid #c47b71;border-radius:0 8px 8px 0;'>
-      <div style='font-size:0.72em;color:#c47b71;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:4px;'>The Problem</div>
-      <div style='font-size:0.88em;color:#2c3e50;line-height:1.5;'>High emotions, ego, misunderstanding — not character flaws, but biology playing out in everyday communication.</div>
+  <!-- Compact 3-card row -->
+  <div style='display:flex;gap:10px;margin-top:12px;'>
+    <div style='flex:1;padding:8px 12px;background:rgba(196,123,113,0.07);border-left:3px solid #c47b71;border-radius:0 6px 6px 0;'>
+      <div style='font-size:0.62em;color:#c47b71;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2px;font-weight:700;'>The Problem</div>
+      <div style='font-size:0.78em;color:#2c3e50;line-height:1.4;'>High emotions, ego, misunderstanding — biology playing out in everyday communication.</div>
     </div>
-    <!-- Instrument: slate blue — the scientific tool -->
-    <div style='flex:1;min-width:200px;padding:14px 18px;background:rgba(107,159,196,0.09);
-                border-left:3px solid #6b9fc4;border-radius:0 8px 8px 0;'>
-      <div style='font-size:0.72em;color:#6b9fc4;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:4px;'>The Instrument</div>
-      <div style='font-size:0.88em;color:#2c3e50;line-height:1.5;'>To our knowledge, the first scientific instrument to measure the intent gap, conditioned on dyadic relational history. <em>This dataset does not yet exist.</em></div>
+    <div style='flex:1;padding:8px 12px;background:rgba(107,159,196,0.07);border-left:3px solid #6b9fc4;border-radius:0 6px 6px 0;'>
+      <div style='font-size:0.62em;color:#6b9fc4;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2px;font-weight:700;'>The Instrument</div>
+      <div style='font-size:0.78em;color:#2c3e50;line-height:1.4;'>First scientific instrument to measure the intent gap, conditioned on dyadic relational history.</div>
     </div>
-    <!-- Hypothesis: teal — the hopeful outcome -->
-    <div style='flex:1;min-width:200px;padding:14px 18px;background:rgba(91,158,138,0.09);
-                border-left:3px solid #5b9e8a;border-radius:0 8px 8px 0;'>
-      <div style='font-size:0.72em;color:#5b9e8a;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:4px;'>The Hypothesis</div>
-      <div style='font-size:0.88em;color:#2c3e50;line-height:1.5;'>Repeated intent feedback leaves a trace in the brain — shifting neural markers from threat-first toward meaning-first. H₃, 60-day EEG pilot.</div>
+    <div style='flex:1;padding:8px 12px;background:rgba(91,158,138,0.07);border-left:3px solid #5b9e8a;border-radius:0 6px 6px 0;'>
+      <div style='font-size:0.62em;color:#5b9e8a;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2px;font-weight:700;'>The Hypothesis</div>
+      <div style='font-size:0.78em;color:#2c3e50;line-height:1.4;'>Repeated intent feedback shifts neural markers from threat-first toward meaning-first. H₃, 60-day EEG pilot.</div>
     </div>
   </div>
 
-  <!-- Source note -->
-  <div style='margin-top:20px;font-size:0.72em;color:#7a8f9c;font-style:italic;'>
+  <div style='margin-top:8px;font-size:0.62em;color:#7a8f9c;font-style:italic;'>
     Biological mechanism: subcortical threat pathway (LeDoux, 1996). Cognitive reappraisal window (Gross, 1998).
     Neuroplasticity mechanism (Singer, 2025; Sitaram et al., 2017). All hypotheses are stated as such — this programme is designed to test them.
   </div>
