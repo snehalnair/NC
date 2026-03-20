@@ -708,11 +708,27 @@ FUTURISTIC_CSS = """
     background-color: #f5f6f7 !important;
 }
 [data-testid="stSidebar"] {
-    background-color: #ffffff !important;
-    border-right: 1px solid #ececf0 !important;
+    background-color: #2c3e50 !important;
+    border-right: none !important;
 }
 [data-testid="stSidebar"] * {
-    color: #2c3e50 !important;
+    color: #d6dde3 !important;
+}
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] strong {
+    color: #ffffff !important;
+}
+[data-testid="stSidebar"] code {
+    background-color: rgba(255,255,255,0.1) !important;
+    color: #a8d8d8 !important;
+}
+[data-testid="stSidebar"] hr {
+    border-color: rgba(255,255,255,0.15) !important;
+}
+[data-testid="stSidebar"] li::marker {
+    color: #7a8f9c !important;
 }
 [data-testid="stMainBlockContainer"] {
     background-color: #f5f6f7 !important;
