@@ -2,7 +2,7 @@
 title: "Encode Fellowship Cohort 2 — Form Answers"
 status: draft-v2
 date: 2026-03-23
-revision: "v2 — tightened per review: shorter, less repetition, stronger why-now/why-me, precise Q17"
+revision: "v3 — surgical edits: Q12 links Ablation-First to H₁, Q13 adds independently-publishable framing, Q14 pivots worst-at"
 ---
 
 # Encode Fellowship — Application Form Answers
@@ -39,7 +39,7 @@ Building Viator's AI function from zero — no team, no infrastructure, no resea
 
 The technical mechanism: I designed an "Ablation-First" methodology where every model deployment had to justify itself against a simpler baseline via controlled A/B testing before it could ship. This forced rigour into a fast-moving product environment. The team built a two-stage Learning-to-Rank system at 47ms P95 latency, a multilingual review summarisation pipeline that cut LLM token usage by 82%, and a "Critic-at-the-Edge" safety gate that reduced high-risk AI incidents by 92%. I co-designed GenAI research programmes with the University of Edinburgh and led the KDD 2025 paper on cost-aware prompt optimisation.
 
-What I'm proudest of is the culture, not the metrics. Scientists learned to kill their own ideas when the evidence didn't support them. That discipline — ablation-first, evidence over intuition — is exactly what I've built into the NC research proposal: pre-registered hypotheses, planned null-result analyses, and explicit MUST/SHOULD tiering. The most valuable thing I know how to build is a system that tells you when you're wrong.
+What I'm proudest of is the culture, not the metrics. Scientists learned to kill their own ideas when the evidence didn't support them. That discipline — ablation-first, evidence over intuition — is exactly what I've built into the NC research proposal: H₁ tests whether relational context actually improves intent prediction over a message-only baseline, and if the ablation shows it doesn't, that null result is pre-registered and publishable. The most valuable thing I know how to build is a system that tells you when you're wrong.
 
 ---
 
@@ -47,14 +47,14 @@ What I'm proudest of is the culture, not the metrics. Scientists learned to kill
 
 Yes — it's been the constant across every role. At Nielsen I led a 15-person team across telecom, retail, and media in the Middle East, translating between data scientists and business leaders with fundamentally different mental models. At Scottish Power I founded an internal ML Academy to bridge data science and operations. At Viator I shipped AI features that had to satisfy product, engineering, design, and legal simultaneously.
 
-But the NC project is where cross-disciplinary collaboration becomes structurally essential, not just helpful. The project sits at the intersection of computational linguistics, social neuroscience, and HCI. I'm an engineer reaching into neuroscience, and I've designed the proposal around that reality: I bring the build velocity — dataset pipeline, model training, annotation tooling, browser extension — and the lab partner brings experimental rigour — EEG hyperscanning paradigm, ethics infrastructure, and neural analysis. The MUST deliverables (dataset, model, paper) are executable independently; the SHOULD tier (60-day EEG pilot) is explicitly contingent on lab partnership. I know what I don't know, and the plan is structured around that.
+But the NC project is where cross-disciplinary collaboration becomes structurally essential, not just helpful. The project sits at the intersection of computational linguistics, social neuroscience, and HCI. I'm an engineer reaching into neuroscience, and I've designed the proposal around that reality: I bring the build velocity — dataset pipeline, model training, annotation tooling, browser extension — and the lab partner brings experimental rigour — EEG hyperscanning paradigm, ethics infrastructure, and neural analysis. The MUST deliverables (dataset, model, paper) are executable independently; the SHOULD tier (60-day EEG pilot) is explicitly contingent on lab partnership. Each deliverable — the annotated dataset, the biographical intake instrument, the trained model — is designed to be independently publishable even if the neural markers (H₃) show a null result. I know what I don't know, and the plan is structured around that.
 
 ---
 
 ### Q14: Best at / Worst at
 
 - **Best at:** I'm good at deep research
-- **Worst at:** I can get people excited about my work
+- **Worst at:** I tend to over-engineer the core infrastructure when I should be moving faster toward exploratory data collection
 
 ---
 
