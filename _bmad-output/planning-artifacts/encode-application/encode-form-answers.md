@@ -2,7 +2,7 @@
 title: "Encode Fellowship Cohort 2 — Form Answers"
 status: draft-v2
 date: 2026-03-23
-revision: "v3 — surgical edits: Q12 links Ablation-First to H₁, Q13 adds independently-publishable framing, Q14 pivots worst-at"
+revision: "v4 — Q14 worst-at updated to match actual dropdown options"
 ---
 
 # Encode Fellowship — Application Form Answers
@@ -54,7 +54,7 @@ But the NC project is where cross-disciplinary collaboration becomes structurall
 ### Q14: Best at / Worst at
 
 - **Best at:** I'm good at deep research
-- **Worst at:** I tend to over-engineer the core infrastructure when I should be moving faster toward exploratory data collection
+- **Worst at:** I can get people excited about my work
 
 ---
 
