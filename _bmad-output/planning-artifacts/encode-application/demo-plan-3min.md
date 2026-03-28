@@ -3,7 +3,7 @@ title: "Encode Fellowship — 3-Minute Demo Plan"
 status: final
 date: 2026-03-28
 format: Loom screen recording (screen + face cam bottom-left)
-total-duration: "2:34 (26s buffer, pauses included)"
+total-duration: "2:26 (34s buffer, pauses included)"
 ---
 
 # Encode Fellowship — 3-Minute Demo Plan
@@ -27,17 +27,17 @@ total-duration: "2:34 (26s buffer, pauses included)"
 
 ---
 
-## 🎬 0:00–0:15 — HOOK (13s + 2s tab switch = 15s)
+## 🎬 0:00–0:17 — HOOK (15s + 2s tab switch = 17s)
 
 **[Face to camera, no screen share]**
 
-> "Encode asked me to show how I work. Two things: a production AI system I shipped at Viator — and a research prototype I built in three months for this fellowship."
+> "Miscommunication costs U.S. employers 2.8 hours per employee per week — and in relationships, most recurring conflicts trace to misread intent, not real disagreement. I'll show how I work on this: a production AI system I shipped at Viator, and a research prototype that measures the gap."
 
 **[Cmd+Tab → Architecture diagram in Preview (2s)]**
 
 ---
 
-## 🎬 0:15–0:45 — PRODUCTION SYSTEM (28s + 2s tab switch = 30s)
+## 🎬 0:17–0:47 — PRODUCTION SYSTEM (28s + 2s tab switch = 30s)
 
 **[Full-screen: architecture diagram — let the visual carry the detail]**
 
@@ -53,7 +53,7 @@ total-duration: "2:34 (26s buffer, pauses included)"
 
 ---
 
-## 🎬 0:45–1:14 — CORE DEMO: The Gap Score Moment (25s + 4s dramatic pause = 29s)
+## 🎬 0:47–1:16 — CORE DEMO: The Gap Score Moment (25s + 4s dramatic pause = 29s)
 
 **[Streamlit Tab A is showing]**
 
@@ -71,7 +71,7 @@ total-duration: "2:34 (26s buffer, pauses included)"
 
 ---
 
-## 🎬 1:14–1:49 — SCIENCE + PEGGY (35s)
+## 🎬 1:16–1:51 — SCIENCE + PEGGY (35s)
 
 ### Interindividual differences prediction (12s)
 
@@ -91,7 +91,7 @@ total-duration: "2:34 (26s buffer, pauses included)"
 
 ---
 
-## 🎬 1:49–2:14 — 60-DAY TRAJECTORY (13s + 2s transition = 15s)
+## 🎬 1:51–2:06 — 60-DAY TRAJECTORY (13s + 2s transition = 15s)
 
 **[Show 60-day trajectory visualisation]**
 
@@ -99,7 +99,7 @@ total-duration: "2:34 (26s buffer, pauses included)"
 
 ---
 
-## 🎬 2:14–2:34 — CLOSE (18s + 2s transition = 20s)
+## 🎬 2:06–2:26 — CLOSE (18s + 2s transition = 20s)
 
 **[Look at camera — transition away from screen share (2s)]**
 
@@ -113,16 +113,16 @@ total-duration: "2:34 (26s buffer, pauses included)"
 
 | Section | Content | Pauses | Total | Cumulative |
 |---|---|---|---|---|
-| Hook | 13s | 2s (tab switch) | 15s | 0:15 |
-| Production system | 28s | 2s (tab switch) | 30s | 0:45 |
-| Core demo (gap score) | 25s | 4s (dramatic pause) | 29s | 1:14 |
-| Science + Peggy | 35s | — | 35s | 1:49 |
-| 60-day trajectory | 13s | 2s (transition) | 15s | 2:04 |
-| Close | 18s | 2s (transition) | 20s | 2:24 |
-| **Total** | **2:12** | **12s** | **2:24** | |
-| **Buffer** | | | **36s** | **3:00** |
+| Hook (impact + intro) | 15s | 2s (tab switch) | 17s | 0:17 |
+| Production system | 28s | 2s (tab switch) | 30s | 0:47 |
+| Core demo (gap score) | 25s | 4s (dramatic pause) | 29s | 1:16 |
+| Science + Peggy | 35s | — | 35s | 1:51 |
+| 60-day trajectory | 13s | 2s (transition) | 15s | 2:06 |
+| Close | 18s | 2s (transition) | 20s | 2:26 |
+| **Total** | **2:14** | **12s** | **2:26** | |
+| **Buffer** | | | **34s** | **3:00** |
 
-**The 36-second buffer absorbs:** speaking at 85% speed, an extra pause after the gap score, a hesitation, or a slower tab switch. You will not go over 3:00.
+**The 34-second buffer absorbs:** speaking at 85% speed, an extra pause after the gap score, a hesitation, or a slower tab switch. You will not go over 3:00.
 
 ---
 
