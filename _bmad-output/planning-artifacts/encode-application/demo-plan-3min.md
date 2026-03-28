@@ -1,9 +1,9 @@
 ---
 title: "Encode Fellowship — 3-Minute Demo Plan"
 status: final
-date: 2026-03-27
+date: 2026-03-28
 format: Loom screen recording (screen + face cam bottom-left)
-total-duration: "2:40 (20s buffer, pauses included)"
+total-duration: "2:34 (26s buffer, pauses included)"
 ---
 
 # Encode Fellowship — 3-Minute Demo Plan
@@ -27,91 +27,85 @@ total-duration: "2:40 (20s buffer, pauses included)"
 
 ---
 
-## 🎬 0:00–0:15 — Hook (13s content + 2s tab switch = 15s)
+## 🎬 0:00–0:15 — HOOK (13s + 2s tab switch = 15s)
 
-**[Face to camera, no screen share yet]**
+**[Face to camera, no screen share]**
 
-> "Encode asked me to show how I work. I'll show two things: a production AI system I shipped at Viator — and a research prototype I built in three months for this fellowship."
+> "Encode asked me to show how I work. Two things: a production AI system I shipped at Viator — and a research prototype I built in three months for this fellowship."
 
-**[Cmd+Tab to Preview — architecture diagram appears (2s)]**
-
----
-
-## 🎬 0:15–1:12 — Agentic Platform (55s content + 2s tab switch = 57s)
-
-**[Full-screen: architecture diagram screenshot]**
-
-### Problem (10s)
-
-> "Our first chatbot failed in two weeks — told a customer their Colosseum tour included hotel pickup. It didn't. Root cause: no unified data layer connecting policies, bookings, reviews, and supplier rules."
-
-### Architecture (12s)
-
-> "Five subsystems: DeBERTa intent router at 15 milliseconds, GraphRAG knowledge layer with 92% cache hit rate, three-tier memory capped at 4,000 tokens, LangGraph orchestration, and confidence-based escalation at 0.85."
-
-### Rigour (12s)
-
-> "Every response cites its source tier — Gold for policy, Silver for product data, Bronze for traveller tips. We A/B tested 10,000 conversations. We deliberately kept refund disputes human-only — customers needed empathy, not accuracy."
-
-### Results (8s)
-
-> "43% Tier-1 deflection — short of the 60% target. That honesty about what failed is the same discipline I've built into the fellowship proposal."
-
-### Bridge (15s)
-
-> "This platform integrates five separate projects — FAQ extraction, review summarisation, tip extraction, prompt optimisation, governance. The pattern is always: decompose, measure each subsystem, compose. I'm now moving from optimising customer journeys to measuring human understanding."
-
-**Voice cadence:** Confident, production-engineer tone.
+**[Cmd+Tab → Architecture diagram in Preview (2s)]**
 
 ---
 
-## 🎬 1:12–1:43 — The Gap Score Moment (25s content + 4s dramatic pause + 2s tab switch = 31s)
+## 🎬 0:15–0:45 — PRODUCTION SYSTEM (28s + 2s tab switch = 30s)
 
-**[Cmd+Tab to pre-loaded Streamlit Tab A (2s)]**
+**[Full-screen: architecture diagram — let the visual carry the detail]**
+
+> "First chatbot failed in two weeks — told customers their tour included hotel pickup. It didn't. Root cause: no unified data layer.
+>
+> Fix: five-subsystem agentic platform. Results: 43% deflection on 10K conversations — short of 60% target.
+>
+> Key lesson: some problems need humans, not accuracy."
+
+**Voice cadence:** Confident, fast but clear. The diagram is on screen — don't describe what they can see.
+
+**[Cmd+Tab → Streamlit Tab A (2s)]**
+
+---
+
+## 🎬 0:45–1:14 — CORE DEMO: The Gap Score Moment (25s + 4s dramatic pause = 29s)
+
+**[Streamlit Tab A is showing]**
 
 ### Setup (10s)
 
-> "'Can we talk tonight?' — close friend, neutral history. The intent distribution: dominated by seeking connection. Gap score near zero."
+> "'Can we talk tonight?' — close friend, neutral history. Intent: seeking connection. Gap score: near zero."
 
 ### The Switch
 
-**[Click to Tab B]** — **3-4 seconds of silence. Let the visual land. This is the most important moment in the demo.**
+**[Click to Tab B]** — **4 seconds of silence. Let the visual land. This is the most important moment in the demo.**
 
 ### Narrate the shift (15s)
 
-> "Same words. Ex-partner, high conflict. Expressing frustration and setting boundary spike. Gap score jumps to 0.35. That shift is the intent gap — Jensen-Shannon divergence between what was meant and what was received."
+> "Same words. Ex-partner, high conflict. Intent: frustration and boundary-setting. Gap score: 0.35. That's the intent gap — Jensen-Shannon divergence between what was meant versus what was received."
 
 ---
 
-## 🎬 1:43–2:25 — Science + Trajectory (40s content + 2s transition = 42s)
+## 🎬 1:14–1:49 — SCIENCE + PEGGY (35s)
 
-### Interindividual differences prediction (10s)
+### Interindividual differences prediction (12s)
 
-> "Bayesian prediction: higher autistic traits may mean weaker relational priors, higher anxiety stronger threat priors, higher depression negative intent biases — each predicting differently structured gaps. My lab advisor Peggy Seriès at Edinburgh specialises in exactly this."
+> "Bayesian prediction: different trait profiles shape these gaps differently. Weaker relational priors in high autistic traits. Stronger threat priors in high anxiety. Negative intent biases in depression."
 
-### The Science tab (17s)
+### The Science tab (13s)
 
 **[Quick scroll through The Science tab — don't read, let the viewer see structure]**
 
-> "Behind the demo: four pre-registered hypotheses, 2,000-message dataset with dual-pass annotation, four ablation conditions on RoBERTa-large, 12-month plan with MUST and SHOULD tiers. Core deliverables are executable with fellowship compute. The EEG pilot uses the PPLS Cognitive Neuroscience Suite at Edinburgh."
+> "Four hypotheses. 2,000-message dataset with dual-pass annotation — context-blind then context-aware. RoBERTa ablations. MUST/SHOULD 12-month plan."
 
-### 60-day trajectory (13s)
+### Lab advisor (10s)
 
-**[Show 60-day trajectory visualisation]**
-
-> "The intervention question: does feeding back the prediction change behaviour over time? This is what convergence looks like. The real test is a within-subjects pre/post study measuring whether the gap actually closes."
+> "My lab advisor Peggy Seriès at Edinburgh specialises in exactly this — Bayesian inference in autism and anxiety. EEG pilot at the PPLS Cognitive Neuroscience Suite."
 
 **Voice cadence:** Curious researcher tone — slower, more deliberate.
 
 ---
 
-## 🎬 2:25–2:40 — Close (15s content + 2s transition = 17s)
+## 🎬 1:49–2:14 — 60-DAY TRAJECTORY (13s + 2s transition = 15s)
+
+**[Show 60-day trajectory visualisation]**
+
+> "The intervention question: does feeding back the prediction change behaviour over time? This is what convergence looks like. The real test is a within-subjects pre/post study measuring whether the gap actually closes."
+
+---
+
+## 🎬 2:14–2:34 — CLOSE (18s + 2s transition = 20s)
 
 **[Look at camera — transition away from screen share (2s)]**
 
-> "That's how I work: decompose, measure, ablate, publish — including when the result is null. I've done that at production scale for a decade. With Encode and Peggy Seriès at Edinburgh, I have 12 months to test whether relational context actually closes the intent gap — and whether the effect varies with how people are wired."
+> "That's my method: decompose, measure, ablate, publish nulls. Production-scale for a decade. Encode gives me 12 months with Peggy to test: does relational context close the intent gap — and does the effect depend on how people are wired?"
 
-**Voice cadence:** Earnest, direct eye contact.
+**Voice cadence:** Earnest, direct eye contact. End on the question — let it hang.
 
 ---
 
@@ -120,14 +114,15 @@ total-duration: "2:40 (20s buffer, pauses included)"
 | Section | Content | Pauses | Total | Cumulative |
 |---|---|---|---|---|
 | Hook | 13s | 2s (tab switch) | 15s | 0:15 |
-| Agentic platform | 55s | 2s (tab switch) | 57s | 1:12 |
-| Gap score moment | 25s | 4s (dramatic pause) + 2s (tab switch) | 31s | 1:43 |
-| Science + trajectory | 40s | 2s (transition) | 42s | 2:25 |
-| Close | 15s | 2s (transition) | 17s | 2:42 |
-| **Total** | **2:28** | **12s** | **2:40** | |
-| **Buffer** | | | **20s** | **3:00** |
+| Production system | 28s | 2s (tab switch) | 30s | 0:45 |
+| Core demo (gap score) | 25s | 4s (dramatic pause) | 29s | 1:14 |
+| Science + Peggy | 35s | — | 35s | 1:49 |
+| 60-day trajectory | 13s | 2s (transition) | 15s | 2:04 |
+| Close | 18s | 2s (transition) | 20s | 2:24 |
+| **Total** | **2:12** | **12s** | **2:24** | |
+| **Buffer** | | | **36s** | **3:00** |
 
-**The 20-second buffer absorbs:** one hesitation, one slower-than-expected tab switch, or speaking at 90% speed instead of 100%. You will not go over 3:00.
+**The 36-second buffer absorbs:** speaking at 85% speed, an extra pause after the gap score, a hesitation, or a slower tab switch. You will not go over 3:00.
 
 ---
 
@@ -140,13 +135,14 @@ total-duration: "2:40 (20s buffer, pauses included)"
 
 ## What NOT to Do
 
+- Don't describe the architecture diagram — the viewer can see it. Narrate the story (fail → fix → result → lesson)
 - Don't show all 5 Streamlit tabs — pick the 3 strongest moments
 - Don't read text off the screen — narrate what the viewer sees
 - Don't mention "product" or "startup" — this is a science demo
 - Don't demo the browser extension — it doesn't exist yet
 - Don't show the JS-divergence formula — say the name, let the visual carry meaning
-- Don't rush — the 3-second silence after the gap score jump is the most powerful moment
-- Don't say "neurodivergent dyads" — say "interindividual differences" or "psychological trait profiles"
+- Don't rush the gap score moment — the 4-second silence is the most powerful moment in the demo
+- Don't say "neurodivergent dyads" — say "interindividual differences" or "trait profiles"
 - Don't say "clinical populations" or mention hospitals — it's general population via Prolific
 - Don't say "Sériès" with wrong accent — it's "Seriès" (accent on second e only)
 - Don't say "theta-band" alone — say "predictive coding markers" if EEG comes up
@@ -155,6 +151,8 @@ total-duration: "2:40 (20s buffer, pauses included)"
 
 ## Practice Protocol
 
-1. Read through once at normal speed (target: 2:50)
+1. Read through once at normal speed — should land around 2:20–2:30
 2. Record a test take — play back, check audio and tab switches
-3. Record final take at 80% speed — the buffer absorbs any nerves
+3. The gap score silence: practise clicking Tab B and counting "one-Mississippi, two-Mississippi, three-Mississippi" before speaking
+4. Record final take at 85% speed — the 36s buffer absorbs any nerves
+5. Watch playback — verify total is under 2:50
