@@ -1071,25 +1071,27 @@ with tab_science:
         f"with the message content unchanged."
     )
 
-    # ── Section 3b: Neurodivergent prediction (H2.1) ─────────────────────────
+    # ── Section 3b: Interindividual differences prediction ───────────────────
     st.divider()
-    st.markdown("## 3b · A testable prediction: neurodivergent dyads")
+    st.markdown("## 3b · A testable prediction: interindividual differences in intent interpretation")
     st.markdown(
         "If the intent gap arises from asymmetry between subcortical threat-tagging and cortical "
-        "mentalising, it should be **systematically elevated in neurodivergent dyads** — not as a "
-        "deficit, but as a structural asymmetry the instrument is specifically designed to scaffold. "
-        "This is a **pre-registered secondary analysis** (H2.1)."
+        "mentalising, it should **vary systematically with individual differences in social cognition**. "
+        "Higher autistic traits (AQ-50) may predict weaker relational priors, higher anxiety traits (GAD-7) "
+        "may predict stronger threat priors, and higher depressive traits (PHQ-9) may predict negative intent "
+        "biases — each predicting differently structured intent gaps. "
+        "This is a **pre-registered secondary analysis**."
     )
 
     nd_col1, nd_col2 = st.columns([1.6, 1])
     with nd_col1:
         nd_pair_types = [
-            "Both neurotypical",
-            "NT sender / ND receiver",
-            "ND sender / NT receiver",
-            "Both neurodivergent",
+            "Low AQ / Low GAD",
+            "High AQ / Low GAD",
+            "Low AQ / High GAD",
+            "High AQ + GAD + PHQ",
         ]
-        nd_mean_gaps  = [0.18, 0.27, 0.31, 0.24]
+        nd_mean_gaps  = [0.18, 0.27, 0.31, 0.29]
         nd_err        = [0.04, 0.05, 0.06, 0.05]
         nd_colors     = ["#7a8f9c", "#e7a59c", "#e7a59c", "#dce7f3"]
 
@@ -1129,8 +1131,8 @@ with tab_science:
         </div>
         <div style='margin-top:12px;padding:8px 12px;background:rgba(220,231,243,0.6);
                     border-radius:6px;font-size:0.78em;color:#4a5568;'>
-          Pre-registered secondary analysis · Intent gap scores stratified by annotator neurodiverse status ·
-          Separate κ computed on neurodiverse-authored message subset
+          Pre-registered secondary analysis · Intent gap scores analysed as a function of trait profiles (AQ-50, GAD-7, PHQ-9) ·
+          Separate κ computed on trait-subset groups
         </div>
         """, unsafe_allow_html=True)
 
@@ -1223,18 +1225,19 @@ with tab_theplan:
             "type_color": "#e7a59c",
             "tier": "STRETCH",
             "tier_color": "#95a5a6",
-            "title": "Theta-band IBS increases after 60-day feedback",
+            "title": "Predictive coding markers shift after 60-day feedback",
             "body": (
                 "Dyadic pairs who complete 60 days of closed-loop intent feedback show "
-                "<strong>significant increase in theta-band inter-brain phase synchrony (IBS)</strong> "
+                "<strong>significant changes in predictive coding EEG markers</strong> — "
+                "alpha/beta (predictions) and gamma (feedforward signals; Bastos et al., 2012) — "
                 "during ambiguous-message reading tasks vs Day 0 baseline.<br>"
-                "<em>Test: within-subjects Wilcoxon · EEG hyperscanning · N=20–24 dyadic pairs · α=0.05</em>"
+                "<em>Test: within-subjects Wilcoxon · EEG hyperscanning · N=20–24 dyadic pairs · α=0.05 · PPLS Cognitive Neuroscience Suite</em>"
             ),
-            "status": "Lab partner outreach active · UCL FIL · MRC CBU · Nottingham Social Neuro",
+            "status": "PPLS Cognitive Neuroscience Suite · Seriès lab · Edinburgh neuroscience network",
         },
         {
             "id": "H₄",
-            "type": "Ablation · Within Study 1b",
+            "type": "Ablation · Within validation study",
             "type_color": "#C9922A",
             "tier": "MUST",
             "tier_color": "#27ae60",
@@ -1342,9 +1345,10 @@ with tab_theplan:
           <div>📌 SI and PI annotated <strong>blind to each other</strong></div>
           <div>📌 "Ambiguous / I don't know" is a valid response</div>
           <div>📌 Cultural background recorded as metadata</div>
-          <div>📌 Neurodiverse-authored messages included with separate κ</div>
+          <div>📌 General population scored on <strong>AQ-50, GAD-7, PHQ-9</strong> for trait-level analysis</div>
+          <div>📌 Dual-pass annotation: context-blind then context-aware</div>
           <div>📌 Recruited via <strong>Prolific Academic</strong></div>
-          <div style='margin-top:10px;color:#7a8f9c;'>Estimated cost: £5,000–7,000</div>
+          <div style='margin-top:10px;color:#7a8f9c;'>Estimated cost: £7,000–9,000 (dual-pass design)</div>
         </div>
         <div style='margin-top:10px;padding:12px 16px;background:#fff8f7;border:1px solid #e7a59c;
                     border-left:4px solid #e7a59c;border-radius:0 8px 8px 0;font-size:0.82em;'>
@@ -1465,9 +1469,9 @@ with tab_theplan:
         </div>
         """, unsafe_allow_html=True)
 
-    # ── A4: Study 1b Cold-Start RCT ───────────────────────────────────────────
+    # ── A4: Validation Study Cold-Start RCT ──────────────────────────────────
     st.divider()
-    st.markdown("## Study 1b — Cold-Start RCT (H₄ Test)")
+    st.markdown("## Validation Study — Cold-Start RCT (H₄ Test)")
     st.markdown(
         "Randomised controlled trial testing whether the biographical intake instrument "
         "improves intent prediction accuracy at Day 1 — before any dyadic history exists."
@@ -1530,16 +1534,16 @@ with tab_theplan:
     st.markdown("## 12-Month Work Plan")
 
     plan_data = [
-        ("Month 1",       "κ pilot · ethics application · Study 1b pre-screening",           "MUST"),
-        ("Months 1–3",    "2,000-message annotation · online H₂ behavioural probe (N=50)",   "MUST"),
-        ("Month 3",       "Ethics approval received · Study 1b data collection begins",       "MUST"),
-        ("Months 3–6",    "RoBERTa fine-tuning · ablation A/B/C/D · H₁ validation",          "MUST"),
-        ("Months 3–7",    "Study 1b data collection: Group A and Group B",                    "MUST"),
-        ("Month 5",       "Paper draft #1: dataset + model + H₁ → arXiv + circulated",       "MUST"),
-        ("Months 7–8",    "Study 1b primary analysis: H₄ confirmed or falsified",            "MUST"),
-        ("Months 6–8",    "Brain-Score submission · EEG pilot design · IRB approval",         "SHOULD"),
-        ("Months 7–11",   "60-day EEG pilot · N=20–24 dyadic pairs · Day 0 + Day 60 EEG",    "SHOULD"),
-        ("Months 11–12",  "Full study paper → submitted to ACL / EMNLP / CHI",               "MUST"),
+        ("Month 1",       "κ pilot · ethics application (School of Informatics) · participant pre-screening", "MUST"),
+        ("Months 1–3",    "2,000-message dual-pass annotation (context-blind + context-aware)",  "MUST"),
+        ("Month 3",       "Ethics approval received · dataset published on HuggingFace",        "MUST"),
+        ("Months 3–6",    "RoBERTa fine-tuning · ablation A/B/C/D · H₁ validation",            "MUST"),
+        ("Month 6",       "Begin validation study (N=100, AQ-50/GAD-7/PHQ-9 scored)",          "MUST"),
+        ("Month 5",       "Paper draft #1: dataset + model + H₁ → arXiv + circulated",         "MUST"),
+        ("Month 8",       "Validation study analysis: H₄ confirmed or falsified",              "MUST"),
+        ("Months 6–8",    "Brain-Score submission · EEG pilot design · PPLS facility booking",  "SHOULD"),
+        ("Months 8–12",   "60-day EEG pilot · N=20–24 dyadic pairs · PPLS Cognitive Neuroscience Suite", "SHOULD"),
+        ("Month 12",      "Full study paper → submitted to ACL / EMNLP / CHI",                 "MUST"),
     ]
 
     tier_color = {"MUST": "#27ae60", "SHOULD": "#C9922A", "STRETCH": "#95a5a6"}
@@ -2035,7 +2039,7 @@ with tab_human:
                 inter-brain synchrony. The computational measure and the neural
                 measure are validated against each other — so that eventually,
                 the software signal alone predicts the brain state it was designed to shift.<br><br>
-                <span style='color:#7a8f9c; font-size:0.9em;'>H₃ · EEG hyperscanning · 60-day pilot</span>
+                <span style='color:#7a8f9c; font-size:0.9em;'>H₃ · EEG predictive coding markers · PPLS · 60-day pilot</span>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -2774,10 +2778,10 @@ with tab_deploy:
             "Rapid account deletion accessible from the app's <em>first screen</em> without authentication. "
             "Session-disabling 3-tap gesture. No identifying information on lock screen.",
             "#B84040"), unsafe_allow_html=True)
-        st.markdown(_eth_card("🧩", "Neurodivergent inclusion",
-            "Neurodiverse-authored messages explicitly included in the dataset (recruited via autism/ADHD community groups). "
-            "Separate κ computed on neurodiverse message subset. "
-            "Model error rates on neurodiverse messages explicitly reported — not hidden in aggregate metrics.",
+        st.markdown(_eth_card("🧩", "Interindividual differences",
+            "General population participants scored on AQ-50, GAD-7, and PHQ-9. "
+            "Separate κ computed on trait-subset groups (high-AQ, high-GAD, high-PHQ). "
+            "Model error rates across trait profiles explicitly reported — not hidden in aggregate metrics.",
             "#9b59b6"), unsafe_allow_html=True)
 
     with eth_col2:
@@ -2851,7 +2855,7 @@ with tab_deploy:
         <span style='font-size:0.58em;font-weight:400;color:#e7a59c;letter-spacing:0.1em;
                      text-transform:uppercase;margin-left:10px;vertical-align:middle;
                      background:rgba(243,156,18,0.1);padding:2px 8px;border-radius:4px;'>
-          Projected · H₂ + H₃ · EEG pilot Month 7–11
+          Projected · H₂ + H₃ · EEG pilot Month 8–12 · PPLS
         </span>
       </div>
       <div style='font-size:0.85em;color:#556677;font-style:italic;margin-bottom:4px;'>
