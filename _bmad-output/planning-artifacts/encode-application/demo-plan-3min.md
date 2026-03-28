@@ -79,15 +79,15 @@ total-duration: "2:55 (5s buffer)"
 
 > "Same words. Ex-partner, high conflict. Expressing frustration and setting boundary spike. Gap score jumps to 0.35. That shift is the intent gap — Jensen-Shannon divergence between what was meant and what was received."
 
-### Neurodivergent prediction (10s)
+### Interindividual differences prediction (10s)
 
-> "Bayesian prediction: ASD populations may show weaker relational priors, anxiety populations stronger threat priors — both predict larger, differently structured gaps. My lab advisor Peggy Sériès at Edinburgh specialises in exactly this."
+> "Bayesian prediction: higher autistic traits may mean weaker relational priors, higher anxiety stronger threat priors, higher depression negative intent biases — each predicting differently structured gaps. My lab advisor Peggy Seriès at Edinburgh specialises in exactly this."
 
 ### The Science tab (20s)
 
 **[Quick scroll through The Science tab — don't read, let the viewer see structure]**
 
-> "Behind the demo: four pre-registered hypotheses, 2,000-message dataset with dual sender-receiver annotations, four ablation conditions on RoBERTa-large, 12-month plan with MUST and SHOULD tiers. Core deliverables are executable with fellowship compute. The EEG pilot is supported through Edinburgh's neuroscience network."
+> "Behind the demo: four pre-registered hypotheses, 2,000-message dataset with dual-pass annotation — context-blind then context-aware — four ablation conditions on RoBERTa-large, 12-month plan with MUST and SHOULD tiers. General population scored on AQ-50, GAD-7, and PHQ-9. Core deliverables are executable with fellowship compute. The EEG pilot uses the PPLS Cognitive Neuroscience Suite at Edinburgh."
 
 ### 60-day trajectory (15s)
 
@@ -103,7 +103,7 @@ total-duration: "2:55 (5s buffer)"
 
 **[Face to camera]**
 
-> "That's how I work: decompose, measure, ablate, publish — including when the result is null. I've done that at production scale for a decade. With Encode and Peggy's lab, I have 12 months to test whether relational context actually closes the intent gap."
+> "That's how I work: decompose, measure, ablate, publish — including when the result is null. I've done that at production scale for a decade. With Encode and Peggy Seriès at Edinburgh, I have 12 months to test whether relational context actually closes the intent gap — and whether the effect varies with how people are wired."
 
 **Voice cadence:** Earnest, direct eye contact.
 
@@ -136,6 +136,10 @@ total-duration: "2:55 (5s buffer)"
 - Don't demo the browser extension — it doesn't exist yet
 - Don't show the JS-divergence formula — say the name, let the visual carry meaning
 - Don't rush — the 3-second silence after the gap score jump is the most powerful moment
+- Don't say "neurodivergent dyads" — say "interindividual differences" or "psychological trait profiles"
+- Don't say "clinical populations" or mention hospitals — it's general population via Prolific
+- Don't say "Sériès" with wrong accent — it's "Seriès" (accent on second e only)
+- Don't say "theta-band" alone — say "predictive coding markers" if EEG comes up
 
 ---
 
