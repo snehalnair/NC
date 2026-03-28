@@ -3,7 +3,7 @@ title: "Encode Fellowship — 3-Minute Demo Plan"
 status: final
 date: 2026-03-27
 format: Loom screen recording (screen + face cam bottom-left)
-total-duration: "2:55 (5s buffer)"
+total-duration: "2:40 (20s buffer, pauses included)"
 ---
 
 # Encode Fellowship — 3-Minute Demo Plan
@@ -27,15 +27,17 @@ total-duration: "2:55 (5s buffer)"
 
 ---
 
-## 🎬 0:00–0:15 — Hook (15 sec)
+## 🎬 0:00–0:15 — Hook (13s content + 2s tab switch = 15s)
 
 **[Face to camera, no screen share yet]**
 
 > "Encode asked me to show how I work. I'll show two things: a production AI system I shipped at Viator — and a research prototype I built in three months for this fellowship."
 
+**[Cmd+Tab to Preview — architecture diagram appears (2s)]**
+
 ---
 
-## 🎬 0:15–1:20 — Agentic Platform (65 sec)
+## 🎬 0:15–1:12 — Agentic Platform (55s content + 2s tab switch = 57s)
 
 **[Full-screen: architecture diagram screenshot]**
 
@@ -43,17 +45,17 @@ total-duration: "2:55 (5s buffer)"
 
 > "Our first chatbot failed in two weeks — told a customer their Colosseum tour included hotel pickup. It didn't. Root cause: no unified data layer connecting policies, bookings, reviews, and supplier rules."
 
-### Architecture (15s)
+### Architecture (12s)
 
-> "Five subsystems: DeBERTa intent router at 15 milliseconds, GraphRAG knowledge layer with 92% cache hit rate, three-tier memory capped at 4,000 tokens, LangGraph orchestration with parallel tool calls, and confidence-based escalation at 0.85."
+> "Five subsystems: DeBERTa intent router at 15 milliseconds, GraphRAG knowledge layer with 92% cache hit rate, three-tier memory capped at 4,000 tokens, LangGraph orchestration, and confidence-based escalation at 0.85."
 
-### Rigour (15s)
+### Rigour (12s)
 
 > "Every response cites its source tier — Gold for policy, Silver for product data, Bronze for traveller tips. We A/B tested 10,000 conversations. We deliberately kept refund disputes human-only — customers needed empathy, not accuracy."
 
-### Results (10s)
+### Results (8s)
 
-> "43% Tier-1 deflection — short of the 60% target. Knowledge gaps, not agent capability. That honesty about what failed is the same discipline I've built into the fellowship proposal."
+> "43% Tier-1 deflection — short of the 60% target. That honesty about what failed is the same discipline I've built into the fellowship proposal."
 
 ### Bridge (15s)
 
@@ -63,45 +65,49 @@ total-duration: "2:55 (5s buffer)"
 
 ---
 
-## 🎬 1:20–2:35 — Streamlit Prototype (75 sec)
+## 🎬 1:12–1:43 — The Gap Score Moment (25s content + 4s dramatic pause + 2s tab switch = 31s)
 
-**[Switch to pre-loaded Streamlit Tab A]**
+**[Cmd+Tab to pre-loaded Streamlit Tab A (2s)]**
 
 ### Setup (10s)
 
 > "'Can we talk tonight?' — close friend, neutral history. The intent distribution: dominated by seeking connection. Gap score near zero."
 
-### The Switch (5s)
+### The Switch
 
-**[Click to Tab B]** — **3 seconds of silence. Let the visual land.**
+**[Click to Tab B]** — **3-4 seconds of silence. Let the visual land. This is the most important moment in the demo.**
 
 ### Narrate the shift (15s)
 
 > "Same words. Ex-partner, high conflict. Expressing frustration and setting boundary spike. Gap score jumps to 0.35. That shift is the intent gap — Jensen-Shannon divergence between what was meant and what was received."
 
+---
+
+## 🎬 1:43–2:25 — Science + Trajectory (40s content + 2s transition = 42s)
+
 ### Interindividual differences prediction (10s)
 
 > "Bayesian prediction: higher autistic traits may mean weaker relational priors, higher anxiety stronger threat priors, higher depression negative intent biases — each predicting differently structured gaps. My lab advisor Peggy Seriès at Edinburgh specialises in exactly this."
 
-### The Science tab (20s)
+### The Science tab (17s)
 
 **[Quick scroll through The Science tab — don't read, let the viewer see structure]**
 
-> "Behind the demo: four pre-registered hypotheses, 2,000-message dataset with dual-pass annotation — context-blind then context-aware — four ablation conditions on RoBERTa-large, 12-month plan with MUST and SHOULD tiers. General population scored on AQ-50, GAD-7, and PHQ-9. Core deliverables are executable with fellowship compute. The EEG pilot uses the PPLS Cognitive Neuroscience Suite at Edinburgh."
+> "Behind the demo: four pre-registered hypotheses, 2,000-message dataset with dual-pass annotation, four ablation conditions on RoBERTa-large, 12-month plan with MUST and SHOULD tiers. Core deliverables are executable with fellowship compute. The EEG pilot uses the PPLS Cognitive Neuroscience Suite at Edinburgh."
 
-### 60-day trajectory (15s)
+### 60-day trajectory (13s)
 
 **[Show 60-day trajectory visualisation]**
 
-> "The intervention question: does feeding back the prediction change behaviour over time? This shows what convergence looks like. The real test is a within-subjects pre/post study measuring whether the gap actually closes."
+> "The intervention question: does feeding back the prediction change behaviour over time? This is what convergence looks like. The real test is a within-subjects pre/post study measuring whether the gap actually closes."
 
 **Voice cadence:** Curious researcher tone — slower, more deliberate.
 
 ---
 
-## 🎬 2:35–2:55 — Close (20 sec)
+## 🎬 2:25–2:40 — Close (15s content + 2s transition = 17s)
 
-**[Face to camera]**
+**[Look at camera — transition away from screen share (2s)]**
 
 > "That's how I work: decompose, measure, ablate, publish — including when the result is null. I've done that at production scale for a decade. With Encode and Peggy Seriès at Edinburgh, I have 12 months to test whether relational context actually closes the intent gap — and whether the effect varies with how people are wired."
 
@@ -109,15 +115,19 @@ total-duration: "2:55 (5s buffer)"
 
 ---
 
-## Timing Budget
+## Timing Budget (pauses included)
 
-| Section | Duration | Cumulative |
-|---|---|---|
-| Hook | 15s | 0:15 |
-| Agentic platform | 65s | 1:20 |
-| Streamlit demo | 75s | 2:35 |
-| Close | 20s | 2:55 |
-| **Buffer** | **5s** | **3:00** |
+| Section | Content | Pauses | Total | Cumulative |
+|---|---|---|---|---|
+| Hook | 13s | 2s (tab switch) | 15s | 0:15 |
+| Agentic platform | 55s | 2s (tab switch) | 57s | 1:12 |
+| Gap score moment | 25s | 4s (dramatic pause) + 2s (tab switch) | 31s | 1:43 |
+| Science + trajectory | 40s | 2s (transition) | 42s | 2:25 |
+| Close | 15s | 2s (transition) | 17s | 2:42 |
+| **Total** | **2:28** | **12s** | **2:40** | |
+| **Buffer** | | | **20s** | **3:00** |
+
+**The 20-second buffer absorbs:** one hesitation, one slower-than-expected tab switch, or speaking at 90% speed instead of 100%. You will not go over 3:00.
 
 ---
 
