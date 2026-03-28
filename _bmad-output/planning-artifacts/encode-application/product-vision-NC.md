@@ -1,144 +1,143 @@
-# NeuralConnexions: The Science of What They Actually Meant
+# Product Vision: NC — NeuroAI Cognitive Companion
 
-*Closing the intent gap between digital communication and human connection*
+*From Intent Gap to Human Connection*
 
 ---
 
 ## The Problem
 
-Miscommunication is among the primary drivers of relationship breakdown (Gottman, 1999), workplace conflict (CPP Inc., 2008), and therapeutic failure (Safran & Muran, 2000) — yet no scientific instrument exists to measure it. The biological basis is well-established: ambiguous emotional stimuli are threat-tagged via subcortical processing (LeDoux, 1996) before higher-order language and mentalising systems resolve intent. In digital text — where prosody, facial expression, and physical context are absent — this timing asymmetry makes misunderstanding especially likely.
+Human relationships are breaking at the speed of biology — not at the speed of intention. A 40-80 millisecond amygdala threat-tagging gap causes the brain to classify the *tone* of an incoming message as a threat signal before the prefrontal cortex can process *communicative intent*. This is not a social media problem; it is a neuroscience problem. Social media spent 15 years amplifying that gap — training billions of people to scan for threat compulsively, at scale. The damage lands across every relationship that matters: couples, co-parents, colleagues, and friends.
 
-The same message carries a different intent distribution depending on who sent it, who received it, and the history between them. No published NLP system models intent as a dyadic phenomenon conditioned on relational history. Sentiment classifiers measure tone; emotion recognition systems measure affective expression. Neither asks what a person most likely *meant*, given who they are and who they are talking to.
+The **intent gap** — the systematic delta between what a sender means and what a receiver interprets — is invisible, pervasive, and cumulative. Each misread builds on the last. U.S. employees spend an estimated 2.8 hours per week managing conflict driven primarily by miscommunication. In intimate relationships, the majority of recurring conflicts trace to misread intent rather than substantive disagreement. Trust erodes not in dramatic betrayals, but in a thousand small misinterpretations that quietly rewrite how people see each other.
 
-This is the **intent gap** — the measurable divergence between sender intent and perceived intent — and it is invisible, pervasive, and cumulative. Each misread builds on the last.
+**Core insight:** Intent prediction accuracy is not a language problem. It is a *person-knowledge* problem. The same words, sent by different people in different relational contexts, mean entirely different things.
 
 ---
 
 ## The Vision
 
-**NeuralConnexions (NC)** is a scientific instrument that measures the intent gap and tests whether surfacing it changes behaviour. The core hypothesis: repeated exposure to accurate intent predictions over a 60-day period will reduce sender-receiver divergence, with measurable changes in both behaviour and neural markers.
+**NC** is the counter-intervention. It is a multi-surface AI companion — browser extension and mobile app — that predicts what a person *actually means* and presents it to the receiver *before* the amygdala response can embed a false interpretation. NC is grounded in the neuroscience of mentalising and threat response, deployed across the digital text channels where ambiguity does its greatest relational damage.
 
-The intervention is embedded in existing digital text communication — a lightweight overlay that surfaces the model's predicted intent distribution during the natural pause between reading a message and composing a reply, offering an alternative interpretation before the receiver commits to a threat-based reading.
+NC is not a communication coach, a sentiment analyser, or a conflict-resolution chatbot. It is a **foundation model of communicative intent** — the first product to combine three capabilities simultaneously:
 
-NC is not a communication coach, a sentiment analyser, or a conflict-resolution chatbot. It is a **computational model of communicative intent** — the first system to combine three capabilities simultaneously:
+**1. Person-aware intent modelling via the Soul Document.** NC conditions every intent prediction on *who the person actually is* — their ranked values, decision architecture, stress response patterns, and narrative history — not just what they wrote. The Soul Document is a portable, structured personality representation that solves the cold-start problem from Day 1: accurate predictions without months of message history accumulation. Every relationship a person has is unique — the way you communicate with your partner is different from your co-parent, your colleague, your closest friend. NC maintains a separate relational context for each, because understanding a person means understanding them *in relation to you*.
 
-1. **Person-aware intent modelling.** NC conditions every intent prediction on *who the person is* — their identity values, decision architecture, and narrative history — via a structured personality context block derived from an 8-question biographical intake instrument. This solves the cold-start problem from Day 1: accurate predictions without months of message history accumulation.
+**2. Neuroscience-grounded inference, not pattern matching.** The intervention targets the biological window between message receipt and amygdala threat-tagging — surfacing a re-appraisal signal before the emotional response is complete. NC intervenes at the *moment of reception*, in the *biological window where intervention has maximum effect*. This is categorically different from post-hoc communication coaching or pre-send nudges.
 
-2. **Dyadic relational context conditioning.** A 16-feature relational context vector — encoding relationship type, duration, recent valence, message frequency, and rolling intent-gap history — is concatenated with the message representation at classification. The same words, sent between different people, produce different intent distributions.
-
-3. **Neuroscience-grounded intervention timing.** The overlay targets the biological window between message receipt and threat-tagging — surfacing a re-appraisal signal before the amygdala response embeds a false interpretation. The intervention operates at the *moment of reception*, where it has maximum cognitive effect.
+**3. Personality sovereignty as a design constraint.** The Soul Document is local-first, AES-256 encrypted, not accessible to partners or third parties, and fully deletable. NC's differentiator is not data capture — it is data trust. In a world where relationship intelligence tools could become surveillance weapons, NC is designed from the architecture up to be safe in the hands of the most vulnerable users.
 
 ---
 
-## Scientific Foundation
+## Who NC Serves
 
-NC is built as a testable scientific programme with four pre-registered, falsifiable hypotheses:
+**Primary:** Individuals experiencing relational friction in text-based digital communication — adults in intimate relationships, co-parenting arrangements, high-stakes professional relationships, and deep friendships — who are motivated to reduce misreading and restore signal fidelity in their most important conversations.
 
-- **H1 (Computational):** A language model conditioned on dyadic relational history predicts receiver-parsed intent with significantly higher accuracy than a message-only baseline. Tested via ablation across 4 conditions on a 2,000-message annotated dataset. Success criterion: Cohen's d >= 0.3, paired t-test.
+**Neurodivergent users** (ADHD, ASD) are a named segment: their intent-expression gap is wider than the neurotypical baseline. People with ASD may form weaker relational priors, making it harder to infer what others mean from context alone. People with ADHD may respond impulsively before processing intent. NC's person-aware model doesn't ask neurodivergent users to mask or perform — it translates the world for them, in their terms.
 
-- **H2 (Behavioural):** 60-day intent feedback reduces sender-receiver divergence scores. 100 participants recruited via Prolific, randomised 1:1 (feedback vs. control), scored on AQ-50, GAD-7, PHQ-9. Within-subjects pre/post, Wilcoxon signed-rank.
+**People living with mental health conditions.** Anxiety systematically inflates threat priors — every ambiguous message reads as danger. Depression introduces negative interpretation biases — neutral messages land as rejection. These are measurable cognitive patterns that NC can model and counterbalance, providing an external reality check grounded in the sender's actual patterns, not the receiver's threat state. The Soul Document and the memories it accumulates over time are not just communication tools — they are potential instruments for treatment, giving therapists and clinical researchers access to structured, longitudinal records of how a person processes intent.
 
-- **H3 (Neural, time allowing):** 60-day feedback shifts predictive coding EEG markers — alpha/beta for predictions, gamma for feedforward signals. N=20-24 dyadic pairs, EEG hyperscanning via PPLS Cognitive Neuroscience Suite.
+**Elderly populations.** As social networks shrink with age, the remaining relationships carry disproportionate weight — and miscommunication within them carries disproportionate cost. Digital communication, increasingly the primary channel for staying connected with family and caregivers, strips away the vocal and facial cues that older adults relied on for decades. NC restores what digital text removed — context, nuance, and the understanding that comes from knowing who someone is.
 
-- **H4 (Cold-start):** Personality context from the biographical intake instrument improves Day 1 accuracy before any dyadic history exists. Tested within the validation study, randomised 1:1 (with/without personality context).
-
-**Execution order:** H1 -> H4 -> H2 -> H3 — computational validation before behavioural and neural studies. Each level is independently publishable; null results are pre-registered.
-
-The core model is **RoBERTa-large** (355M parameters), fine-tuned for intent classification with two conditioning signals over a **7-category intent label space** derived from speech act theory (Searle, 1969), attachment communication patterns (Mikulincer & Shaver, 2007), and pragmatic emotion expression. The performance metric — **Jensen-Shannon divergence** between sender-intent and perceived-intent distributions — is the first operationalisation of communicative misalignment at this scale.
+Only a few people are naturally privy to what we call street smartness — the ability to read the room, hear what someone means rather than what they said, and respond in a way that builds trust rather than friction. NC exists to democratise that capacity. To give everyone — regardless of neurotype, age, background, or relational history — the ability to understand what the people in their lives actually mean.
 
 ---
 
-## Who It Serves
+## How NC Works
 
-NC examines five relationship types where the intent gap causes the most relational damage:
+NC ships two interaction modes from Day 1:
 
-- **Romantic partners** — where recurring conflicts stem from misread intent rather than substantive disagreement
-- **Parent-child** — particularly families navigating communication with neurodivergent children
-- **Close friends** — where ambiguity accumulates silently and erodes trust
-- **Community/social** — online communities where text-only communication amplifies intent ambiguity
-- **Professional** — high-stakes communication in mediation, negotiation, and clinical settings
+**Conversational companion (mobile + web).** User pastes a message, asks NC for interpretation, contextual explanation grounded in their Soul Document and relationship history, and reply suggestions. NC explains *why* — grounding every prediction in the sender's patterns, not pop psychology.
 
-**Interindividual variation matters.** Computational psychiatry research suggests individuals with ASD may form weaker relational priors, those with anxiety may form stronger threat priors, and those with depression may show systematic negative biases in intent interpretation (Series, 2020). NC treats intent-gap variation as a function of broad interindividual differences rather than categorical diagnoses — testing predictions along continuous trait measures (AQ-50, GAD-7, PHQ-9) in a general population sample. This makes NC particularly relevant for neurodivergent users, whose intent-expression gap is wider than the neurotypical baseline.
+**Real-time intent prediction overlay (browser extension).** Intent prediction on incoming messages across digital text channels. Displays a non-intrusive overlay before the user replies — a single signal pill, one colour, plain English, gone after 4 seconds or the moment they send.
+
+Both modes persist. The companion serves reflection and deliberate interpretation. The overlay serves real-time reception. Users use both depending on context.
 
 ---
 
-## Translation Pathways
+## The Bigger Picture
 
-If the science holds, NC translates into a consumer product and an institutional platform across multiple domains:
+### Neuroplasticity, Not Dependency
 
-**Consumer Product — Real-Time Intent Companion**
+Where social media captured the amygdala, NC trains the prefrontal cortex — using the same neuroplasticity mechanisms, deliberately, for relational repair. Through repeated conscious correction of intent gaps over 60 days, NC is designed to shift users from threat-first to intent-first interpretation as a lasting cognitive change. The goal is not a user who needs NC forever, but a user whose brain has learned to pause, reconsider, and interpret more accurately on its own.
 
-The scientific instrument becomes a multi-surface AI companion — browser extension and mobile app — that predicts what a person *actually means* and presents it to the receiver before the amygdala response can embed a false interpretation. The product operates across the digital text channels where ambiguity does its greatest relational damage: messaging apps, email, and workplace communication tools.
+### A Network of Connections
 
-The product architecture preserves the scientific instrument's core properties: person-aware conditioning via the biographical intake instrument (productised as the "Soul Document" — a portable, structured, model-agnostic personality representation), dyadic context injection, and probabilistic intent display with confidence levels. Users see the intent distribution, not a single label — maintaining the instrument's epistemic honesty at consumer scale.
+As users build Soul Documents and relational contexts, NC grows from a personal tool into a network. With bilateral consent, two people in a relationship can opt into mutual intent sharing — each seeing how the other's messages are likely to be interpreted. This consent network transforms NC from "I understand you better" to "we understand each other better" — trust made visible and reciprocal.
 
-**Privacy as architectural constraint.** Personality data is local-first, AES-256 encrypted, not accessible to partners or third parties, and fully deletable. The differentiator is not data capture — it is data trust. This is particularly critical given the domestic abuse threat model: any relationship intelligence tool in the wrong hands is a surveillance weapon. NC is designed against this from the architecture up.
+### Reducing the Waste
 
-**Institutional Integration**
+Consider how much human time and energy is wasted on misunderstanding. Hours replaying conversations. Days lost to silent treatment born from a misread tone. Weeks of workplace tension from an email that landed wrong. Relationships that end not because of incompatibility but because of accumulated misinterpretation. NC reduces this waste at the source — when people understand each other faster, they collaborate faster, resolve conflict faster, build trust faster, and hit the ground running.
 
-- **Couples therapy platforms** — a read-only, consent-gated view for therapists working with clients who use NC, showing aggregate pattern trends (not message content)
-- **Workplace conflict reduction** — reducing the estimated 2.8 hours per employee per week spent managing miscommunication-driven conflict (CPP Inc., 2008)
-- **Co-parenting applications** — tools for high-conflict separated families where every message carries relational weight
-- **Mediation and negotiation services** — professional contexts where intent misalignment has material consequences
-- **Clinical research** — in collaboration with Series (Computational Psychiatry, Edinburgh), the framework provides a controlled way to study how interindividual differences in psychological traits shape intent inference
+### Therapeutic and Institutional Applications
 
-**Revenue model:** Freemium — core intent predictions free, paid subscription for enhanced usage, institutional API licensing for platform partners.
+With consent, NC's data could inform couples therapy (pattern identification across relationship history), anxiety treatment (mapping threat-response triggers to relational contexts), neurodivergent support (understanding individual intent-processing differences), and mediation (making invisible communication dynamics visible to both parties). A headless NC engine could be consumed by therapy platforms, HR tools, and co-parenting apps — and a read-only, consent-gated clinician dashboard could give therapists aggregate pattern trends without message content.
 
-**Research Network (Long-term)**
+### The Long-Term Vision
 
-The long-term goal is to establish a research network for communication measurement — applying the intent-gap framework across languages, cultures, and populations. The annotated dataset and the biographical intake instrument are designed as independently publishable contributions. If the model achieves Brain-Score Language benchmark validation, it becomes open-source scientific infrastructure — an "ImageNet for communicative intent."
+- **Voice channel:** Real-time intent prediction on voice messages and calls
+- **Cross-language support:** Beginning with Spanish, Mandarin, Hindi
+- **Neuroplasticity programme:** Structured 60-day programme for lasting cognitive change
+- **Foundation model open release:** The NC intent prediction model and annotated dataset as open-source scientific infrastructure — the "ImageNet for communicative intent"
 
 ---
 
 ## The Flywheel
 
-Science -> Product -> Data -> Better Science.
+Science → Product → Data → Better Science.
 
-Every user interaction is a scientific data point. Every publication strengthens the product's credibility. Every credibility gain brings higher-quality users whose corrections improve the model. NC competes on data quality and scientific legitimacy — not data volume. The RCT results provide causal evidence (not correlational) for NC's effect on communication outcomes, creating a credibility moat that no competitor can acquire through product iteration alone.
+Every user interaction is a scientific data point. Every paper strengthens the product's credibility. Every credibility gain brings higher-quality users whose corrections improve the model. NC does not compete on data volume — it competes on data quality and scientific legitimacy. This creates a moat that no competitor can replicate through product iteration alone.
+
+---
+
+## Scientific Foundation
+
+NC is built as a scientific instrument that happens to be a consumer product. The core hypotheses are pre-registered, falsifiable, and designed to produce publishable results regardless of outcome:
+
+- **H1:** Relational context improves intent prediction over a message-only baseline
+- **H2:** 60-day intent feedback reduces sender-receiver divergence
+- **H3:** 60-day feedback shifts predictive coding EEG markers
+- **H4:** Personality context from the Soul Document improves Day 1 accuracy before any history exists
+
+The product is the experiment — and the experiment produces scientific contributions regardless of direction.
 
 ---
 
 ## Competitive Position
 
+Every other tool either analyses communication patterns without personal context (generic) or requires clinical intervention (inaccessible). NC occupies an uncontested position: real-time, receiver-side, person-aware intent prediction grounded in neuroscience and validated by a pre-registered RCT.
+
 | Category | What exists | What NC adds |
 |---|---|---|
-| Pre-send tone detection (Grammarly, Hemingway) | Analyse your draft before you send | No receiver-side interpretation; no person model; no relational history |
-| Personality profiling (Crystal Knows, DISC) | Infer personality from public data | No real-time message interception; no intent prediction; professional context only |
-| Post-hoc relationship coaching (Gottman apps, Lasting) | Reflect on past interactions | No real-time intervention; no message-level analysis |
-| General AI assistants (ChatGPT, Claude) | Answer "what did they mean?" | No personality instrument; no persistent relational context; no scientific validation |
-| Emotion regulation (Headspace, Calm) | Regulate your own state | Do not address the source of the trigger |
+| Pre-send tone detection (Grammarly) | Analyse your draft before you send | No receiver-side interpretation; no person model |
+| Personality profiling (Crystal Knows) | Infer personality from public data | No real-time interception; no intent prediction |
+| Post-hoc coaching (Gottman apps) | Reflect on past interactions | No real-time intervention; no message-level analysis |
+| General AI assistants (ChatGPT, Claude) | Answer "what did they mean?" | No Soul Document; no persistent relational context |
 
-**NC's unoccupied position:** Real-time, receiver-side, person-aware intent prediction grounded in neuroscience and validated by a pre-registered RCT. No product in any adjacent category is building toward this position.
-
----
-
-## ARIA Alignment
-
-The project advances **Scalable Neural Interfaces** through computational tools that model human mentalising at scale, and points toward **Collective Flourishing** — characterising how psychological trait variation shapes miscommunication directly serves flourishing for underserved groups.
+NC's moat: the Soul Document architecture, the relational dataset, and the scientific credibility. These are not replicable by prompt engineering.
 
 ---
 
-## 12-Month Delivery
+## How the Encode Fellowship Connects to This Vision
 
-| Milestone | Timeline |
+This vision requires scientific evidence that the core mechanism works. That evidence is what the Encode AI for Science Fellowship delivers.
+
+The fellowship provides the compute, the annotation budget, the institutional access (University of Edinburgh, Prof Peggy Series — Chair in Computational Psychiatry), and the scientific credibility to answer the foundational question: *does relational context actually improve intent prediction, and does surfacing intent predictions actually change behaviour?*
+
+| Fellowship Deliverable | What It Unlocks |
 |---|---|
-| Validated dataset (2,000 messages, dual SI/PI labels, kappa > 0.70) | Month 3 |
-| Intent-conditioned model trained, H1 tested, Paper #1 submitted | Month 6 |
-| Cold-start ablation H4 tested | Month 6-8 |
-| Validation study begins (N=100, Prolific) | Month 6 |
-| EEG pilot begins (H2/H3, 12 dyadic pairs) | Month 8 |
-| Brain-Score Language benchmark submission | Month 8 |
-| Peer-reviewed paper submitted (ACL, EMNLP, or CHI) | Month 12 |
-| Product prototype with real-time intent overlay | Month 12 |
+| Validated dataset (2,000 messages, dual SI/PI labels, kappa > 0.70) | The training signal for every future model |
+| Intent-conditioned model with H1 tested | The core engine behind the product |
+| Cold-start ablation (H4) | Soul Document as a viable product — users get value from Day 1 |
+| Validation study (N=100, H2) | Evidence that NC rewires, not just informs |
+| EEG pilot (H2/H3) | Scientific credibility that earns clinical and institutional trust |
+| Peer-reviewed publication (ACL, EMNLP, or CHI) | The credibility moat |
 
----
+Without the fellowship, the vision remains a hypothesis. With it, the vision has evidence — and evidence is what earns the trust of clinicians, institutions, and the populations who need this most.
 
-## Team
-
-- **Snehal Nair** — Fellow. Independent AI Researcher. Dataset pipeline, model training, annotation tooling, biographical intake instrument, intervention delivery, prototype development. Senior AI leader with production NLP/ML experience (KDD '24/'25 industrial track).
-- **Prof Peggy Series** — Lab Advisor and co-PI. Chair in Computational Psychiatry, University of Edinburgh, School of Informatics. Bayesian inference framing, experimental design, interindividual differences in social cognition, co-authorship. Ethics approval via School of Informatics.
-- **PhD Student (starting 2027)** — Potential collaborator (EEG/ML). Biomedical Innovations CDT, University of Edinburgh. Co-supervised by Lena Williams (Neuroscience) and Andrew Stanfield (Psychiatry). Available to support EEG pilot analysis.
+The project advances ARIA's **Scalable Neural Interfaces** through computational tools that model human mentalising at scale, and points toward **Collective Flourishing** — characterising how psychological trait variation shapes miscommunication directly serves flourishing for underserved groups.
 
 ---
 
 *For full technical specification, success metrics, and implementation detail, see the attached Product Requirements Document.*
+
+> **See the live prototype:** [Intent Gap Visualiser](https://dyadicmentalising.streamlit.app/) — demonstrating how identical messages produce different intent distributions across relational contexts. The mobile overlay shows a single signal pill above the message input field, surfacing the intent prediction before the user replies.
