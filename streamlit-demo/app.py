@@ -228,7 +228,7 @@ def distribution_chart(si, pi, title=""):
         name="Perceived Intent (PI)",
         x=short_labels,
         y=pi,
-        marker_color="#e7a59c",
+        marker_color="#C9922A",
         opacity=0.85,
         hovertemplate="<b>%{x}</b><br>PI: %{y:.2f}<extra></extra>",
     ))
@@ -790,8 +790,29 @@ h1, h2, h3, h4 {
     background-color: #7a8f9c !important;
 }
 /* Select box */
-[data-testid="stSelectbox"] {
+[data-testid="stSelectbox"] label {
+    color: #4a5568 !important;
+    font-weight: 600 !important;
+}
+[data-testid="stSelectbox"] [data-baseweb="select"] {
+    background-color: #dce7f3 !important;
+    border-radius: 8px !important;
+}
+[data-testid="stSelectbox"] [data-baseweb="select"] > div,
+[data-testid="stSelectbox"] [data-baseweb="select"] > div > div {
+    background-color: #dce7f3 !important;
     color: #2c3e50 !important;
+    font-weight: 500 !important;
+}
+[data-testid="stSelectbox"] [data-baseweb="select"] * {
+    color: #2c3e50 !important;
+}
+[data-testid="stSelectbox"] [data-baseweb="select"] svg {
+    fill: #7a8f9c !important;
+}
+[data-testid="stSelectbox"] [data-testid="stTooltipIcon"],
+[data-testid="stSelectbox"] button[kind="headerNoPadding"] {
+    display: none !important;
 }
 
 /* ── NC card system ── */
@@ -962,7 +983,6 @@ tab_science, tab_theplan, tab_human, tab_deploy, tab_network = st.tabs([
 # ════════════════════════════════════════════════════════════════════════════
 with tab_science:
     st.markdown("# 🧠 Intent Gap Visualiser")
-    st.markdown("*NeuroAI Cognitive Companion · Encode x Pillar VC AI for Science Fellowship*")
     st.divider()
 
     # ── Biology framing banner ─────────────────────────────────────────────────
@@ -991,9 +1011,7 @@ with tab_science:
             options=list(MOCK_MODEL.keys()),
             index=0,
             key="sci_message",
-            help="Select a pre-loaded ambiguous message from the demo set.",
         )
-        st.markdown(f"> *\"{selected_message}\"*")
 
     with col2:
         selected_context_key = st.selectbox(
@@ -1002,7 +1020,6 @@ with tab_science:
             format_func=lambda k: CONTEXT_LABELS[k],
             index=1,
             key="sci_context",
-            help="Relational history changes the intent distribution for the same message.",
         )
 
     data = MOCK_MODEL[selected_message][selected_context_key]
@@ -1608,7 +1625,6 @@ with tab_human:
             options=list(MOCK_MODEL.keys()),
             index=0,
             key="nt_message",
-            help="Choose from these everyday messages.",
         )
     with col_nt2:
         nt_context_key = st.selectbox(
@@ -2803,48 +2819,22 @@ with tab_deploy:
     st.markdown("<hr class='nt-divider'>", unsafe_allow_html=True)
     st.markdown("<div class='nt-section-title'>Under the hood — privacy & performance</div>", unsafe_allow_html=True)
 
-    col_priv1, col_priv2 = st.columns(2)
-    with col_priv1:
-        st.markdown("""
-        <div class='nt-card'>
-          <div style='font-weight:700;color:#7a8f9c;font-size:1.0em;margin-bottom:12px;'>🔒 Privacy architecture</div>
-          <div style='color:#556677;font-size:0.88em;line-height:1.75;'>
-            <span style='color:#4a5568;'>Model runs on-device.</span>
-            Message text is processed locally — never transmitted. Only the gap score (a single float) is logged,
-            never the original text.<br><br>
-            <span style='color:#4a5568;'>No content stored.</span>
-            The relational context vector (16 dimensions) encodes relationship history as aggregated statistics —
-            not message content.<br><br>
-            <span style='color:#4a5568;'>Consent architecture:</span>
-            both parties opt in explicitly. Either party can pause or end the signal at any time
-            with a single tap.
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-    with col_priv2:
-        specs = [
-            ("Inference latency",   "< 200ms",    "#4A908F", "DistilBERT on-device, Month 1–6"),
-            ("Gap computation",     "< 5ms",      "#4A908F", "JSD is O(n) — trivially fast"),
-            ("Model size (v1)",     "66MB",       "#C9922A", "DistilBERT quantised"),
-            ("Model size (v2)",     "355MB",      "#C9922A", "RoBERTa-large, Month 6–7"),
-            ("Battery impact",      "< 1% / hr",  "#4A908F", "Passive inference, not streaming"),
-            ("Transcription (v2)",  "< 100ms",    "#5a8eb8", "On-device Whisper tiny"),
-        ]
-        rows = "".join([
-            f"<div style='display:flex;justify-content:space-between;border-bottom:1px solid #0e1520;"
-            f"padding:5px 0;'>"
-            f"<span style='color:#7788aa;'>{k}</span>"
-            f"<span style='color:{c};font-weight:600;'>{v}</span>"
-            f"</div>"
-            for k, v, c, _ in specs
-        ])
-        st.markdown(f"""
-        <div class='nt-card'>
-          <div style='font-weight:700;color:#7a8f9c;font-size:1.0em;margin-bottom:12px;'>⚡ Performance targets</div>
-          {rows}
-          <div style='margin-top:10px;font-size:0.8em;color:#7a8f9c;'>Engineering targets — empirical benchmarking in progress</div>
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown("""
+    <div class='nt-card' style='max-width:600px;'>
+      <div style='font-weight:700;color:#7a8f9c;font-size:1.0em;margin-bottom:12px;'>🔒 Privacy architecture</div>
+      <div style='color:#556677;font-size:0.88em;line-height:1.75;'>
+        <span style='color:#4a5568;'>Model runs on-device.</span>
+        Message text is processed locally — never transmitted. Only the gap score (a single float) is logged,
+        never the original text.<br><br>
+        <span style='color:#4a5568;'>No content stored.</span>
+        The relational context vector (16 dimensions) encodes relationship history as aggregated statistics —
+        not message content.<br><br>
+        <span style='color:#4a5568;'>Consent architecture:</span>
+        both parties opt in explicitly. Either party can pause or end the signal at any time
+        with a single tap.
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
 
     # ── Neuroplasticity Arc ───────────────────────────────────────────────────
     st.markdown("<hr class='nt-divider'>", unsafe_allow_html=True)
