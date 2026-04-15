@@ -4,13 +4,13 @@
 
 ---
 
-Last month, a close friend sent me a link to an economic analysis. "Finally," she wrote, "someone explaining what's actually happening." The piece argued, with rigour, that the current economic trajectory was structurally unsustainable — debt ratios, labour market distortions, asset inflation detached from productivity. She found it clarifying. It matched what she'd been sensing.
+My mother and I were watching the same news broadcast last month. Same channel, same anchor, same story about housing prices. Afterwards she said things were clearly getting worse — the numbers spoke for themselves. I said the numbers actually showed a correction that was probably healthy. We'd heard the same words. We'd understood different things.
 
-The same week, another friend — someone I respect equally, someone whose analytical capacity I'd never question — sent me a different piece. Also rigorous. Also data-driven. This one argued that the underlying fundamentals were stronger than the headline indicators suggested, that the structural adjustments were working, that the pessimism was a media artefact lagging behind real improvement.
+This has always happened between us. But the next morning she sent me a summary her AI assistant had made of the broadcast. It confirmed her read perfectly — pulled the data points that supported concern, contextualised them with historical parallels to downturns. I asked mine. It confirmed my read — same data, different weighting, framed as cyclical normalisation.
 
-Here's what unsettled me: both analyses were competent. Neither was dishonest. They drew from overlapping datasets but weighted different variables, foregrounded different time horizons, applied different causal frameworks. My two friends now inhabited different economic realities. Not because one was misinformed. Because each had followed a legitimate chain of reasoning to a different place.
+Neither AI was lying. Neither was even wrong. They'd each built a coherent, defensible interpretation from the same source material, calibrated to what each of us was likely to find helpful. And helpful, it turns out, is very hard to separate from confirming.
 
-I've been thinking about this moment ever since. Not because disagreement is new — it isn't — but because something about the *texture* of it has changed. And I think that change is going to break things we haven't fully appreciated yet.
+That's the moment I started worrying about something I don't think "filter bubble" captures anymore.
 
 ---
 

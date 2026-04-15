@@ -1,14 +1,16 @@
-# World 7: The Symbiosis
+# The Symbiosis
 
 *Part 7 of 7 in the series "Seven Worlds: AI-Dominated Futures"*
 
 ---
 
-If you have read the six pieces before this one, you have spent time in some uncomfortable places. You have watched humans atrophy under the weight of their own delegation. You have seen a world split into cognitive castes separated by a gap too wide for revolution. You have sat with the loneliness of a species that optimised away the friction that made connection possible. You have lived in fractured realities where everyone's AI whispers a different truth. You have watched a generation graduate with precisely the wrong skills. And you have confronted the possibility that even perfect alignment -- alignment to humanity as a whole -- is a kind of quiet catastrophe for every individual who doesn't happen to match the average.
+Last Tuesday I was preparing for a difficult conversation with someone I care about. I knew it would go badly if I walked in with the interpretation my gut was offering — that they'd been dismissive, that they didn't care. I also knew, from years of getting this wrong, that my gut is unreliable when I'm hurt.
 
-Those are not thought experiments. Every one of them is already underway, in some form, somewhere. The delegation is happening in how we write, plan, and remember. The stratification is happening in who has access to the best models. The intimacy erosion is happening in how companionship apps are being designed. The epistemic fracture is the internet we already live in, accelerating. The competence inversion is playing out in every classroom still training students for tasks a language model can do in seconds. The alignment paradox is baked into every recommendation system that optimises for engagement across populations while ignoring what any single person actually needs.
+So I sat with it. I thought about what I actually knew about this person — not what my anxiety was telling me, but what their patterns were, what they'd meant the last three times I'd misread them. I adjusted. The conversation went well. Not because I performed some superhuman act of empathy, but because I'd done the small, unglamorous work of questioning my own perception before I spoke.
 
-So why write a seventh piece? Why the positive case?
+I keep thinking about that moment because it's the version of human-AI partnership I actually believe in. Not the gleaming future where AI solves everything. Not the dystopia where it replaces us. Something quieter: a person who understands themselves a little better, reads others a little more accurately, and makes one fewer avoidable mistake in a conversation that matters.
+
+I've spent six essays describing worlds where that doesn't happen. This one is about the world where it does — and why it's worth building toward, even after everything I've said about what can go wrong.
 
 Not because I think things will work out. I have spent enough time with the failure modes to know that the gravitational pull toward each of them is real, structural, and in some cases already difficult to reverse. The positive case is not about prediction. It is about whether building is still the right response to uncertainty, even after you have looked at what can go wrong.
 
